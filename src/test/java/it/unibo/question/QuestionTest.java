@@ -11,9 +11,11 @@ import it.unibo.model.answer.Answer;
 import it.unibo.model.question.Difficulty;
 import it.unibo.model.question.Question;
 
+//CHECKSTYLE: MultipleStringLiterals OFF
 /**
  * Test class for the Question class.
  */
+@SuppressWarnings("PMD.AvoidDuplicateLiterals")
 final class QuestionTest {
     private static final List<Answer> VALID_ANSWERS = List.of(
         new Answer("Stack", false),
@@ -73,7 +75,6 @@ final class QuestionTest {
         );
     }
 
-    
     /**
      * Test that the constructor throws the expected exceptions when invalid parameters are provided.
      */
@@ -85,7 +86,6 @@ final class QuestionTest {
         );
     }
 
-    
     /**
      * Test that the constructor throws the expected exceptions when invalid parameters are provided.
      */
@@ -93,11 +93,10 @@ final class QuestionTest {
     void throwsWhenDifficultyIsNull() {
         assertThrows(
             NullPointerException.class,
-            () -> new Question("q-1", "Testo", null, VALID_ANSWERS)
+            () -> new Question("q-1", "Text", null, VALID_ANSWERS)
         );
     }
 
-    
     /**
      * Test that the constructor throws the expected exceptions when invalid parameters are provided.
      */
@@ -105,7 +104,7 @@ final class QuestionTest {
     void throwsWhenAnswersAreNull() {
         assertThrows(
             NullPointerException.class,
-            () -> new Question("q-1", "Testo", Difficulty.EASY, null)
+            () -> new Question("q-1", "Text", Difficulty.EASY, null)
         );
     }
 
@@ -122,10 +121,10 @@ final class QuestionTest {
 
         assertThrows(
             IllegalArgumentException.class,
-            () -> new Question("q-1", "Testo", Difficulty.EASY, answers)
+            () -> new Question("q-1", "Text", Difficulty.EASY, answers)
         );
     }
-    
+
     /**
      * Test that the constructor throws the expected exceptions when invalid parameters are provided.
      */
@@ -141,10 +140,10 @@ final class QuestionTest {
 
         assertThrows(
             IllegalArgumentException.class,
-            () -> new Question("q-1", "Testo", Difficulty.EASY, answers)
+            () -> new Question("q-1", "Text", Difficulty.EASY, answers)
         );
     }
-    
+
     /**
      * Test that the constructor throws the expected exceptions when invalid parameters are provided.
      */
@@ -162,7 +161,7 @@ final class QuestionTest {
             () -> new Question("q-1", "Text", Difficulty.EASY, answers)
         );
     }
-    
+
     /**
      * Test that the constructor throws the expected exceptions when invalid parameters are provided.
      */
@@ -177,7 +176,7 @@ final class QuestionTest {
 
         assertThrows(
             IllegalArgumentException.class,
-            () -> new Question("q-1", "Testo", Difficulty.EASY, answers)
+            () -> new Question("q-1", "Text", Difficulty.EASY, answers)
         );
     }
 }

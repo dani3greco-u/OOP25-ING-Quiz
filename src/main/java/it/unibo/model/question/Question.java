@@ -10,13 +10,21 @@ import it.unibo.model.answer.Answer;
  * the question text and a list of possible answers.
  */
 public class Question {
-    private final int EXPECTED_ANSWERS = 4;
+    private static final int EXPECTED_ANSWERS = 4;
 
     private final String id;
     private final String text;
     private final Difficulty difficulty;
     private final List<Answer> answers;
-    
+
+    /**
+     * Constructor for the Question class.
+     * 
+     * @param id the unique identifier of the question
+     * @param text the text of the question
+     * @param difficulty the difficulty level of the question
+     * @param answers the list of possible answers for the question, must contain exactly 4 answers with exactly 1 correct answer
+     */
     public Question(
         final String id,
         final String text,
@@ -43,18 +51,38 @@ public class Question {
         }
     }
 
+    /**
+     * Return the unique identifier of the question.
+     * 
+     * @return the unique identifier of the question
+     */
     public String getId() {
         return this.id;
     }
 
+    /**
+     * Return the text of the question.
+     * 
+     * @return the text of the question
+     */
     public String getText() {
         return this.text;
     }
 
+    /**
+     * Return the difficulty level of the question.
+     * 
+     * @return the difficulty level of the question
+     */
     public Difficulty getDifficulty() {
         return this.difficulty;
     }
 
+    /**
+     * Return the list of possible answers for the question.
+     * 
+     * @return the list of possible answers for the question
+     */
     public List<Answer> getAnswers() {
         return this.answers;
     }

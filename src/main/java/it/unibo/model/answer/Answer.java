@@ -2,19 +2,22 @@ package it.unibo.model.answer;
 
 import java.util.Objects;
 
+/**
+ * Class representing an answer to a question, containing the answer text and its correctness.
+ */
 public class Answer {
-    private final String answer;
-    private boolean isCorrect;
+    private final String text;
+    private final boolean isCorrect;
 
     /**
      * Constructor for the Answer class.
      * 
-     * @param answer the answer given by the player
+     * @param text the answer given by the player
      * @param isCorrect true if the answer is correct, false otherwise
      */
-    public Answer(String answer, boolean isCorrect) {
-        this.answer = Objects.requireNonNull(answer);
-        if (this.answer.isBlank()) {
+    public Answer(final String text, final boolean isCorrect) {
+        this.text = Objects.requireNonNull(text);
+        if (this.text.isBlank()) {
             throw new IllegalArgumentException("Answer text cannot be blank");
         }
         this.isCorrect = Objects.requireNonNull(isCorrect);
@@ -25,8 +28,8 @@ public class Answer {
      * 
      * @return the answer given by the player
      */
-    public String getAnswer() {
-        return answer;
+    public String getText() {
+        return text;
     }
 
     /**
