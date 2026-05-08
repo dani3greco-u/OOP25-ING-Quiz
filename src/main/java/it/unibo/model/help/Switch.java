@@ -1,5 +1,6 @@
 package it.unibo.model.help;
 
+import it.unibo.model.help.api.HelpStrategy;
 import it.unibo.model.match.Match;
 
 /**

@@ -1,4 +1,4 @@
-package it.unibo.model.help;
+package it.unibo.model.help.api;
 
 import it.unibo.model.match.Match;
 
