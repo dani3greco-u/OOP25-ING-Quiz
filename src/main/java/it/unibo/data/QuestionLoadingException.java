@@ -14,7 +14,7 @@ public class QuestionLoadingException extends Exception {
     }
 
     /**
-     * Creates a new instance of QuestionLoadingExceptionwith the specified detail message and cause.
+     * Creates a new instance of QuestionLoadingException with the specified detail message and cause.
      * @param message
      * @param cause
      */

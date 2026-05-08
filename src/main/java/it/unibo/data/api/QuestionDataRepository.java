@@ -10,5 +10,5 @@ import it.unibo.data.QuestionLoadingException;
  */
 public interface QuestionDataRepository {
 
-    List<QuestionDTO> loadQuestions() throws QuestionLoadingException, QuestionLoadingException;
+    List<QuestionDTO> loadQuestions() throws QuestionLoadingException;
 }
