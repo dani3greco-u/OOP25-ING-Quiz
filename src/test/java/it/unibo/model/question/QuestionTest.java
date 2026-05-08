@@ -1,4 +1,4 @@
-package it.unibo.question;
+package it.unibo.model.question;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,8 +8,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import it.unibo.model.answer.Answer;
-import it.unibo.model.question.Difficulty;
-import it.unibo.model.question.Question;
 
 //CHECKSTYLE: MultipleStringLiterals OFF
 /**
