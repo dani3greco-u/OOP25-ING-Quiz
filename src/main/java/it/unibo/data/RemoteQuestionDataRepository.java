@@ -9,6 +9,9 @@ import it.unibo.data.api.QuestionDataRepository;
  */
 public class RemoteQuestionDataRepository implements QuestionDataRepository {
 
+    /**
+     * @ineheritDoc
+     */
     @Override
     public List<QuestionDTO> loadQuestions() throws QuestionLoadingException {
         // TODO Auto-generated method stub

@@ -2,23 +2,27 @@ package it.unibo.data;
 
 /**
  * Exception thrown when there is an error loading questions from a data source. 
- * */ 
+ */ 
 public class QuestionLoadingException extends Exception {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * Creates a new instance of QuestionLoadingException with the specified detail message.
-     * @param message
+     * 
+     * @param message the detail message
      */
-    public QuestionLoadingException(String message) {
+    public QuestionLoadingException(final String message) {
         super(message);
     }
 
     /**
      * Creates a new instance of QuestionLoadingException with the specified detail message and cause.
-     * @param message
-     * @param cause
+     * 
+     * @param message the detail message
+     * @param cause the cause of the exception
      */
-    public QuestionLoadingException(String message, Throwable cause) {
+    public QuestionLoadingException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
