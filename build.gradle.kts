@@ -28,6 +28,9 @@ dependencies {
     implementation("org.jooq:jool:0.9.15")
     // Source: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
+    // 
+    implementation("org.mockito:mockito-core:5.23.0")
+
 
     /*
      * Simple Logging Facade for Java (SLF4J)
@@ -43,6 +46,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.13.4")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
 }
 
 application {
