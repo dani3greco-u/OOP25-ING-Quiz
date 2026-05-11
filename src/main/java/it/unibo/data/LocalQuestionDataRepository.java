@@ -43,8 +43,8 @@ public class LocalQuestionDataRepository implements QuestionDataRepository {
             if (is == null) {
                 throw new QuestionLoadingException("File not found: " + this.questionFilePath);
             }
-            final TriviaDTO trivia = this.mapper.readValue(is, TriviaDTO.class);
-            return List.copyOf(trivia.results());
+            final TriviaParser parser = new TriviaParser(mapper);
+            return parser.parseTrivia(new String(is.readAllBytes()));
         } catch (final IOException e) {
             throw new QuestionLoadingException("Failed to load questions: " + e.getMessage(), e);
         }
