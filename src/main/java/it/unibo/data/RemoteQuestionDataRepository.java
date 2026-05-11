@@ -37,6 +37,12 @@ public class RemoteQuestionDataRepository implements QuestionDataRepository {
         this.client = HttpClient.newHttpClient();
     }
 
+    public RemoteQuestionDataRepository(final String urlJson, final ObjectMapper mapper, final HttpClient client) {
+        this.urlJson = urlJson;
+        this.mapper = mapper;
+        this.client = client;
+    }
+
     /**
      * @ineheritDoc
      */
