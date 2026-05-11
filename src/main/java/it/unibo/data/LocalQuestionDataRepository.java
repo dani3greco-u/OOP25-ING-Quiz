@@ -2,6 +2,7 @@ package it.unibo.data;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -44,7 +45,7 @@ public class LocalQuestionDataRepository implements QuestionDataRepository {
                 throw new QuestionLoadingException("File not found: " + this.questionFilePath);
             }
             final TriviaParser parser = new TriviaParser(mapper);
-            return parser.parseTrivia(new String(is.readAllBytes()));
+            return parser.parseTrivia(new String(is.readAllBytes(), StandardCharsets.UTF_8));
         } catch (final IOException e) {
             throw new QuestionLoadingException("Failed to load questions: " + e.getMessage(), e);
         }

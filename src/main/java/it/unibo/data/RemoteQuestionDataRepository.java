@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.net.HttpURLConnection;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -22,6 +23,7 @@ public class RemoteQuestionDataRepository implements QuestionDataRepository {
     private final String urlJson;
     private final ObjectMapper mapper;
     private final HttpClient client;
+
     /**
      * Creates a new instance of RemoteQuestionDataRepository.
      * 
@@ -37,6 +39,13 @@ public class RemoteQuestionDataRepository implements QuestionDataRepository {
         this.client = HttpClient.newHttpClient();
     }
 
+    /**
+     * Creates a new instance of RemoteQuestionDataRepository with custom ObjectMapper and HttpClient.
+     * 
+     * @param urlJson the URL of the JSON endpoint containing the questions.
+     * @param mapper the ObjectMapper to use for parsing the JSON response.
+     * @param client the HttpClient to use for making the HTTP request.
+     */
     public RemoteQuestionDataRepository(final String urlJson, final ObjectMapper mapper, final HttpClient client) {
         this.urlJson = urlJson;
         this.mapper = mapper;
@@ -48,15 +57,17 @@ public class RemoteQuestionDataRepository implements QuestionDataRepository {
      */
     @Override
     public List<QuestionDTO> loadQuestions() throws QuestionLoadingException {
-        HttpRequest request = HttpRequest.newBuilder()
+        final HttpRequest request = HttpRequest.newBuilder()
                                 .GET()
                                 .header("accept", "application/json")
                                 .uri(URI.create(urlJson))
                                 .build();
         try {
-            HttpResponse<String> response = this.client.send(request, HttpResponse.BodyHandlers.ofString());
-            if(response.statusCode() != 200) {
-                throw new QuestionLoadingException("Error loading questions from remote source: HTTP status code " + response.statusCode());
+            final HttpResponse<String> response = this.client.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() != HttpURLConnection.HTTP_OK) {
+                throw new QuestionLoadingException("Error loading questions from remote source: HTTP status code " 
+                                                    + response.statusCode()
+                );
             }
             final TriviaParser parser = new TriviaParser(mapper);
             return parser.parseTrivia(response.body());

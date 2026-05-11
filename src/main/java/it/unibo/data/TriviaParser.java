@@ -10,7 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class TriviaParser {
     private final ObjectMapper mapper;
-    
+
+    /**
+     * Constructs a TriviaParser with the specified ObjectMapper.
+     * 
+     * @param mapper the ObjectMapper to use for parsing JSON data
+     */
     public TriviaParser(final ObjectMapper mapper) {
         this.mapper = mapper;
     }
@@ -22,11 +27,11 @@ public class TriviaParser {
      * @return a list of QuestionDTO objects parsed from the JSON string
      * @throws QuestionLoadingException if there is an error during parsing
      */
-    public List<QuestionDTO> parseTrivia(String json) throws QuestionLoadingException {
+    public List<QuestionDTO> parseTrivia(final String json) throws QuestionLoadingException {
         try {
             final TriviaDTO trivia = this.mapper.readValue(json, TriviaDTO.class);
             return List.copyOf(trivia.results());
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new QuestionLoadingException("Error parsing trivia JSON: " + e.getMessage(), e);
         }
     }
