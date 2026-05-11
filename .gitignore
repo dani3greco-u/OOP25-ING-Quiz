@@ -15,3 +15,5 @@ bin/
 
 # Ignore Report
 report/
+
+.vscode/
