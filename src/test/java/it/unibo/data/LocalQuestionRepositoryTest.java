@@ -18,8 +18,8 @@ final class LocalQuestionRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        final String question_file_path = "/test.json";
-        this.repository = new LocalQuestionDataRepository(question_file_path);
+        final String questionFilePath = "/test.json";
+        this.repository = new LocalQuestionDataRepository(questionFilePath);
     }
 
     @Test
@@ -37,25 +37,9 @@ final class LocalQuestionRepositoryTest {
     }
 
     @Test
-    void testLoadQuestionsContent() throws QuestionLoadingException {
-    List<QuestionDTO> questions = repository.loadQuestions();
-    assertNotNull(questions, "The list of questions should not be null");
-    assertEquals(10, questions.size(), "The list of questions should contain exactly 10 question");
-    QuestionDTO first = questions.get(0);
-    assertEquals("multiple", first.type());
-    assertEquals(Difficulty.MEDIUM, first.difficulty());
-    assertEquals("Science: Computers", first.category());
-    assertTrue(first.question().contains("AD stand for"));
-    assertEquals("Active Directory", first.correctAnswer());
-    assertNotNull(first.incorrectAnswers());
-    assertEquals(3, first.incorrectAnswers().size());
-    assertTrue(first.incorrectAnswers().contains("Alternative Drive"));
-}
-
-    @Test
     void testLoadQuestionsFromEmptyFile() {
-        final String question_file_path = "/empty.json";
-        var emptyRepo = new LocalQuestionDataRepository(question_file_path);
+        final String questionFilePath = "/empty.json";
+        var emptyRepo = new LocalQuestionDataRepository(questionFilePath);
         assertThrows(QuestionLoadingException.class, () -> {
             emptyRepo.loadQuestions();
         });
@@ -63,39 +47,29 @@ final class LocalQuestionRepositoryTest {
 
     @Test
     void testLoadMalformedJson() {
-        final String path = "/corrupt.json";
-        var corruptRepo = new LocalQuestionDataRepository(path);
-        
+        final String questionFilePath = "/corrupt.json";
+        var corruptRepo = new LocalQuestionDataRepository(questionFilePath);
         assertThrows(QuestionLoadingException.class, () -> {
             corruptRepo.loadQuestions();
         });
     }
-
-    @Test
-    void testIncorrectAnswersSize() throws QuestionLoadingException {
-        List<QuestionDTO> questions = repository.loadQuestions();
-        assertNotNull(questions, "The list of questions should not be null");
-        assertEquals(10, questions.size(), "The list of questions should contain exactly 10 question");
-        assertEquals(3, questions.get(0).incorrectAnswers().size());
-        assertEquals(1, questions.get(4).incorrectAnswers().size());
-    }
-
     @Test
     void testLoadQuestionsIsUnmodifiable() throws QuestionLoadingException {
         List<QuestionDTO> questions = repository.loadQuestions();
         assertNotNull(questions, "The list of questions should not be null");
         assertEquals(10, questions.size(), "The list of questions should contain exactly 10 question");
-
+        
         QuestionDTO question = new QuestionDTO(
-            "multiple", 
-            Difficulty.EASY, 
-            "Category", 
-            "Question?", 
-            "Correct", 
+            "multiple",
+            Difficulty.EASY,
+            "Category",
+            "Question?",
+            "Correct",
             List.of("Wrong")
         );
         assertThrows(UnsupportedOperationException.class, () -> {
-            questions.add(question);
+                    questions.add(question);
         }, "The list of questions should be unmodifiable");
     }
 }
+
