@@ -1,6 +1,9 @@
 package it.unibo.data;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -17,21 +20,20 @@ import it.unibo.model.question.Difficulty;
 final class TriviaParserTest {
 
     private TriviaParser parser;
-    private ObjectMapper mapper;
 
     @BeforeEach
     void setUp() {
-        this.mapper = JsonMapper.builder()
+        final ObjectMapper mapper = JsonMapper.builder()
             .findAndAddModules()
             .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             .build();
-        this.parser = new TriviaParser(this.mapper);
+        this.parser = new TriviaParser(mapper);
     }
 
     @Test
     void testLoadQuestionsContent() throws QuestionLoadingException {
-        String json = """
+        final String json = """
             {
               "response_code": 0,
               "results": [
@@ -50,12 +52,12 @@ final class TriviaParserTest {
         assertThrows(QuestionLoadingException.class, () -> {
             parser.parseTrivia("invalid json");
         });
-        
-        List<QuestionDTO> questions = parser.parseTrivia(json);
+
+        final List<QuestionDTO> questions = parser.parseTrivia(json);
 
         assertNotNull(questions);
         assertEquals(1, questions.size());
-        QuestionDTO first = questions.get(0);
+        final QuestionDTO first = questions.get(0);
         assertEquals("multiple", first.type());
         assertEquals(Difficulty.MEDIUM, first.difficulty());
         assertEquals("Science: Computers", first.category());
@@ -63,6 +65,6 @@ final class TriviaParserTest {
         assertEquals("Active Directory", first.correctAnswer());
         assertNotNull(first.incorrectAnswers());
         assertEquals(3, first.incorrectAnswers().size());
-        assertTrue(first.incorrectAnswers().contains("Alternative Drive"));        
+        assertTrue(first.incorrectAnswers().contains("Alternative Drive"));
     }
 }

@@ -1,9 +1,9 @@
 package it.unibo.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -24,22 +24,22 @@ final class LocalQuestionRepositoryTest {
 
     @Test
     void testLoadQuestionsNotNull() throws QuestionLoadingException {
-        List<QuestionDTO> questions = repository.loadQuestions();
+        final List<QuestionDTO> questions = repository.loadQuestions();
         assertNotNull(questions);
     }
 
     @Test
     void testLoadQuestionsNotEmpty() throws QuestionLoadingException {
-        List<QuestionDTO> questions = repository.loadQuestions();
+        final List<QuestionDTO> questions = repository.loadQuestions();
         assertNotNull(questions);
-        assertTrue(questions.size() > 0, "The list of questions should not be empty");
+        assertFalse(questions.isEmpty(), "The list of questions should not be empty");
         assertEquals(10, questions.size(), "The list of questions should contain exactly 10 question");
     }
 
     @Test
     void testLoadQuestionsFromEmptyFile() {
         final String questionFilePath = "/empty.json";
-        var emptyRepo = new LocalQuestionDataRepository(questionFilePath);
+        final var emptyRepo = new LocalQuestionDataRepository(questionFilePath);
         assertThrows(QuestionLoadingException.class, () -> {
             emptyRepo.loadQuestions();
         });
@@ -48,18 +48,19 @@ final class LocalQuestionRepositoryTest {
     @Test
     void testLoadMalformedJson() {
         final String questionFilePath = "/corrupt.json";
-        var corruptRepo = new LocalQuestionDataRepository(questionFilePath);
+        final var corruptRepo = new LocalQuestionDataRepository(questionFilePath);
         assertThrows(QuestionLoadingException.class, () -> {
             corruptRepo.loadQuestions();
         });
     }
+
     @Test
     void testLoadQuestionsIsUnmodifiable() throws QuestionLoadingException {
-        List<QuestionDTO> questions = repository.loadQuestions();
+        final List<QuestionDTO> questions = repository.loadQuestions();
         assertNotNull(questions, "The list of questions should not be null");
         assertEquals(10, questions.size(), "The list of questions should contain exactly 10 question");
-        
-        QuestionDTO question = new QuestionDTO(
+
+        final QuestionDTO question = new QuestionDTO(
             "multiple",
             Difficulty.EASY,
             "Category",

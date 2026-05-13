@@ -17,14 +17,28 @@ import it.unibo.model.question.Difficulty;
  * @param incorrectAnswers A list of incorrect answers to the question.
  */
 public record QuestionDTO(
-    String type,
-    Difficulty difficulty,
-    String category,
-    String question,
+        String type,
+        Difficulty difficulty,
+        String category,
+        String question,
 
-    @JsonProperty("correct_answer") 
-    String correctAnswer,
+        @JsonProperty("correct_answer")
+        String correctAnswer,
 
-    @JsonProperty("incorrect_answers") 
-    List<String> incorrectAnswers) {
-} 
+        @JsonProperty("incorrect_answers")
+        List<String> incorrectAnswers
+) {
+    /**
+     * Constructs a new QuestionDTO instance.
+     * 
+     * @param type The type of the question.
+     * @param difficulty The difficulty level of the question.
+     * @param category The category of the question.
+     * @param question The text of the question.
+     * @param correctAnswer The correct answer to the question.
+     * @param incorrectAnswers A list of incorrect answers to the question.
+     */
+    public QuestionDTO {
+        incorrectAnswers = List.copyOf(incorrectAnswers);
+    }
+}

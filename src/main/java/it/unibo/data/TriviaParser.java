@@ -17,7 +17,7 @@ public class TriviaParser {
      * @param mapper the ObjectMapper to use for parsing JSON data
      */
     public TriviaParser(final ObjectMapper mapper) {
-        this.mapper = mapper;
+        this.mapper = mapper.findAndRegisterModules();
     }
 
     /**

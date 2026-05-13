@@ -24,8 +24,8 @@ final class QuestionFactoryTest {
 
     @BeforeEach
     void setUp() {
-        factory = new QuestionFactory();
-        dto = new QuestionDTO(
+        this.factory = new QuestionFactory();
+        this.dto = new QuestionDTO(
             "multiple",
             Difficulty.MEDIUM,
             "Math",
@@ -48,24 +48,24 @@ final class QuestionFactoryTest {
 
     @Test
     void testFromDtoCreatesOneCorrectAnswer() {
-        Question question = factory.fromDTO(dto);
+        final Question question = factory.fromDTO(dto);
 
-        long correctAnswers = question.getAnswers().stream()
+        final long correctAnswers = question.getAnswers().stream()
             .filter(Answer::isCorrect)
             .count();
-        long incorrectAnswers = question.getAnswers().stream()
+        final long incorrectAnswers = question.getAnswers().stream()
             .filter(a -> !a.isCorrect())
             .count();
-        
+
         assertEquals(1, correctAnswers);
         assertEquals(3, incorrectAnswers);
     }
 
     @Test
     void testFromDtoIncludesCorrectAndIncorrectAnswers() {
-        Question question = factory.fromDTO(dto);
+        final Question question = factory.fromDTO(dto);
 
-        List<String> answerTexts = question.getAnswers().stream()
+        final List<String> answerTexts = question.getAnswers().stream()
             .map(Answer::getText)
             .toList();
 

@@ -5,6 +5,7 @@ package it.unibo.common;
  * 
  * @param <T> the type of the data that the observer observes.
  */
+@FunctionalInterface
 public interface Observer<T> {
 
     /**

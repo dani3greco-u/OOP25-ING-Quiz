@@ -6,7 +6,14 @@ import java.util.List;
 import java.util.Objects;
 
 import it.unibo.common.Observer;
+import it.unibo.model.match.api.MatchSubject;
 
+/**
+ * The Match class represents a game match, managing its state, score, and the current question number. 
+ * It implements the MatchSubject interface to allow observers to subscribe and receive updates about match events. 
+ * The class provides methods to start the match, submit answers, move to the next question, and win the match. 
+ * It also includes error handling to ensure that actions are performed in the correct state of the match.
+ */
 public final class Match implements MatchSubject {
 
     private final List<Observer<MatchEvent>> observers;
@@ -23,30 +30,30 @@ public final class Match implements MatchSubject {
         this.score = 0;
         this.questionNumber = 0;
     }
-    
+
     /**
      * @inheritDoc
      */
     @Override
-    public void addObserver(Observer<MatchEvent> observer) {
+    public void addObserver(final Observer<MatchEvent> observer) {
         this.observers.add(Objects.requireNonNull(observer));
     }
-    
+
     /**
      * @inheritDoc
      */
     @Override
-    public void removeObserver(Observer<MatchEvent> observer) {
+    public void removeObserver(final Observer<MatchEvent> observer) {
         this.observers.remove(Objects.requireNonNull(observer));
     }
-    
+
     /**
      * @inheritDoc
      */
     @Override
-    public void notifyObservers(MatchEvent notify) {
+    public void notifyObservers(final MatchEvent notify) {
         Objects.requireNonNull(notify);
-        for (Observer<MatchEvent> observer : observers) {
+        for (final Observer<MatchEvent> observer : observers) {
             observer.update(notify);
         }
     }
@@ -57,7 +64,7 @@ public final class Match implements MatchSubject {
      * @throws IllegalStateException if the match has already started
      */
     public void start() {
-        if(this.state != MatchState.NOT_STARTED) {
+        if (this.state != MatchState.NOT_STARTED) {
             throw new IllegalStateException("Match already started");
         }
         this.state = MatchState.IN_PROGRESS;
@@ -71,15 +78,13 @@ public final class Match implements MatchSubject {
     }
 
     /**
+     * Submits an answer for the current question.
      * 
-     * @param isCorrect
+     * @param isCorrect indicates whether the submitted answer is correct or not
      */
-    public void submitAnswer(boolean isCorrect) {
-        if(this.state != MatchState.IN_PROGRESS) {
-            throw new IllegalStateException("Match not started");
-        }
-
-        if(isCorrect) {
+    public void submitAnswer(final boolean isCorrect) {
+        this.ensureInProgress();
+        if (isCorrect) {
             this.score++;
             notifyObservers(new MatchEvent(
                 MatchEventType.CORRECT_ANSWER,
@@ -99,6 +104,7 @@ public final class Match implements MatchSubject {
     }
 
     /**
+     * Moves to the next question in the match.
      * 
      */
     public void nextQuestion() {
@@ -113,7 +119,7 @@ public final class Match implements MatchSubject {
     }
 
     /**
-     * 
+     * Marks the match as won.
      */
     public void win() {
         this.ensureInProgress();
@@ -126,8 +132,13 @@ public final class Match implements MatchSubject {
         ));
     }
 
+    /**
+     * Ensures that the match is in progress.
+     * 
+     * @throws IllegalStateException if the match is not in progress
+     */
     private void ensureInProgress() {
-        if(this.state != MatchState.IN_PROGRESS) {
+        if (this.state != MatchState.IN_PROGRESS) {
             throw new IllegalStateException("Match not in progress");
         }
     }
@@ -167,6 +178,4 @@ public final class Match implements MatchSubject {
     public int getQuestionNumber() {
         return this.questionNumber;
     }
-
-
 }

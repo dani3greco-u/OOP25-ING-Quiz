@@ -8,6 +8,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -31,35 +32,34 @@ class RemoteQuestionRepositoryTest {
     @Mock
     private HttpResponse<String> response;
 
-    private RemoteQuestionDataRepository repository;
     private final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
     @Test
-    void testLoadQuestionsSuccess() throws Exception {
-        String json = "{\"response_code\": 0, \"results\": []}";
+    void testLoadQuestionsSuccess() throws IOException, InterruptedException, QuestionLoadingException {
+        final String json = "{\"response_code\": 0, \"results\": []}";
         when(this.client.send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
             .thenReturn(this.response);
-        when(this.response.statusCode()).thenReturn(200);
+        when(this.response.statusCode()).thenReturn(HttpURLConnection.HTTP_OK);
         when(this.response.body()).thenReturn(json);
 
-        this.repository = new RemoteQuestionDataRepository("http://localhost/test", mapper, client);
+        final var repository = new RemoteQuestionDataRepository("http://localhost/test", mapper, client);
 
-        List<QuestionDTO> result = this.repository.loadQuestions();
+        final List<QuestionDTO> result = repository.loadQuestions();
 
         assertNotNull(result);
         verify(this.client).send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }
 
     @Test
-    void testLoadQuestionsThrowsIOException() throws Exception {
-        this.repository = new RemoteQuestionDataRepository("http://localhost/test", mapper, client);
+    void testLoadQuestionsThrowsIOException() throws IOException, InterruptedException {
+        final var repository = new RemoteQuestionDataRepository("http://localhost/test", mapper, client);
 
         when(this.client.send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
                 .thenThrow(new IOException("Network error"));
 
-        QuestionLoadingException ex = assertThrows(
+        final QuestionLoadingException ex = assertThrows(
                 QuestionLoadingException.class,
-                () -> this.repository.loadQuestions()
+                repository::loadQuestions
         );
 
         assertTrue(ex.getMessage().contains("Error loading questions from remote source"));
