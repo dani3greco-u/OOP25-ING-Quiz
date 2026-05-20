@@ -8,6 +8,7 @@ import java.util.Objects;
 public class Answer {
     private final String text;
     private final boolean isCorrect;
+    private boolean enabled;
 
     /**
      * Constructor for the Answer class.
@@ -21,6 +22,7 @@ public class Answer {
             throw new IllegalArgumentException("Answer text cannot be blank");
         }
         this.isCorrect = Objects.requireNonNull(isCorrect);
+        this.enabled = true;
     }
 
     /**
@@ -29,7 +31,7 @@ public class Answer {
      * @return the answer given by the player
      */
     public String getText() {
-        return text;
+        return this.text;
     }
 
     /**
@@ -38,6 +40,16 @@ public class Answer {
      * @return true if the answer is correct, false otherwise
      */
     public boolean isCorrect() {
-        return isCorrect;
+        return this.isCorrect;
     }
+
+    /**
+     * Return the active status of the answer.
+     * 
+     * @return true if the answer is active, false otherwise
+     */
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
 }

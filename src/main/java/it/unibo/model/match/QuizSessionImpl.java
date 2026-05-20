@@ -6,8 +6,9 @@ import java.util.Objects;
 
 import it.unibo.data.QuestionDTO;
 import it.unibo.data.QuestionLoadingException;
-import it.unibo.data.RemoteQuestionDataRepository;
 import it.unibo.data.api.QuestionDataRepository;
+import it.unibo.model.answer.Answer;
+import it.unibo.model.help.FiftyFifty;
 import it.unibo.model.match.api.QuizSession;
 import it.unibo.model.question.Question;
 import it.unibo.model.question.factory.QuestionFactory;
@@ -20,6 +21,10 @@ public class QuizSessionImpl implements QuizSession{
     private Question currentQuestion;
     private final QuestionDataRepository repository;
     
+    //for 50:50
+    private final FiftyFifty fiftyFifty;
+    private List<Answer> disabledAnswers; 
+    
     /**
      * Constructor for the QuizSessionImpl class.
      * 
@@ -30,6 +35,8 @@ public class QuizSessionImpl implements QuizSession{
         this.repository = Objects.requireNonNull(repository);
         this.match = new Match();
         this.sessionQuestions = new ArrayList<>();
+        this.fiftyFifty = new FiftyFifty();
+        this.disabledAnswers = new ArrayList<>();
     }
 
     /**
@@ -38,31 +45,77 @@ public class QuizSessionImpl implements QuizSession{
     @Override
     public void startNewGame() throws QuestionLoadingException {
         this.sessionQuestions.clear();
-
         final List<QuestionDTO> dtos = this.repository.loadQuestions();
-
         final QuestionFactory factory = new QuestionFactory();
-
         for(final QuestionDTO dto : dtos) {
             this.sessionQuestions.add(factory.fromDTO(dto));
         }
-        
         if (this.sessionQuestions.size() != TOTAL_QUESTIONS) {
             throw new IllegalStateException("The repository did not provide the correct number of questions. Expected " 
                                             + TOTAL_QUESTIONS + " but got " + this.sessionQuestions.size());
         }
-
-        this.currentQuestion = this.sessionQuestions.get(match.getQuestionNumber());
-    
-        match.start();
+        this.currentQuestion = this.sessionQuestions.get(this.match.getQuestionNumber());
+        this.match.start();
     }
 
     /**
-     * Returns the current match instance.
-     * 
-     * @return the current match instance
+     * @inerithDoc
      */
+    @Override
+    public void submitAnswer(final Answer answer) {
+        if (this.match.getState() != MatchState.IN_PROGRESS) {
+            throw new IllegalStateException("Cannot submit an answer when the match is not in progress.");
+        }
+        if (answer.isCorrect()) {
+            this.match.submitAnswer(true);
+            //check if the match is still in progress before updating the current question
+            if(this.match.getState() == MatchState.IN_PROGRESS) {
+                this.match.nextQuestion();
+                this.currentQuestion = this.sessionQuestions.get(this.match.getQuestionNumber());
+                this.disabledAnswers = new ArrayList<>();
+            }
+        } else {
+            this.match.submitAnswer(false);
+        }
+    }
+
+    /**
+     * @inerithDoc
+     */
+    @Override
     public Match getMatch() {
         return this.match;
+    }
+
+    /**
+     * @inerithDoc
+     */
+    @Override
+    public Question getCurrentQuestion() {
+        if (this.match.getState() != MatchState.IN_PROGRESS) {
+            throw new IllegalStateException("Cannot get the current question when the match is not in progress.");
+        }
+        return this.currentQuestion;
+    }
+
+    /**
+     * @inerithDoc
+     */
+    @Override
+    public void useFiftyFifty() {
+        if (this.match.getState() != MatchState.IN_PROGRESS) {
+            throw new IllegalStateException("Cannot use the fifty-fifty lifeline when the match is not in progress.");
+        }
+        if(this.fiftyFifty.canUse()) {
+           this.disabledAnswers = this.fiftyFifty.applyHelp(this.currentQuestion);
+        } 
+    }
+
+    /**
+     * @inerithDoc
+     */
+    @Override
+    public List<Answer> getDisabledAnswers() {
+        return new ArrayList<>(this.disabledAnswers);
     }
 }

@@ -1,19 +1,26 @@
 package it.unibo.model.help.api;
 
-import it.unibo.model.match.Match;
+import it.unibo.model.question.Question;
 
 /**
  * Defines the interface for help strategies that can be applied during a match.
  */
-public interface HelpStrategy {
+public interface HelpStrategy<T> {
 
     /**
      * Apply the help strategy.
      * 
-     * @param match the current match to which the help is being applied.
-     * @return true if the help was applied successfully, false otherwise.
+     * @param question the question to which the help is being applied.
+     * @return the result of applying the help strategy.
      */
-    boolean applyHelp(Match match);
+    T applyHelp(final Question question);
+
+    /**
+     * Check if the help can be used.
+     * 
+     * @return true if the help strategy can be used, false otherwise.
+     */
+    boolean canUse();
 
     /**
      * Get the name of the help strategy.
