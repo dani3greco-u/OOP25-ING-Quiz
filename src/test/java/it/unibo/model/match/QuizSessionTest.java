@@ -1,6 +1,7 @@
 package it.unibo.model.match;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -132,5 +133,53 @@ final class QuizSessionTest {
         "After submitting a wrong answer, the match state should be LOSE");
         assertEquals(1, session.getMatch().getQuestionNumber(), 
         "After submitting a wrong answer, the question number should not be incremented");
+    }
+
+    @Test
+    void testUseFiftyFiftyAndDoubleChance() throws QuestionLoadingException {
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(15);
+        final QuizSessionImpl session = new QuizSessionImpl(repository);
+        session.startNewGame();
+
+        // use fifty-fifty
+        session.useFiftyFifty();
+        assertEquals(2, session.getDisabledAnswers().size(), 
+        "After using fifty-fifty, two answers should be disabled");
+        
+        // 2 answer remaining, one correct and one wrong
+        final Answer correctAnswer = session.getCurrentQuestion().getAnswers().stream()
+                .filter(Answer::isCorrect)
+                .findFirst()
+                .orElseThrow();
+        final Answer remainingWrongAnswer = session.getCurrentQuestion().getAnswers().stream()
+                .filter(a -> !a.isCorrect() && !session.getDisabledAnswers().contains(a))
+                .findFirst()
+                .orElseThrow();
+        
+        // use double chance
+        session.useDoubleChance();
+        assertTrue(session.isDoubleChanceActive(), 
+        "After using double chance, the double chance should be active");
+        
+        // submit the remaining wrong answer
+        session.submitAnswer(remainingWrongAnswer);
+        assertFalse(session.isDoubleChanceActive(),
+        "After submitting a wrong answer with double chance active, the double chance should be deactivated");
+        // 2 for the fifty-fifty and 1 for the double chance
+        assertEquals(3, session.getDisabledAnswers().size(),
+        "After submitting a wrong answer with double chance active, one answer should be disabled");
+        assertEquals(MatchState.IN_PROGRESS, session.getMatch().getState(),
+        "After submitting a wrong answer with double chance active, the match state should still be IN_PROGRESS");
+
+        // submit the correct answer
+        session.submitAnswer(correctAnswer);
+        assertEquals(1, session.getMatch().getScore(),
+        "After submitting a correct answer, the score should be incremented by 1");
+        assertEquals(MatchState.IN_PROGRESS, session.getMatch().getState(),
+        "After submitting a correct answer, the match state should still be IN_PROGRESS");
+        assertEquals(1, session.getMatch().getQuestionNumber(),
+        "After submitting a correct answer, the question number should be incremented by 1");   
+        assertTrue(session.getDisabledAnswers().isEmpty(),
+        "After submitting an answer, the disabled answers list should be cleared");
     }
 }

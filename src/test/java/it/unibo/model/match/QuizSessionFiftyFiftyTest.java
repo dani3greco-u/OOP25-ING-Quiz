@@ -15,7 +15,7 @@ import it.unibo.model.answer.Answer;
 /**
  * Tests for the fifty-fifty lifeline functionality in the quiz session.
  */
-final class QuizSessionFiftyFifty {
+final class QuizSessionFiftyFiftyTest {
     
     @Test
     void testUseFiftyFiftySuccess() throws QuestionLoadingException {

@@ -8,6 +8,7 @@ import it.unibo.data.QuestionDTO;
 import it.unibo.data.QuestionLoadingException;
 import it.unibo.data.api.QuestionDataRepository;
 import it.unibo.model.answer.Answer;
+import it.unibo.model.help.DoubleChance;
 import it.unibo.model.help.FiftyFifty;
 import it.unibo.model.match.api.QuizSession;
 import it.unibo.model.question.Question;
@@ -23,7 +24,10 @@ public class QuizSessionImpl implements QuizSession{
     
     //for 50:50
     private final FiftyFifty fiftyFifty;
-    private List<Answer> disabledAnswers; 
+    private List<Answer> disabledAnswers;
+
+    private DoubleChance doubleChance; 
+    private boolean doubleChanceActive;
     
     /**
      * Constructor for the QuizSessionImpl class.
@@ -35,8 +39,12 @@ public class QuizSessionImpl implements QuizSession{
         this.repository = Objects.requireNonNull(repository);
         this.match = new Match();
         this.sessionQuestions = new ArrayList<>();
+        
         this.fiftyFifty = new FiftyFifty();
         this.disabledAnswers = new ArrayList<>();
+
+        this.doubleChance = new DoubleChance();
+        this.doubleChanceActive = false;
     }
 
     /**
@@ -73,7 +81,11 @@ public class QuizSessionImpl implements QuizSession{
                 this.match.nextQuestion();
                 this.currentQuestion = this.sessionQuestions.get(this.match.getQuestionNumber());
                 this.disabledAnswers = new ArrayList<>();
+                this.doubleChanceActive = false;
             }
+        } else if(this.doubleChanceActive) {
+            this.doubleChanceActive = false;
+            this.disabledAnswers.add(answer);
         } else {
             this.match.submitAnswer(false);
         }
@@ -107,7 +119,8 @@ public class QuizSessionImpl implements QuizSession{
             throw new IllegalStateException("Cannot use the fifty-fifty lifeline when the match is not in progress.");
         }
         if(this.fiftyFifty.canUse()) {
-           this.disabledAnswers = this.fiftyFifty.applyHelp(this.currentQuestion);
+            // i need a mutable list 
+           this.disabledAnswers = new ArrayList<>(this.fiftyFifty.applyHelp(this.currentQuestion));
         } 
     }
 
@@ -118,4 +131,26 @@ public class QuizSessionImpl implements QuizSession{
     public List<Answer> getDisabledAnswers() {
         return new ArrayList<>(this.disabledAnswers);
     }
+
+    /**
+     * @inerithDoc
+     */
+    @Override
+    public void useDoubleChance() {
+        if (this.match.getState() != MatchState.IN_PROGRESS) {
+            throw new IllegalStateException("Cannot use the double chance lifeline when the match is not in progress.");
+        }
+        if(this.doubleChance.canUse()) {
+            this.doubleChance.applyHelp(this.currentQuestion);
+            this.doubleChanceActive = true;
+        }
+    }
+
+    /** 
+     * @inerithDoc
+     */
+    @Override
+    public boolean isDoubleChanceActive() {
+        return this.doubleChanceActive;
+    } 
 }

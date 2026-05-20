@@ -43,6 +43,8 @@ public interface QuizSession {
 
     /**
      * Uses the fifty-fifty lifeline to eliminate two incorrect answers for the current question.
+     * 
+     * @throws IllegalStateException if the fifty-fifty lifeline has already been used or if the match is not in progress
      */
     void useFiftyFifty();
 
@@ -52,6 +54,20 @@ public interface QuizSession {
      * @return the list of disabled answers
      */
     List<Answer> getDisabledAnswers();
+
+    /**
+     * Uses the double chance help strategy to allow the player to have two attempts to answer a question correctly.
+     * 
+     * @throws IllegalStateException if the double chance help has already been used or if the match is not in progress    
+     */
+    void useDoubleChance();
+
+    /** 
+     * Returns true if the double chance help strategy is currently active, false otherwise.
+     * 
+     * @return true if the double chance help strategy is currently active, false otherwise
+     */
+    boolean isDoubleChanceActive();
 
     
 }
