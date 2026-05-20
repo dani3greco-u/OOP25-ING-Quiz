@@ -22,7 +22,7 @@ public class FiftyFifty implements HelpStrategy<List<Answer>> {
      * {@inheritDoc}
      * This method should implement the logic to eliminate two incorrect answers from the available options for a question.
      * 
-     * @return the modified question with two incorrect answers eliminated.
+     * @return the list of answers that have been disabled by the fifty-fifty lifeline.
      * @throws IllegalStateException if the help strategy has already been used.
      */
     @Override
