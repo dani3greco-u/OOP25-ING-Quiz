@@ -68,7 +68,7 @@ public final class Match implements MatchSubject {
             throw new IllegalStateException("Match already started");
         }
         this.state = MatchState.IN_PROGRESS;
-        this.questionNumber = 1;
+        this.questionNumber = 0;
         notifyObservers(new MatchEvent(
             MatchEventType.MATCH_STARTED,
             this.state,
