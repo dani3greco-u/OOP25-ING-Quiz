@@ -187,4 +187,28 @@ final class QuizSessionTest {
         assertTrue(session.getDisabledAnswers().isEmpty(),
         "After submitting an answer, the disabled answers list should be cleared");
     }
+
+    @Test 
+    void testUseAllHelps() throws QuestionLoadingException {
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
+        final QuizSessionImpl session = new QuizSessionImpl(repository);
+        session.startNewGame();
+
+        // use fifty-fifty
+        session.useFiftyFifty();
+        assertEquals(2, session.getDisabledAnswers().size(), 
+        "After using fifty-fifty, two answers should be disabled");
+
+        // use double chance
+        session.useDoubleChance();
+        assertTrue(session.isDoubleChanceActive(), 
+        "After using double chance, the double chance should be active");
+
+        // use switch
+        session.useSwitch();
+        assertFalse(session.isDoubleChanceActive(),
+        "After using switch, the double chance should be deactivated");
+        assertTrue(session.getDisabledAnswers().isEmpty(),
+        "After using switch, the disabled answers list should be empty");
+    }
 }

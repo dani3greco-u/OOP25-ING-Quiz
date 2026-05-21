@@ -4,6 +4,7 @@ import java.util.List;
 
 import it.unibo.data.QuestionLoadingException;
 import it.unibo.model.answer.Answer;
+import it.unibo.model.help.Switch;
 import it.unibo.model.match.Match;
 import it.unibo.model.question.Question;
 
@@ -75,6 +76,13 @@ public interface QuizSession {
      * @throws IllegalStateException if the switch help has already been used or if the match is not in progress
      */
     void useSwitch();
+
+    /**
+     * Getter for the Switch help strategy.
+     * 
+     * @return the Switch help strategy
+     */
+    Switch getSwitchHelp();
 
     
 }

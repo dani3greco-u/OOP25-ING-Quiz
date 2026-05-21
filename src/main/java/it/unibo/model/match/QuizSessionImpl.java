@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import org.apache.commons.lang3.builder.Diff;
-
 import it.unibo.data.QuestionDTO;
 import it.unibo.data.QuestionLoadingException;
 import it.unibo.data.api.QuestionDataRepository;
@@ -203,4 +201,13 @@ public class QuizSessionImpl implements QuizSession{
             this.doubleChanceActive = false;
         }
     }
+
+    /**
+     * @inerithDoc
+     */
+    @Override
+    public Switch getSwitchHelp() {
+        return this.switchHelp;
+    }
+
 }
