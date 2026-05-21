@@ -20,8 +20,18 @@ import it.unibo.model.answer.Answer;
 import it.unibo.model.question.Difficulty;
 import it.unibo.model.question.Question;
 
+//CHECKSTYLE: MultipleStringLiterals OFF
+/**
+ * Test class for the QuizSessionImpl class.
+ */
 final class QuizSessionTest {
-    
+
+    // package-private for testing purposes
+    /**
+     * The total number of questions required for a valid game session.
+     */
+    static final int TOTAL_QUESTIONS = 18;
+
     /**
      * Helper method to generate a list of QuestionDTOs for testing purposes.
      * 
@@ -36,7 +46,7 @@ final class QuizSessionTest {
                 .flatMap(difficulty -> IntStream.range(0, questionsPerDiff)
                         .mapToObj(i -> new QuestionDTO(
                                 "multiple",
-                                difficulty,                
+                                difficulty,
                                 "Category",
                                 "Question " + difficulty.name() + " " + (i + 1),
                                 "Correct Answer",
@@ -54,7 +64,7 @@ final class QuizSessionTest {
     @Test
     void testStartNewGameSuccess() throws QuestionLoadingException {
 
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "Before starting a new game, the match state should be NOT_STARTED");
@@ -80,7 +90,7 @@ final class QuizSessionTest {
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "Before starting a new game, the match state should be NOT_STARTED");
 
-        assertThrows(IllegalStateException.class, () -> session.startNewGame());
+        assertThrows(IllegalStateException.class, session::startNewGame);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "If starting a new game fails the match state should remain NOT_STARTED");
     }
@@ -97,23 +107,23 @@ final class QuizSessionTest {
             throw new QuestionLoadingException("Failed to load questions"); 
         };
         final QuizSessionImpl session = new QuizSessionImpl(repository);
-        
+
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "Before starting a new game, the match state should be NOT_STARTED");
 
-        assertThrows(QuestionLoadingException.class, () -> session.startNewGame());
+        assertThrows(QuestionLoadingException.class, session::startNewGame);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "If starting a new game fails the match state should remain NOT_STARTED");
     }
 
     @Test
-    void  testSubmitAnswerSuccess() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
+    void testSubmitAnswerSuccess() throws QuestionLoadingException {
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
 
-        Question question = session.getCurrentQuestion();
-        Answer correctAnswer = question.getAnswers().stream()
+        final Question question = session.getCurrentQuestion();
+        final Answer correctAnswer = question.getAnswers().stream()
             .filter(Answer::isCorrect)
             .findFirst()
             .orElseThrow(() -> new IllegalStateException("No correct answer found for the current question"));
@@ -126,11 +136,11 @@ final class QuizSessionTest {
         assertEquals(1, session.getMatch().getQuestionNumber(), 
         "After submitting a correct answer, the question number should be incremented by 1");
 
-        Answer wrongAnswer = question.getAnswers().stream()
+        final Answer wrongAnswer = question.getAnswers().stream()
             .filter(answer -> !answer.isCorrect())
             .findFirst()
             .orElseThrow(() -> new IllegalStateException("No wrong answer found for the current question"));
-        
+
         session.submitAnswer(wrongAnswer);
         assertEquals(1, session.getMatch().getScore(), 
         "After submitting a correct answer, the score should be incremented by 1");
@@ -142,7 +152,7 @@ final class QuizSessionTest {
 
     @Test
     void testUseFiftyFiftyAndDoubleChance() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
 
@@ -150,7 +160,7 @@ final class QuizSessionTest {
         session.useFiftyFifty();
         assertEquals(2, session.getDisabledAnswers().size(), 
         "After using fifty-fifty, two answers should be disabled");
-        
+
         // 2 answer remaining, one correct and one wrong
         final Answer correctAnswer = session.getCurrentQuestion().getAnswers().stream()
                 .filter(Answer::isCorrect)
@@ -160,12 +170,12 @@ final class QuizSessionTest {
                 .filter(a -> !a.isCorrect() && !session.getDisabledAnswers().contains(a))
                 .findFirst()
                 .orElseThrow();
-        
+
         // use double chance
         session.useDoubleChance();
         assertTrue(session.isDoubleChanceActive(), 
         "After using double chance, the double chance should be active");
-        
+
         // submit the remaining wrong answer
         session.submitAnswer(remainingWrongAnswer);
         assertFalse(session.isDoubleChanceActive(),
@@ -183,14 +193,14 @@ final class QuizSessionTest {
         assertEquals(MatchState.IN_PROGRESS, session.getMatch().getState(),
         "After submitting a correct answer, the match state should still be IN_PROGRESS");
         assertEquals(1, session.getMatch().getQuestionNumber(),
-        "After submitting a correct answer, the question number should be incremented by 1");   
+        "After submitting a correct answer, the question number should be incremented by 1"); 
         assertTrue(session.getDisabledAnswers().isEmpty(),
         "After submitting an answer, the disabled answers list should be cleared");
     }
 
     @Test 
     void testUseAllHelps() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
 

@@ -14,7 +14,7 @@ import it.unibo.model.answer.Answer;
  * Tests for the double chance lifeline functionality in the quiz session.
  */
 final class QuizSessionDoubleChanceTest {
-    
+
     /**
      * Tests the useDoubleChance method of the QuizSessionImpl class to ensure that it correctly allows the player 
      * to have two attempts to answer a question correctly and updates the match state accordingly.
@@ -23,7 +23,7 @@ final class QuizSessionDoubleChanceTest {
      */
     @Test
     void testUseDoubleChanceSuccess() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(QuizSessionTest.TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "Before starting a new game, the match state should be NOT_STARTED");
@@ -31,12 +31,12 @@ final class QuizSessionDoubleChanceTest {
         session.startNewGame();
         assertEquals(MatchState.IN_PROGRESS, session.getMatch().getState(), 
         "After starting a new game, the match state should be IN_PROGRESS");
-        
+
         session.useDoubleChance();
         assertTrue(session.isDoubleChanceActive(),
         "After using double chance, the double chance should be active");
         // submit a wrong answer
-        Answer wrongAnswer = session.getCurrentQuestion().getAnswers().stream()
+        final Answer wrongAnswer = session.getCurrentQuestion().getAnswers().stream()
                 .filter(answer -> !answer.isCorrect())
                 .findFirst()
                 .orElseThrow();
@@ -55,20 +55,20 @@ final class QuizSessionDoubleChanceTest {
     }
 
     /**
-     * Tests that the useDoubleChance method can only be used once
+     * Tests that the useDoubleChance method can only be used once.
      * 
      * @throws QuestionLoadingException if there is an error loading questions from the repository
      */
     @Test
     void testUseDoubleChanceOneTime() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(QuizSessionTest.TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
         session.useDoubleChance();
         assertTrue(session.isDoubleChanceActive(),
         "After using double chance, the double chance should be active");
         // submit a wrong answer
-        Answer wrongAnswer = session.getCurrentQuestion().getAnswers().stream()
+        final Answer wrongAnswer = session.getCurrentQuestion().getAnswers().stream()
                 .filter(answer -> !answer.isCorrect())
                 .findFirst()
                 .orElseThrow();

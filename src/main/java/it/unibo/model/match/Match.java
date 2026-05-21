@@ -31,6 +31,8 @@ public final class Match implements MatchSubject {
         this.questionNumber = 0;
     }
 
+
+
     /**
      * @inheritDoc
      */
@@ -177,5 +179,14 @@ public final class Match implements MatchSubject {
      */
     public int getQuestionNumber() {
         return this.questionNumber;
+    }
+
+    /**
+     * Returns the match itself.
+     * 
+     * @return the match itself
+     */
+    public Match getMatch() {
+        return this;
     }
 }

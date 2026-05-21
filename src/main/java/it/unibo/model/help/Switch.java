@@ -34,6 +34,11 @@ public class Switch implements HelpStrategy<Boolean> {
         return "Switch";
     }
 
+    /**
+     * Check if the switch help can be used. It can be used only once per match.
+     * 
+     * @return true if the switch help can be used, false otherwise.
+     */
     @Override
     public boolean canUse() {
         return !this.used;

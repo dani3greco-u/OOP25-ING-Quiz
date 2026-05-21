@@ -17,20 +17,20 @@ import it.unibo.model.question.Question;
  * Test class for the Switch help strategy in the QuizSessionImpl class.
  */
 final class QuizSessionSwitchTest {
-    
+
     /**
      * Tests the useSwitch method of the QuizSessionImpl class to ensure that it correctly allows the player 
      * to switch the current question with a new one of the same difficulty and updates the match state accordingly.
      * 
-     * @throws QuestionLoadingException
+     * @throws QuestionLoadingException if there is an error loading the questions from the repository
      */
     @Test
-    void testSwitchSuccess() throws QuestionLoadingException{
-       final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
+    void testSwitchSuccess() throws QuestionLoadingException {
+       final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(QuizSessionTest.TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
-        Difficulty difficulty = session.getCurrentQuestion().getDifficulty();
-        Question switchedQuestion = session.getCurrentQuestion();
+        final Difficulty difficulty = session.getCurrentQuestion().getDifficulty();
+        final Question switchedQuestion = session.getCurrentQuestion();
         session.useSwitch();
         assertEquals(difficulty, session.getCurrentQuestion().getDifficulty(),
         "After using switch, the difficulty of the current question should remain the same");
@@ -40,9 +40,15 @@ final class QuizSessionSwitchTest {
         "After using switch, the disabled answers list should be empty");
     }
 
+    /**
+     * Tests the useSwitch method of the QuizSessionImpl class to ensure that after using the switch help, 
+     * it cannot be used again in the same match.
+     * 
+     * @throws QuestionLoadingException if there is an error loading the questions from the repository
+     */
     @Test
     void testSwitchOneTime() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(QuizSessionTest.TOTAL_QUESTIONS);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
         session.useSwitch();

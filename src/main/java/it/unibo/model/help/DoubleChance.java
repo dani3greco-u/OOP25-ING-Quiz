@@ -34,6 +34,11 @@ public class DoubleChance implements HelpStrategy<Boolean> {
         return "Double Chance";
     }
 
+    /**
+     * Check if the double chance help can be used. It can be used only once per match.
+     * 
+     * @return true if the double chance help can be used, false otherwise.
+     */
     @Override
     public boolean canUse() {
         return !this.used;

@@ -15,9 +15,8 @@ import it.unibo.model.question.Question;
  */
 public class FiftyFifty implements HelpStrategy<List<Answer>> {
 
+    private boolean used;
 
-    private boolean used = false;
-   
     /**
      * {@inheritDoc}
      * This method should implement the logic to eliminate two incorrect answers from the available options for a question.
@@ -31,13 +30,13 @@ public class FiftyFifty implements HelpStrategy<List<Answer>> {
             throw new IllegalStateException("Help already used");
         }
         this.used = true;
-        
-        List<Answer> incorrect = question.getAnswers().stream()
+
+        final List<Answer> incorrect = question.getAnswers().stream()
                 .filter(a -> !a.isCorrect())
                 .collect(Collectors.toCollection(ArrayList::new));
 
         Collections.shuffle(incorrect);
-       
+
         return incorrect.stream().limit(2).toList();
     }
 
@@ -49,6 +48,11 @@ public class FiftyFifty implements HelpStrategy<List<Answer>> {
         return "50-50";
     }
 
+    /**
+     * Check if the fifty-fifty help can be used. It can be used only once per match.
+     * 
+     * @return true if the fifty-fifty help can be used, false otherwise.
+     */
     @Override
     public boolean canUse() {
         return !this.used;

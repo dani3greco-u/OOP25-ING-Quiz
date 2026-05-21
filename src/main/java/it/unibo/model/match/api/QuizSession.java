@@ -59,7 +59,7 @@ public interface QuizSession {
     /**
      * Uses the double chance help strategy to allow the player to have two attempts to answer a question correctly.
      * 
-     * @throws IllegalStateException if the double chance help has already been used or if the match is not in progress    
+     * @throws IllegalStateException if the double chance help has already been used or if the match is not in progress
      */
     void useDoubleChance();
 
@@ -83,6 +83,4 @@ public interface QuizSession {
      * @return the Switch help strategy
      */
     Switch getSwitchHelp();
-
-    
 }

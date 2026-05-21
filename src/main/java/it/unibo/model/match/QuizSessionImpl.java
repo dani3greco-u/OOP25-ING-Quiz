@@ -1,7 +1,7 @@
 package it.unibo.model.match;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +18,15 @@ import it.unibo.model.question.Difficulty;
 import it.unibo.model.question.Question;
 import it.unibo.model.question.factory.QuestionFactory;
 
-public class QuizSessionImpl implements QuizSession{
+/**
+ * Implementation of the {@link QuizSession} interface.
+ * 
+ * <p>
+ * Manages the lifecycle and state of a quiz match, including question sequencing, 
+ * answer validation, and lifeline orchestration (Fifty-Fifty, Double Chance, Switch Question).
+ * </p>
+ */
+public class QuizSessionImpl implements QuizSession {
 
     private static final int TOTAL_QUESTIONS = 15;
     private static final int RESERVE_QUESTIONS = 3;
@@ -27,7 +35,7 @@ public class QuizSessionImpl implements QuizSession{
     private final List<Question> sessionQuestions;
     private Question currentQuestion;
     private final QuestionDataRepository repository;
-    
+
     //for 50:50
     private final FiftyFifty fiftyFifty;
     private List<Answer> disabledAnswers;
@@ -46,21 +54,19 @@ public class QuizSessionImpl implements QuizSession{
      * 
      * @param repository the QuestionDataRepository to load questions from
      */
-    public QuizSessionImpl(final QuestionDataRepository repository)
-    {
+    public QuizSessionImpl(final QuestionDataRepository repository) {
         this.repository = Objects.requireNonNull(repository);
         this.match = new Match();
         this.sessionQuestions = new ArrayList<>();
-        
+
         this.fiftyFifty = new FiftyFifty();
         this.disabledAnswers = new ArrayList<>();
 
         this.doubleChance = new DoubleChance();
         this.doubleChanceActive = false;
-        
+
         this.switchHelp = new Switch();
-        this.reserveQuestions = new HashMap<Difficulty,Question>();
-        
+        this.reserveQuestions = new EnumMap<>(Difficulty.class);
     }
 
     /**
@@ -70,21 +76,21 @@ public class QuizSessionImpl implements QuizSession{
     public void startNewGame() throws QuestionLoadingException {
         this.sessionQuestions.clear();
         final List<QuestionDTO> dtos = this.repository.loadQuestions();
-        if(dtos.size() != TOTAL_QUESTIONS + RESERVE_QUESTIONS) {
+        if (dtos.size() != TOTAL_QUESTIONS + RESERVE_QUESTIONS) {
             throw new IllegalStateException("The repository did not provide enough questions. Expected at least " 
                                             + (TOTAL_QUESTIONS + RESERVE_QUESTIONS) + " but got " + dtos.size());
         }
-        
+
         final QuestionFactory factory = new QuestionFactory();
-        for(final QuestionDTO dto : dtos) {
+        for (final QuestionDTO dto : dtos) {
             final Question question = factory.fromDTO(dto);
-            if(!this.reserveQuestions.containsKey(question.getDifficulty())) {
+            if (!this.reserveQuestions.containsKey(question.getDifficulty())) {
                 this.reserveQuestions.put(question.getDifficulty(), question);
             } else {
                 this.sessionQuestions.add(question); 
             }
         }
-        
+
         if (this.sessionQuestions.size() != TOTAL_QUESTIONS || this.reserveQuestions.size() != RESERVE_QUESTIONS) {
             throw new IllegalStateException("The repository did not provide the correct number of questions");
         }
@@ -103,13 +109,13 @@ public class QuizSessionImpl implements QuizSession{
         if (answer.isCorrect()) {
             this.match.submitAnswer(true);
             //check if the match is still in progress before updating the current question
-            if(this.match.getState() == MatchState.IN_PROGRESS) {
+            if (this.match.getState() == MatchState.IN_PROGRESS) {
                 this.match.nextQuestion();
                 this.currentQuestion = this.sessionQuestions.get(this.match.getQuestionNumber());
                 this.disabledAnswers = new ArrayList<>();
                 this.doubleChanceActive = false;
             }
-        } else if(this.doubleChanceActive) {
+        } else if (this.doubleChanceActive) {
             this.doubleChanceActive = false;
             this.disabledAnswers.add(answer);
         } else {
@@ -122,7 +128,7 @@ public class QuizSessionImpl implements QuizSession{
      */
     @Override
     public Match getMatch() {
-        return this.match;
+        return this.match.getMatch();
     }
 
     /**
@@ -144,9 +150,9 @@ public class QuizSessionImpl implements QuizSession{
         if (this.match.getState() != MatchState.IN_PROGRESS) {
             throw new IllegalStateException("Cannot use the fifty-fifty lifeline when the match is not in progress.");
         }
-        if(this.fiftyFifty.canUse()) {
+        if (this.fiftyFifty.canUse()) {
             // i need a mutable list 
-           this.disabledAnswers = new ArrayList<>(this.fiftyFifty.applyHelp(this.currentQuestion));
+            this.disabledAnswers = new ArrayList<>(this.fiftyFifty.applyHelp(this.currentQuestion));
         } 
     }
 
@@ -166,13 +172,13 @@ public class QuizSessionImpl implements QuizSession{
         if (this.match.getState() != MatchState.IN_PROGRESS) {
             throw new IllegalStateException("Cannot use the double chance lifeline when the match is not in progress.");
         }
-        if(this.doubleChance.canUse()) {
+        if (this.doubleChance.canUse()) {
             this.doubleChance.applyHelp(this.currentQuestion);
             this.doubleChanceActive = true;
         }
     }
 
-    /** 
+    /**
      * @inerithDoc
      */
     @Override
@@ -188,11 +194,11 @@ public class QuizSessionImpl implements QuizSession{
         if (this.match.getState() != MatchState.IN_PROGRESS) {
             throw new IllegalStateException("Cannot use the switch lifeline when the match is not in progress.");
         }
-        if(this.switchHelp.canUse()) {
+        if (this.switchHelp.canUse()) {
             this.switchHelp.applyHelp(this.currentQuestion);
             final Difficulty currentDifficulty = this.currentQuestion.getDifficulty();
             final Question reserve = this.reserveQuestions.get(currentDifficulty);
-            if(reserve == null) {
+            if (reserve == null) {
                 throw new IllegalStateException("No reserve question available for difficulty: " + currentDifficulty);
             }
 

@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Answer {
     private final String text;
     private final boolean isCorrect;
-    private boolean enabled;
+    private final boolean enabled;
 
     /**
      * Constructor for the Answer class.

@@ -4,6 +4,8 @@ import it.unibo.model.question.Question;
 
 /**
  * Defines the interface for help strategies that can be applied during a match.
+ * 
+ * @param <T> the type of the result returned by the help strategy when applied.
  */
 public interface HelpStrategy<T> {
 
@@ -13,7 +15,7 @@ public interface HelpStrategy<T> {
      * @param question the question to which the help is being applied.
      * @return the result of applying the help strategy.
      */
-    T applyHelp(final Question question);
+    T applyHelp(Question question);
 
     /**
      * Check if the help can be used.
