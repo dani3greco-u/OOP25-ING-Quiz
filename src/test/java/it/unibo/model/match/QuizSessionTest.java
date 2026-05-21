@@ -6,7 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 
@@ -26,18 +29,20 @@ final class QuizSessionTest {
      * @return a list of generated QuestionDTOs
      */
     static List<QuestionDTO> generateQuestionsDTO(final int amount) {
-        final List<QuestionDTO> dtos = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
-            dtos.add(new QuestionDTO(
-                "multiple",
-                Difficulty.EASY,
-                "Science: Computers",
-                "Question " + (i + 1),
-                "Correct Answer",
-                List.of("Wrong Answer 1", "Wrong Answer 2", "Wrong Answer 3")
-            ));
-        }
-        return dtos;
+        final int questionsPerDiff = amount / Difficulty.values().length;
+
+        return Arrays.stream(Difficulty.values())
+                // for each difficulty, generate the specified number of questions
+                .flatMap(difficulty -> IntStream.range(0, questionsPerDiff)
+                        .mapToObj(i -> new QuestionDTO(
+                                "multiple",
+                                difficulty,                
+                                "Category",
+                                "Question " + difficulty.name() + " " + (i + 1),
+                                "Correct Answer",
+                                List.of("Wrong 1", "Wrong 2", "Wrong 3")
+                        )))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -49,7 +54,7 @@ final class QuizSessionTest {
     @Test
     void testStartNewGameSuccess() throws QuestionLoadingException {
 
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "Before starting a new game, the match state should be NOT_STARTED");
@@ -69,7 +74,7 @@ final class QuizSessionTest {
      */
     @Test
     void testStartNewGameInsufficientQuestions() throws QuestionLoadingException {
-        // it's the same test with more than 15 questions because the implementation requires exactly 15 questions
+        // it's the same test with more than 18 questions because the implementation requires exactly 18 questions
         final QuestionDataRepository repository = () -> generateQuestionsDTO(10);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
@@ -103,7 +108,7 @@ final class QuizSessionTest {
 
     @Test
     void  testSubmitAnswerSuccess() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
 
@@ -137,7 +142,7 @@ final class QuizSessionTest {
 
     @Test
     void testUseFiftyFiftyAndDoubleChance() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
 

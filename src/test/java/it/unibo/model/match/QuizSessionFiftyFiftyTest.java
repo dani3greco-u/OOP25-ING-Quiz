@@ -19,7 +19,7 @@ final class QuizSessionFiftyFiftyTest {
     
     @Test
     void testUseFiftyFiftySuccess() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
 
@@ -44,7 +44,7 @@ final class QuizSessionFiftyFiftyTest {
 
     @Test
     void testUseFiftyFiftyOneTime() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         assertThrows(IllegalStateException.class, () -> session.useFiftyFifty(),
         "Using fifty-fifty before starting a new game should throw an IllegalStateException");

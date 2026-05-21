@@ -23,7 +23,7 @@ final class QuizSessionDoubleChanceTest {
      */
     @Test
     void testUseDoubleChanceSuccess() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         assertEquals(MatchState.NOT_STARTED, session.getMatch().getState(), 
         "Before starting a new game, the match state should be NOT_STARTED");
@@ -61,7 +61,7 @@ final class QuizSessionDoubleChanceTest {
      */
     @Test
     void testUseDoubleChanceOneTime() throws QuestionLoadingException {
-        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(15);
+        final QuestionDataRepository repository = () -> QuizSessionTest.generateQuestionsDTO(18);
         final QuizSessionImpl session = new QuizSessionImpl(repository);
         session.startNewGame();
         session.useDoubleChance();

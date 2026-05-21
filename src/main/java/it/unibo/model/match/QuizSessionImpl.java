@@ -83,7 +83,7 @@ public class QuizSessionImpl implements QuizSession{
             if(!this.reserveQuestions.containsKey(question.getDifficulty())) {
                 this.reserveQuestions.put(question.getDifficulty(), question);
             } else {
-            this.sessionQuestions.add(question); 
+                this.sessionQuestions.add(question); 
             }
         }
         
