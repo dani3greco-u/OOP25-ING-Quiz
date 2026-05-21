@@ -69,5 +69,12 @@ public interface QuizSession {
      */
     boolean isDoubleChanceActive();
 
+    /**
+     * Uses the switch help strategy to allow the player to switch to a different question.
+     * 
+     * @throws IllegalStateException if the switch help has already been used or if the match is not in progress
+     */
+    void useSwitch();
+
     
 }
