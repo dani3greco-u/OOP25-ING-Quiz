@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import it.unibo.data.QuestionDTO;
-import it.unibo.data.QuestionLoadingException;
-import it.unibo.data.api.QuestionDataRepository;
 import it.unibo.model.answer.Answer;
+import it.unibo.model.data.QuestionDTO;
+import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.api.QuestionDataRepository;
 import it.unibo.model.help.DoubleChance;
 import it.unibo.model.help.FiftyFifty;
 import it.unibo.model.help.Switch;

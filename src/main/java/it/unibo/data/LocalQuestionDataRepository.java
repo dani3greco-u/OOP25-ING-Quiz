@@ -10,7 +10,9 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
-import it.unibo.data.api.QuestionDataRepository;
+import it.unibo.model.data.QuestionDTO;
+import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.api.QuestionDataRepository;
 
 /**
  * Loads questions from a local data source. 

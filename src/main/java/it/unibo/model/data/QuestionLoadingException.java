@@ -1,4 +1,4 @@
-package it.unibo.data;
+package it.unibo.model.data;
 
 /**
  * Exception thrown when there is an error loading questions from a data source. 

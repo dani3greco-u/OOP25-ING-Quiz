@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-import it.unibo.data.QuestionDTO;
 import it.unibo.model.answer.Answer;
+import it.unibo.model.data.QuestionDTO;
 import it.unibo.model.question.Question;
 
 /**

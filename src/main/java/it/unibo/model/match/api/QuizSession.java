@@ -2,8 +2,8 @@ package it.unibo.model.match.api;
 
 import java.util.List;
 
-import it.unibo.data.QuestionLoadingException;
 import it.unibo.model.answer.Answer;
+import it.unibo.model.data.QuestionLoadingException;
 import it.unibo.model.help.Switch;
 import it.unibo.model.match.Match;
 import it.unibo.model.question.Question;

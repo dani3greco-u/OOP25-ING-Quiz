@@ -21,6 +21,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.unibo.model.data.QuestionDTO;
+import it.unibo.model.data.QuestionLoadingException;
+
 import org.junit.jupiter.api.Test;
 
 @ExtendWith(MockitoExtension.class)

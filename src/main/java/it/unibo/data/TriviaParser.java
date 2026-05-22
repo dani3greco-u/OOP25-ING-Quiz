@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import it.unibo.model.data.QuestionDTO;
+import it.unibo.model.data.QuestionLoadingException;
+
 /**
  * Utility class for parsing trivia questions from JSON data.
  */
