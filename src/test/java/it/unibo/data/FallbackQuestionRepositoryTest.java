@@ -19,6 +19,12 @@ import it.unibo.model.data.QuestionLoadingException;
 import it.unibo.model.data.api.QuestionDataRepository;
 import it.unibo.model.question.Difficulty;
 
+// CHECKSTYLE: MagicNumber OFF
+/**
+ * Test class for the FallbackQuestionDataRepository. This class tests the behavior of the 
+ * repository when the primary source fails and the fallback source is used. 
+ * It also tests the normal behavior when the primary source works correctly.
+ */
 final class FallbackQuestionRepositoryTest {
 
     private QuestionDataRepository primaryMock;
@@ -39,11 +45,12 @@ final class FallbackQuestionRepositoryTest {
         // Creiamo dei finti repository usando Mockito
         this.primaryMock = mock(QuestionDataRepository.class);
         this.fallbackMock = mock(QuestionDataRepository.class);
-        
+
         // Istanziamo il nostro Fallback passandogli i due mock
         this.fallbackRepository = new FallbackQuestionDataRepository(this.primaryMock, this.fallbackMock);
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     @Test
     void testPrimarySuccess() throws QuestionLoadingException {
         final List<QuestionDTO> dummyQuestions = createDummyQuestions(18);
@@ -54,10 +61,10 @@ final class FallbackQuestionRepositoryTest {
 
         // in each mode we expect exactly 18 questions
         assertEquals(18, result.size());
-        
+
         // verify that primary was called once
         verify(this.primaryMock, times(1)).loadQuestions();
-        
+
         // if primary works, fallback should not be used
         verifyNoInteractions(this.fallbackMock);
     }
@@ -67,7 +74,7 @@ final class FallbackQuestionRepositoryTest {
         // primary fail
         when(this.primaryMock.loadQuestions())
             .thenThrow(new QuestionLoadingException("Not enough questions loaded from remote source"));
-        
+
         final List<QuestionDTO> localQuestions = createDummyQuestions(18);
         // fallback works fine
         when(this.fallbackMock.loadQuestions()).thenReturn(localQuestions);
@@ -77,7 +84,7 @@ final class FallbackQuestionRepositoryTest {
         // we expect exactly 18 questions, because the fallback should have worked
         assertNotNull(result);
         assertEquals(18, result.size());
-        
+
         // verify that primary was called once
         verify(this.primaryMock, times(1)).loadQuestions();
         // if primary fails, fallback should be used

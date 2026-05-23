@@ -28,8 +28,14 @@ import it.unibo.model.question.Difficulty;
 
 import org.junit.jupiter.api.Test;
 
+//CHECKSTYLE: MagicNumber OFF
+/**
+ * Test class for RemoteQuestionDataRepository .
+ * This class uses Mockito to mock the HttpClient and HttpResponse to test the behavior of the repository 
+ * under different scenarios.
+ */
 @ExtendWith(MockitoExtension.class)
-class RemoteQuestionRepositoryTest {
+final class RemoteQuestionRepositoryTest {
 
     @Mock
     private HttpClient client;
@@ -40,26 +46,29 @@ class RemoteQuestionRepositoryTest {
     private final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
     /**
-     * Helper method to generate a mock JSON response with 18 questions (6 for each difficulty level)
+     * Helper method to generate a mock JSON response with 18 questions (6 for each difficulty level).
+     * 
+     * @return A JSON string representing a valid response from the remote API with 18 questions.
      */
     private String generateMockJson() {
-        final StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder(38);
         sb.append("{\"response_code\": 0, \"results\": [");
-        
-        final String template = "{\"type\":\"multiple\",\"difficulty\":\"%s\",\"category\":\"Test\",\"question\":\"Test Q\",\"correct_answer\":\"A\",\"incorrect_answers\":[\"B\",\"C\",\"D\"]}";
-        
+
+        final String template = "{\"type\":\"multiple\",\"difficulty\":\"%s\",\"category\":\"Test\",\"question\":\"Test Q\","
+                                    + "\"correct_answer\":\"A\",\"incorrect_answers\":[\"B\",\"C\",\"D\"]}";
+
         // Generate 6 question for difficulty
         for (int i = 0; i < 6; i++) {
-            sb.append(String.format(template, Difficulty.EASY)).append(",");
-            sb.append(String.format(template, Difficulty.MEDIUM)).append(",");
+            sb.append(String.format(template, Difficulty.EASY)).append(',')
+                    .append(String.format(template, Difficulty.MEDIUM)).append(',');
         }
         for (int i = 0; i < 6; i++) {
             sb.append(String.format(template, Difficulty.HARD));
             if (i < 5) {
-                sb.append(","); // add ',' but not in the last
+                sb.append(','); // add ',' but not in the last
             }
         }
-        
+
         sb.append("]}");
         return sb.toString();
     }
@@ -67,7 +76,7 @@ class RemoteQuestionRepositoryTest {
     @Test
     void testLoadQuestionsSuccess() throws IOException, InterruptedException, QuestionLoadingException {
         final String json = generateMockJson();
-        
+
         when(this.client.send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
             .thenReturn(this.response);
         when(this.response.statusCode()).thenReturn(HttpURLConnection.HTTP_OK);
@@ -79,7 +88,7 @@ class RemoteQuestionRepositoryTest {
 
         assertNotNull(result);
         assertEquals(18, result.size(), "The list of questions should contain exactly 18 questions");
-        
+
         verify(this.client).send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }
 
@@ -108,9 +117,7 @@ class RemoteQuestionRepositoryTest {
         when(this.response.body()).thenReturn(json);
         final var repository = new RemoteQuestionDataRepository("http://localhost/notEnough", mapper, client);
 
-
-
-        assertThrows(QuestionLoadingException.class, () -> repository.loadQuestions());
+        assertThrows(QuestionLoadingException.class, repository::loadQuestions);
 
         verify(this.client).send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }

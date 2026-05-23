@@ -79,7 +79,7 @@ public class RemoteQuestionDataRepository implements QuestionDataRepository {
                 );
             }
             final TriviaParser parser = new TriviaParser(mapper);
-            final List<QuestionDTO> allDTOs= parser.parseTrivia(response.body());
+            final List<QuestionDTO> allDTOs = parser.parseTrivia(response.body());
 
             final List<QuestionDTO> balanceDTOs = new ArrayList<>();
             for (final Difficulty diff : Difficulty.values()) {
@@ -89,7 +89,7 @@ public class RemoteQuestionDataRepository implements QuestionDataRepository {
                     .limit(QUESTIONS_PER_DIFFICULTY)
                     .toList();
 
-                if(filtered.size() < QUESTIONS_PER_DIFFICULTY) {
+                if (filtered.size() < QUESTIONS_PER_DIFFICULTY) {
                     throw new QuestionLoadingException("Not enough question for difficulty " + diff);
                 }
 

@@ -14,6 +14,11 @@ import it.unibo.model.data.QuestionDTO;
 import it.unibo.model.data.QuestionLoadingException;
 import it.unibo.model.question.Difficulty;
 
+// CHECKSTYLE: MagicNumber OFF
+/**
+ * Test class for LocalQuestionRepository. It tests the loading of questions from a JSON file 
+ * and checks for various edge cases, such as empty files and malformed JSON.
+ */
 final class LocalQuestionRepositoryTest {
 
     private LocalQuestionDataRepository repository;
