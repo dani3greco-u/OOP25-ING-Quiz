@@ -140,10 +140,8 @@ final class RemoteQuestionRepositoryTest {
      */
     @Test
     void testLoadQuestionsThrowsExceptionForEmptyBody() throws IOException, InterruptedException {
-        when(this.client.send(
-            any(HttpRequest.class),
-            ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()
-        )).thenReturn(this.response);
+        when(this.client.send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
+            .thenReturn(this.response);
 
         when(this.response.statusCode()).thenReturn(HttpURLConnection.HTTP_OK);
         when(this.response.body()).thenReturn("   ");
@@ -153,6 +151,29 @@ final class RemoteQuestionRepositoryTest {
         assertThrows(QuestionLoadingException.class, repository::loadQuestions);
 
         verify(this.client).send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
+    }
+
+    /**
+     * Tests that a successful HTTP response with a null body causes a
+     * QuestionLoadingException.
+     *
+     * @throws IOException if the mocked HTTP client fails unexpectedly
+     * @throws InterruptedException if the mocked HTTP request is interrupted
+     */
+    @Test
+    void testLoadQuestionsThrowsExceptionForNullBody() throws IOException, InterruptedException {
+        when(this.client.send(
+            any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
+                .thenReturn(this.response);
+
+        when(this.response.statusCode()).thenReturn(HttpURLConnection.HTTP_OK);
+        when(this.response.body()).thenReturn(null);
+
+        final var repository = new RemoteQuestionDataRepository("http://localhost/null-body", this.mapper, this.client);
+
+        assertThrows(QuestionLoadingException.class, repository::loadQuestions);
+
+        verify(this.client).send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }
 
     @Test
