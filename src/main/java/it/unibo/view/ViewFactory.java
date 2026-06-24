@@ -1,5 +1,6 @@
 package it.unibo.view;
 
+import it.unibo.view.api.QuizView;
 import it.unibo.view.swing.SwingQuizView;
 
 /**
