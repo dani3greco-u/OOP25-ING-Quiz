@@ -107,6 +107,30 @@ final class RemoteQuestionRepositoryTest {
         assertTrue(ex.getMessage().contains("Error loading questions from remote source"));
     }
 
+    /**
+     * Tests that a non-successful HTTP status code causes a
+     * QuestionLoadingException.
+     *
+     * @throws IOException if the mocked client fails unexpectedly
+     * @throws InterruptedException if the mocked request is interrupted
+     */
+    @Test
+    void testLoadQuestionsThrowsExceptionForInvalidStatusCode() throws IOException, InterruptedException {
+        when(this.client.send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
+            .thenReturn(this.response);
+
+        when(this.response.statusCode())
+            .thenReturn(HttpURLConnection.HTTP_INTERNAL_ERROR);
+
+        final var repository = new RemoteQuestionDataRepository("http://localhost/test", this.mapper, this.client);
+
+        final QuestionLoadingException exception = assertThrows(QuestionLoadingException.class,repository::loadQuestions);
+
+        assertTrue(exception.getMessage().contains("HTTP status code"),"The exception message should contain the invalid HTTP status code");
+
+        verify(this.client).send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
+    }
+
     @Test
     void testLoadQuestionNotEnough() throws IOException, InterruptedException {
         final String json = "{\"response_code\": 0, \"results\": []}";

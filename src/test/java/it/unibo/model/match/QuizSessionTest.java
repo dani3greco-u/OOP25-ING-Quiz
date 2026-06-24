@@ -33,6 +33,11 @@ final class QuizSessionTest {
     static final int TOTAL_QUESTIONS = 18;
 
     /**
+     * The total number of question for winning the quiz.
+     */
+    static final int QUESTION_FOR_WIN = 15;
+
+    /**
      * Helper method to generate a list of QuestionDTOs for testing purposes.
      * 
      * @param amount the number of QuestionDTOs to generate
@@ -148,6 +153,54 @@ final class QuizSessionTest {
         "After submitting a wrong answer, the match state should be LOSE");
         assertEquals(1, session.getMatch().getQuestionNumber(), 
         "After submitting a wrong answer, the question number should not be incremented");
+    }
+
+    /**
+     * Tests that answering all questions correctly wins the match without
+     * advancing beyond the last available question.
+     *
+     * @throws QuestionLoadingException if there is an error loading questions
+     */
+    @Test
+    void testWinAfterLastCorrectAnswer() throws QuestionLoadingException {
+        final QuestionDataRepository repository =
+            () -> generateQuestionsDTO(TOTAL_QUESTIONS);
+
+        final QuizSessionImpl session = new QuizSessionImpl(repository);
+        session.startNewGame();
+
+        for (int i = 0; i < QUESTION_FOR_WIN; i++) {
+            final Answer correctAnswer = session.getCurrentQuestion()
+                .getAnswers()
+                .stream()
+                .filter(Answer::isCorrect)
+                .findFirst()
+                .orElseThrow(() ->
+                    new IllegalStateException(
+                        "No correct answer found for the current question"
+                    )
+                );
+
+            session.submitAnswer(correctAnswer);
+        }
+
+        assertEquals(
+            QUESTION_FOR_WIN,
+            session.getMatch().getScore(),
+            "After answering all questions correctly, the score should equal the total number of questions"
+        );
+
+        assertEquals(
+            MatchState.WIN,
+            session.getMatch().getState(),
+            "After answering the last question correctly, the match state should be WIN"
+        );
+
+        assertEquals(
+            QUESTION_FOR_WIN - 1,
+            session.getMatch().getQuestionNumber(),
+            "After winning, the question number should remain on the last question"
+        );
     }
 
     @Test
