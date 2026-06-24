@@ -36,7 +36,7 @@ import it.unibo.view.api.GameView;
  */
 public final class SwingGamePanel extends JPanel implements GameView {
 
-    public static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private static final int ANSWER_COUNT = 4;
 
@@ -64,6 +64,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private final JLabel progressLabel;
     private final JTextArea questionArea;
     private final JButton[] answerButtons;
+    private final JButton fiftyFiftyButton;
+    private final JButton doubleChanceButton;
+    private final JButton switchButton;
 
     /**
      * Creates the game panel.
@@ -79,6 +82,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.progressLabel = new JLabel();
         this.questionArea = new JTextArea();
         this.answerButtons = new JButton[ANSWER_COUNT];
+        this.fiftyFiftyButton = new JButton("50:50");
+        this.doubleChanceButton = new JButton("X2");
+        this.switchButton = new JButton("Switch");
 
         configurePanel();
         createComponents();
@@ -164,11 +170,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
 
         panel.add(helpLabel);
         panel.add(Box.createVerticalStrut(20));
-        panel.add(configureHelpButton(new JButton("50:50")));
+        panel.add(configureHelpButton(this.fiftyFiftyButton));
         panel.add(Box.createVerticalStrut(15));
-        panel.add(configureHelpButton(new JButton("Double")));
+        panel.add(configureHelpButton(this.doubleChanceButton));
         panel.add(Box.createVerticalStrut(15));
-        panel.add(configureHelpButton(new JButton("Switch")));
+        panel.add(configureHelpButton(this.switchButton));
         panel.add(Box.createVerticalGlue());
 
         return panel;
@@ -535,5 +541,123 @@ public final class SwingGamePanel extends JPanel implements GameView {
                 "Invalid answer index: " + answerIndex
             );
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setFiftyFiftyListener(final Runnable listener) {
+        Objects.requireNonNull(
+            listener,
+            "The 50:50 listener cannot be null"
+        );
+
+        this.fiftyFiftyButton.addActionListener(
+            event -> listener.run()
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setDoubleChanceListener(final Runnable listener) {
+        Objects.requireNonNull(
+            listener,
+            "The Double Chance listener cannot be null"
+        );
+
+        this.doubleChanceButton.addActionListener(
+            event -> listener.run()
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setSwitchListener(final Runnable listener) {
+        Objects.requireNonNull(
+            listener,
+            "The Switch listener cannot be null"
+        );
+
+        this.switchButton.addActionListener(
+            event -> listener.run()
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void disableFiftyFifty() {
+        this.fiftyFiftyButton.setEnabled(false);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void disableDoubleChance() {
+        this.doubleChanceButton.setEnabled(false);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void disableSwitch() {
+        this.switchButton.setEnabled(false);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void enableAllHelps() {
+        this.fiftyFiftyButton.setEnabled(true);
+        this.doubleChanceButton.setEnabled(true);
+        this.switchButton.setEnabled(true);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void showFiftyFiftyUsed() {
+        JOptionPane.showMessageDialog(
+            this,
+            "Due risposte errate sono state eliminate.",
+            "50:50",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void showDoubleChanceUsed() {
+        JOptionPane.showMessageDialog(
+            this,
+            "Doppia chance attivata per questa domanda.",
+            "Double Chance",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void showSwitchUsed() {
+        JOptionPane.showMessageDialog(
+            this,
+            "La domanda è stata sostituita.",
+            "Switch",
+            JOptionPane.INFORMATION_MESSAGE
+        );
     }
 }

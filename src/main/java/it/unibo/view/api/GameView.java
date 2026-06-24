@@ -47,13 +47,53 @@ public interface GameView {
      * @param listener the answer listener
      */
     void setAnswerListener(Consumer<Integer> listener);
+    
+    /**
+     * Registers the 50:50 help listener.
+     *
+     * @param listener the listener to execute
+     */
+    void setFiftyFiftyListener(Runnable listener);
 
+    /**
+     * Registers the Double Chance help listener.
+     *
+     * @param listener the listener to execute
+     */
+    void setDoubleChanceListener(Runnable listener);
+
+    /**
+     * Registers the Switch help listener.
+     *
+     * @param listener the listener to execute
+     */
+    void setSwitchListener(Runnable listener);
     /**
      * Disables one answer.
      *
      * @param answerIndex the index of the answer to disable
      */
     void disableAnswer(int answerIndex);
+
+    /**
+     * Disables the 50:50 help button.
+     */
+    void disableFiftyFifty();
+
+    /**
+     * Disables the Double Chance help button.
+     */
+    void disableDoubleChance();
+
+    /**
+     * Disables the Switch help button.
+     */
+    void disableSwitch();
+
+    /**
+     * Enables all help buttons.
+     */
+    void enableAllHelps();
 
     /**
      * Shows a message indicating that the answer is correct.
@@ -78,4 +118,19 @@ public interface GameView {
      * @param finalScore the final score
      */
     void showGameWon(int finalScore);
+
+    /**
+     * Shows a message confirming that the 50:50 help was used.
+     */
+    void showFiftyFiftyUsed();
+
+    /**
+     * Shows a message confirming that Double Chance was activated.
+     */
+    void showDoubleChanceUsed();
+
+    /**
+     * Shows a message confirming that the current question was switched.
+     */
+    void showSwitchUsed();
 }
