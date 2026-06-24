@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import it.unibo.view.api.GameView;
 import it.unibo.view.api.HomeView;
 import it.unibo.view.api.QuizView;
@@ -88,6 +89,11 @@ public final class SwingQuizView extends JFrame implements QuizView {
     /**
      * {@inheritDoc}
      */
+    @SuppressFBWarnings(
+        value = "EI_EXPOSE_REP",
+        justification = "The returned panel is intentionally exposed through its view interface so" 
+                            + "controllers can register listeners and update the UI."
+    )
     @Override
     public HomeView getHomeView() {
         return this.homePanel;
@@ -96,6 +102,11 @@ public final class SwingQuizView extends JFrame implements QuizView {
     /**
      * {@inheritDoc}
      */
+    @SuppressFBWarnings(
+        value = "EI_EXPOSE_REP",
+        justification = "The returned panel is intentionally exposed through its view interface so" 
+                            + "controllers can register listeners and update the UI."
+    )
     @Override
     public GameView getGameView() {
         return this.gamePanel;

@@ -47,7 +47,7 @@ public interface GameView {
      * @param listener the answer listener
      */
     void setAnswerListener(Consumer<Integer> listener);
-    
+
     /**
      * Registers the 50:50 help listener.
      *
@@ -68,6 +68,7 @@ public interface GameView {
      * @param listener the listener to execute
      */
     void setSwitchListener(Runnable listener);
+
     /**
      * Disables one answer.
      *

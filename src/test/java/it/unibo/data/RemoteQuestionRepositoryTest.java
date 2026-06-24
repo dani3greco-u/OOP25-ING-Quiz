@@ -29,6 +29,7 @@ import it.unibo.model.question.Difficulty;
 import org.junit.jupiter.api.Test;
 
 //CHECKSTYLE: MagicNumber OFF
+//CHECKSTYLE: MultipleStringLiterals OFF
 /**
  * Test class for RemoteQuestionDataRepository .
  * This class uses Mockito to mock the HttpClient and HttpResponse to test the behavior of the repository 
@@ -116,7 +117,7 @@ final class RemoteQuestionRepositoryTest {
      */
     @Test
     void testLoadQuestionsThrowsExceptionForInvalidStatusCode() throws IOException, InterruptedException {
-        when(this.client.send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
+        when(this.client.send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()))
             .thenReturn(this.response);
 
         when(this.response.statusCode())
@@ -124,11 +125,12 @@ final class RemoteQuestionRepositoryTest {
 
         final var repository = new RemoteQuestionDataRepository("http://localhost/test", this.mapper, this.client);
 
-        final QuestionLoadingException exception = assertThrows(QuestionLoadingException.class,repository::loadQuestions);
+        final QuestionLoadingException exception = assertThrows(QuestionLoadingException.class, repository::loadQuestions);
 
-        assertTrue(exception.getMessage().contains("HTTP status code"),"The exception message should contain the invalid HTTP status code");
+        assertTrue(exception.getMessage().contains("HTTP status code"),
+            "The exception message should contain the invalid HTTP status code");
 
-        verify(this.client).send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
+        verify(this.client).send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }
 
     /**
@@ -150,7 +152,7 @@ final class RemoteQuestionRepositoryTest {
 
         assertThrows(QuestionLoadingException.class, repository::loadQuestions);
 
-        verify(this.client).send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
+        verify(this.client).send(any(HttpRequest.class), ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }
 
     /**

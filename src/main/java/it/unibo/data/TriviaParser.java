@@ -41,7 +41,7 @@ public class TriviaParser {
         );
         try {
             final TriviaDTO trivia = this.mapper.readValue(json, TriviaDTO.class);
-            
+
             if (trivia.responseCode() != 0) {
                 throw new QuestionLoadingException(
                     "The trivia API returned response code "
@@ -54,7 +54,7 @@ public class TriviaParser {
                     "The trivia API returned no questions"
                 );
             }
-            
+
             return List.copyOf(trivia.results());
         } catch (final IOException e) {
             throw new QuestionLoadingException("Error parsing trivia JSON: " + e.getMessage(), e);

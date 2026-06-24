@@ -25,9 +25,9 @@ public class QuestionFactory {
     public Question fromDTO(final QuestionDTO dto) {
         final List<Answer> answers = new ArrayList<>();
 
-        answers.add(new Answer( StringEscapeUtils.unescapeHtml4(dto.correctAnswer()),true));
+        answers.add(new Answer(StringEscapeUtils.unescapeHtml4(dto.correctAnswer()), true));
         for (final String incorrect : dto.incorrectAnswers()) {
-            answers.add(new Answer( StringEscapeUtils.unescapeHtml4(incorrect),false));
+            answers.add(new Answer(StringEscapeUtils.unescapeHtml4(incorrect), false));
         }
 
         Collections.shuffle(answers);
