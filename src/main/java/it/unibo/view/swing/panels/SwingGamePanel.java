@@ -1,9 +1,13 @@
 package it.unibo.view.swing.panels;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -17,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 import it.unibo.view.api.GameView;
 
@@ -24,39 +29,60 @@ import it.unibo.view.api.GameView;
  * Swing implementation of the game screen.
  *
  * This panel displays the current question, the available answers,
- * the game progress and the lifeline buttons.
+ * the game progress and the help buttons.
  */
 public final class SwingGamePanel extends JPanel implements GameView {
 
+    private static final long serialVersionUID = 1L;
+
     private static final int ANSWER_COUNT = 4;
-    private static final int HORIZONTAL_GAP = 15;
-    private static final int VERTICAL_GAP = 15;
-    private static final int ANSWER_GAP = 10;
-    private static final int BORDER_SIZE = 20;
-    private static final int QUESTION_FONT_SIZE = 24;
+
+    private static final int MAIN_HORIZONTAL_GAP = 20;
+    private static final int MAIN_VERTICAL_GAP = 20;
+    private static final int BORDER_SIZE = 30;
+
+    private static final int QUESTION_FONT_SIZE = 28;
+    private static final int ANSWER_FONT_SIZE = 20;
+    private static final int PROGRESS_FONT_SIZE = 18;
+    private static final int HELP_FONT_SIZE = 16;
+
+    private static final int QUESTION_WIDTH = 600;
+    private static final int QUESTION_HEIGHT = 220;
+
+    private static final int ANSWER_BUTTON_WIDTH = 320;
+    private static final int ANSWER_BUTTON_HEIGHT = 100;
+
+    private static final int ANSWER_HORIZONTAL_GAP = 20;
+    private static final int ANSWER_VERTICAL_GAP = 20;
+
+    private static final int HELP_PANEL_WIDTH = 120;
+    private static final int HELP_BUTTON_HEIGHT = 45;
 
     private final JLabel progressLabel;
     private final JTextArea questionArea;
     private final JButton[] answerButtons;
-    private final JPanel helpPanel;
 
     /**
      * Creates the game panel.
      */
     public SwingGamePanel() {
-        super(new BorderLayout(HORIZONTAL_GAP, VERTICAL_GAP));
+        super(
+            new BorderLayout(
+                MAIN_HORIZONTAL_GAP,
+                MAIN_VERTICAL_GAP
+            )
+        );
 
         this.progressLabel = new JLabel();
         this.questionArea = new JTextArea();
         this.answerButtons = new JButton[ANSWER_COUNT];
-        this.helpPanel = new JPanel();
 
         configurePanel();
         createComponents();
     }
 
     /**
-     * Configures the main panel.
+     * Configures the main game panel.
      */
     private void configurePanel() {
         setBorder(
@@ -70,17 +96,17 @@ public final class SwingGamePanel extends JPanel implements GameView {
     }
 
     /**
-     * Creates and adds all the components of the game screen.
+     * Creates and adds all the game components.
      */
     private void createComponents() {
         add(createProgressPanel(), BorderLayout.NORTH);
         add(createHelpPanel(), BorderLayout.WEST);
-        add(createQuestionPanel(), BorderLayout.CENTER);
+        add(createQuestionContainer(), BorderLayout.CENTER);
         add(createAnswersPanel(), BorderLayout.SOUTH);
     }
 
     /**
-     * Creates the panel containing the game progress.
+     * Creates the upper panel containing the current progress.
      *
      * @return the progress panel
      */
@@ -89,36 +115,127 @@ public final class SwingGamePanel extends JPanel implements GameView {
             new FlowLayout(FlowLayout.RIGHT)
         );
 
+        this.progressLabel.setFont(
+            new Font(
+                Font.SANS_SERIF,
+                Font.BOLD,
+                PROGRESS_FONT_SIZE
+            )
+        );
+
         panel.add(this.progressLabel);
 
         return panel;
     }
 
     /**
-     * Creates the panel containing the lifeline buttons.
+     * Creates the panel containing the help buttons.
      *
-     * The listeners of these buttons will be added later,
-     * when the lifelines are connected to the controller.
-     *
-     * @return the lifeline panel
+     * @return the help panel
      */
     private JPanel createHelpPanel() {
-        this.helpPanel.setLayout(
-            new BoxLayout(this.helpPanel, BoxLayout.Y_AXIS)
+        final JPanel panel = new JPanel();
+
+        panel.setLayout(
+            new BoxLayout(panel, BoxLayout.Y_AXIS)
         );
 
-        this.helpPanel.add(new JLabel("Aiuti:"));
-        this.helpPanel.add(new JButton("50:50"));
-        this.helpPanel.add(Box.createVerticalStrut(ANSWER_GAP));
-        this.helpPanel.add(new JButton("Double Chance"));
-        this.helpPanel.add(Box.createVerticalStrut(ANSWER_GAP));
-        this.helpPanel.add(new JButton("Switch"));
+        panel.setPreferredSize(
+            new Dimension(HELP_PANEL_WIDTH, 0)
+        );
 
-        return this.helpPanel;
+        final JLabel helpLabel = new JLabel(
+            "Aiuti",
+            SwingConstants.CENTER
+        );
+
+        helpLabel.setFont(
+            new Font(
+                Font.SANS_SERIF,
+                Font.BOLD,
+                HELP_FONT_SIZE
+            )
+        );
+
+        helpLabel.setAlignmentX(CENTER_ALIGNMENT);
+
+        panel.add(helpLabel);
+        panel.add(Box.createVerticalStrut(20));
+        panel.add(configureHelpButton(new JButton("50:50")));
+        panel.add(Box.createVerticalStrut(15));
+        panel.add(configureHelpButton(new JButton("Double")));
+        panel.add(Box.createVerticalStrut(15));
+        panel.add(configureHelpButton(new JButton("Switch")));
+        panel.add(Box.createVerticalGlue());
+
+        return panel;
     }
 
     /**
-     * Creates the scroll pane containing the question text.
+     * Configures a help button.
+     *
+     * @param button the button to configure
+     * @return the configured button
+     */
+    private JButton configureHelpButton(final JButton button) {
+        button.setFont(
+            new Font(
+                Font.SANS_SERIF,
+                Font.BOLD,
+                HELP_FONT_SIZE
+            )
+        );
+
+        button.setAlignmentX(CENTER_ALIGNMENT);
+
+        button.setMaximumSize(
+            new Dimension(
+                HELP_PANEL_WIDTH,
+                HELP_BUTTON_HEIGHT
+            )
+        );
+
+        button.setPreferredSize(
+            new Dimension(
+                HELP_PANEL_WIDTH,
+                HELP_BUTTON_HEIGHT
+            )
+        );
+
+        return button;
+    }
+
+    /**
+     * Creates a container that keeps the question visually centered.
+     *
+     * @return the question container
+     */
+    private JPanel createQuestionContainer() {
+        final JPanel container = new JPanel(
+            new GridBagLayout()
+        );
+
+        final GridBagConstraints constraints =
+            new GridBagConstraints();
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.weightx = 1.0;
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets = new Insets(20, 20, 20, 20);
+
+        container.add(
+            createQuestionPanel(),
+            constraints
+        );
+
+        return container;
+    }
+
+    /**
+     * Creates the component containing the question text.
      *
      * @return the question scroll pane
      */
@@ -126,11 +243,51 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.questionArea.setEditable(false);
         this.questionArea.setLineWrap(true);
         this.questionArea.setWrapStyleWord(true);
+
         this.questionArea.setFont(
-            new Font("Serif", Font.PLAIN, QUESTION_FONT_SIZE)
+            new Font(
+                Font.SERIF,
+                Font.BOLD,
+                QUESTION_FONT_SIZE
+            )
         );
 
-        return new JScrollPane(this.questionArea);
+        this.questionArea.setMargin(
+            new Insets(25, 25, 25, 25)
+        );
+
+        this.questionArea.setFocusable(false);
+
+        final JScrollPane scrollPane =
+            new JScrollPane(this.questionArea);
+
+        scrollPane.setPreferredSize(
+            new Dimension(
+                QUESTION_WIDTH,
+                QUESTION_HEIGHT
+            )
+        );
+
+        scrollPane.setMinimumSize(
+            new Dimension(
+                QUESTION_WIDTH / 2,
+                QUESTION_HEIGHT
+            )
+        );
+
+        scrollPane.setBorder(
+            BorderFactory.createCompoundBorder(
+                BorderFactory.createEtchedBorder(),
+                BorderFactory.createEmptyBorder(
+                    5,
+                    5,
+                    5,
+                    5
+                )
+            )
+        );
+
+        return scrollPane;
     }
 
     /**
@@ -140,15 +297,63 @@ public final class SwingGamePanel extends JPanel implements GameView {
      */
     private JPanel createAnswersPanel() {
         final JPanel panel = new JPanel(
-            new GridLayout(2, 2, ANSWER_GAP, ANSWER_GAP)
+            new GridLayout(
+                2,
+                2,
+                ANSWER_HORIZONTAL_GAP,
+                ANSWER_VERTICAL_GAP
+            )
+        );
+
+        panel.setBorder(
+            BorderFactory.createEmptyBorder(
+                10,
+                10,
+                10,
+                10
+            )
         );
 
         for (int index = 0; index < ANSWER_COUNT; index++) {
-            this.answerButtons[index] = new JButton();
+            this.answerButtons[index] =
+                createAnswerButton();
+
             panel.add(this.answerButtons[index]);
         }
 
         return panel;
+    }
+
+    /**
+     * Creates and configures an answer button.
+     *
+     * @return the answer button
+     */
+    private JButton createAnswerButton() {
+        final JButton button = new JButton();
+
+        button.setFont(
+            new Font(
+                Font.SANS_SERIF,
+                Font.BOLD,
+                ANSWER_FONT_SIZE
+            )
+        );
+
+        button.setPreferredSize(
+            new Dimension(
+                ANSWER_BUTTON_WIDTH,
+                ANSWER_BUTTON_HEIGHT
+            )
+        );
+
+        button.setMargin(
+            new Insets(15, 20, 15, 20)
+        );
+
+        button.setFocusPainted(false);
+
+        return button;
     }
 
     /**
@@ -178,7 +383,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
 
         if (answers.size() != ANSWER_COUNT) {
             throw new IllegalArgumentException(
-                "Exactly " + ANSWER_COUNT + " answers are required"
+                "Exactly "
+                    + ANSWER_COUNT
+                    + " answers are required"
             );
         }
 
@@ -204,11 +411,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
         final int currentScore
     ) {
         this.progressLabel.setText(
-            "Domanda: "
+            "Domanda "
                 + currentQuestionNumber
                 + " / "
                 + totalQuestions
-                + " | Punteggio: "
+                + "  |  Punteggio: "
                 + currentScore
         );
     }
@@ -233,7 +440,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
                     JOptionPane.showConfirmDialog(
                         this,
                         "Sei sicuro della risposta?",
-                        "Conferma",
+                        "Conferma risposta",
                         JOptionPane.YES_NO_OPTION
                     );
 
@@ -319,7 +526,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private void validateAnswerIndex(final int answerIndex) {
         if (
             answerIndex < 0
-            || answerIndex >= ANSWER_COUNT
+                || answerIndex >= ANSWER_COUNT
         ) {
             throw new IllegalArgumentException(
                 "Invalid answer index: " + answerIndex
