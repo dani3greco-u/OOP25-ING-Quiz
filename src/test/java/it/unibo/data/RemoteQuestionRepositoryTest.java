@@ -131,6 +131,30 @@ final class RemoteQuestionRepositoryTest {
         verify(this.client).send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
     }
 
+    /**
+     * Tests that a successful HTTP response with an empty body causes a
+     * QuestionLoadingException.
+     *
+     * @throws IOException if the mocked HTTP client fails unexpectedly
+     * @throws InterruptedException if the mocked HTTP request is interrupted
+     */
+    @Test
+    void testLoadQuestionsThrowsExceptionForEmptyBody() throws IOException, InterruptedException {
+        when(this.client.send(
+            any(HttpRequest.class),
+            ArgumentMatchers.<HttpResponse.BodyHandler<String>>any()
+        )).thenReturn(this.response);
+
+        when(this.response.statusCode()).thenReturn(HttpURLConnection.HTTP_OK);
+        when(this.response.body()).thenReturn("   ");
+
+        final var repository = new RemoteQuestionDataRepository("http://localhost/empty", this.mapper, this.client);
+
+        assertThrows(QuestionLoadingException.class, repository::loadQuestions);
+
+        verify(this.client).send(any(HttpRequest.class),ArgumentMatchers.<HttpResponse.BodyHandler<String>>any());
+    }
+
     @Test
     void testLoadQuestionNotEnough() throws IOException, InterruptedException {
         final String json = "{\"response_code\": 0, \"results\": []}";
