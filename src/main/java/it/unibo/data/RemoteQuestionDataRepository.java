@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -33,6 +34,8 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
 
     private static final int CONNECTION_TIMEOUT_SECONDS = 5;
     private static final int REQUEST_TIMEOUT_SECONDS = 10;
+
+    private static final Logger LOGGER = Logger.getLogger(RemoteQuestionDataRepository.class.getName());
 
     private final String urlJson;
     private final ObjectMapper mapper;
@@ -137,7 +140,33 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
 
                 balanceDTOs.addAll(filtered);
             }
+            // DEBUG
+            LOGGER.info(
+                "Loaded " + balanceDTOs.size()
+                    + " questions from remote repository"
+            );
 
+            for (int index = 0; index < balanceDTOs.size(); index++) {
+                final QuestionDTO question = balanceDTOs.get(index);
+
+                LOGGER.info(
+
+                    System.lineSeparator()
+                        + "---------------------------------------------------"
+                        + System.lineSeparator()
+                        + "Question " + (index + 1)
+                        + System.lineSeparator()
+                        + "Difficulty: " + question.difficulty()
+                        + System.lineSeparator()
+                        + "Text: " + question.question()
+                        + System.lineSeparator()
+                        + "Correct answer: " + question.correctAnswer()
+                        + System.lineSeparator()
+                        + "Incorrect answers: " + question.incorrectAnswers()
+                        + System.lineSeparator()
+                        + "---------------------------------------------------"
+                );
+            }
             return balanceDTOs;
         } catch (final IOException e) {
             throw new QuestionLoadingException(
