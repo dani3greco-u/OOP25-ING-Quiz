@@ -17,7 +17,7 @@ import it.unibo.model.data.api.QuestionDataRepository;
 /**
  * Loads questions from a local data source. 
  */
-public class LocalQuestionDataRepository implements QuestionDataRepository {
+public final class LocalQuestionDataRepository implements QuestionDataRepository {
 
     private final String questionFilePath;
     private final ObjectMapper mapper;
@@ -37,7 +37,7 @@ public class LocalQuestionDataRepository implements QuestionDataRepository {
     }
 
     /**
-     * @ineheritDoc
+     * {@inheritDoc}
      */
     @Override
     public List<QuestionDTO> loadQuestions() throws QuestionLoadingException {

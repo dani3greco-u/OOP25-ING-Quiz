@@ -2,6 +2,7 @@ package it.unibo.data;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -20,7 +21,10 @@ public class TriviaParser {
      * @param mapper the ObjectMapper to use for parsing JSON data
      */
     public TriviaParser(final ObjectMapper mapper) {
-        this.mapper = mapper.findAndRegisterModules();
+        this.mapper = Objects.requireNonNull(
+            mapper,
+            "The ObjectMapper cannot be null"
+        );
     }
 
     /**
@@ -31,8 +35,26 @@ public class TriviaParser {
      * @throws QuestionLoadingException if there is an error during parsing
      */
     public List<QuestionDTO> parseTrivia(final String json) throws QuestionLoadingException {
+        Objects.requireNonNull(
+            json,
+            "The JSON string cannot be null"
+        );
         try {
             final TriviaDTO trivia = this.mapper.readValue(json, TriviaDTO.class);
+            
+            if (trivia.responseCode() != 0) {
+                throw new QuestionLoadingException(
+                    "The trivia API returned response code "
+                        + trivia.responseCode()
+                );
+            }
+
+            if (trivia.results().isEmpty()) {
+                throw new QuestionLoadingException(
+                    "The trivia API returned no questions"
+                );
+            }
+            
             return List.copyOf(trivia.results());
         } catch (final IOException e) {
             throw new QuestionLoadingException("Error parsing trivia JSON: " + e.getMessage(), e);

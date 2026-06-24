@@ -23,7 +23,9 @@ public record TriviaDTO(
      * @param results the list of questions retrieved from the API
      */
     public TriviaDTO {
-        results = List.copyOf(results);
+        results = results == null
+                ? List.of()
+                : List.copyOf(results);
     }
 }
 

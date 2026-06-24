@@ -38,10 +38,19 @@ public class FallbackQuestionDataRepository implements QuestionDataRepository {
     public List<QuestionDTO> loadQuestions() throws QuestionLoadingException {
         try {
             return this.primary.loadQuestions();
-        } catch (final QuestionLoadingException e) {
-            LOGGER.warning("Primary repository failed to load questions, falling back to " 
-                            + "local repository. Error: " + e.getMessage());
-            return this.fallback.loadQuestions();
+        } catch (final QuestionLoadingException primaryException) {
+            LOGGER.warning(
+                "Primary repository failed to load questions. "
+                    + "Trying fallback repository. Error: "
+                    + primaryException.getMessage()
+            );
+
+            try {
+                return this.fallback.loadQuestions();
+            } catch (final QuestionLoadingException fallbackException) {
+                fallbackException.addSuppressed(primaryException);
+                throw fallbackException;
+            }
         }
     }
 }
