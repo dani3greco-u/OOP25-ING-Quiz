@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import it.unibo.model.answer.Answer;
 import it.unibo.model.data.QuestionDTO;
 import it.unibo.model.question.Question;
@@ -32,7 +34,7 @@ public class QuestionFactory {
 
         return new Question(
             UUID.randomUUID().toString(),
-            dto.question(),
+            StringEscapeUtils.unescapeHtml4(dto.question()),
             dto.difficulty(),
             answers
         );
