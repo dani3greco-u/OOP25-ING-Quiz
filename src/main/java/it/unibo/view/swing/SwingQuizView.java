@@ -14,9 +14,11 @@ import it.unibo.view.swing.panels.SwingHomePanel;
 
 /**
  * Swing implementation of the main application View.
- *
+ * 
+ * <p>
  * This class is responsible for containing the available screens
  * and switching between them.
+ * </p>
  */
 public final class SwingQuizView extends JFrame implements QuizView {
 
@@ -57,7 +59,7 @@ public final class SwingQuizView extends JFrame implements QuizView {
      * Configures the main frame.
      */
     private void configureFrame() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setMinimumSize(
             new Dimension(MINIMUM_WIDTH, MINIMUM_HEIGHT)
@@ -128,5 +130,13 @@ public final class SwingQuizView extends JFrame implements QuizView {
     public void display() {
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void close() {
+        dispose();
     }
 }

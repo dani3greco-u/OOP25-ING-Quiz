@@ -25,15 +25,18 @@ import javax.swing.SwingConstants;
 
 import it.unibo.view.api.GameView;
 
+// CHECKSTYLE: MagicNumber OFF
 /**
  * Swing implementation of the game screen.
- *
+ * 
+ * <p>
  * This panel displays the current question, the available answers,
  * the game progress and the help buttons.
+ * </p>
  */
 public final class SwingGamePanel extends JPanel implements GameView {
 
-    private static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = 1L;
 
     private static final int ANSWER_COUNT = 4;
 

@@ -2,9 +2,11 @@ package it.unibo.view.api;
 
 /**
  * Defines the operations of the main application window.
- *
+ * 
+ * <p>
  * The main View is responsible for navigation between
  * the Home screen and the Game screen.
+ * </p>
  */
 public interface QuizView {
 
@@ -36,4 +38,9 @@ public interface QuizView {
      * Displays the main application window.
      */
     void display();
+
+    /**
+     * Closes the main application window.
+     */
+    void close();
 }

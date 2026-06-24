@@ -38,10 +38,11 @@ import it.unibo.view.api.HomeView;
  * logic directly, but delegates actions to the registered listeners.
  * </p>
  */
-public class SwingHomePanel extends JPanel implements HomeView {
+public final class SwingHomePanel extends JPanel implements HomeView {
 
-    private static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = 1L;
 
+    private static final String DEFAULT_FONT = "Arial";
     private final JButton btnInfo;
     private final JButton btnLeaderboard;
     private final JTextField txtName;
@@ -49,18 +50,19 @@ public class SwingHomePanel extends JPanel implements HomeView {
     private final JButton btnTraining;
     private final JButton btnExit;
 
+    // CHECKSTYLE: MagicNumber OFF
     /**
      * Creates and configures the home screen.
      */
     public SwingHomePanel() {
         this.txtName = new JTextField(15);
         this.txtName.setFont(
-            new Font("Arial", Font.PLAIN, 24)
+            new Font(DEFAULT_FONT, Font.PLAIN, 24)
         );
 
         this.btnStart = new JButton("START");
         this.btnStart.setFont(
-            new Font("Arial", Font.BOLD, 20)
+            new Font(DEFAULT_FONT, Font.BOLD, 20)
         );
         this.btnStart.setPreferredSize(
             new Dimension(180, 50)
@@ -68,7 +70,7 @@ public class SwingHomePanel extends JPanel implements HomeView {
 
         this.btnTraining = new JButton("TRAINING");
         this.btnTraining.setFont(
-            new Font("Arial", Font.BOLD, 20)
+            new Font(DEFAULT_FONT, Font.BOLD, 20)
         );
         this.btnTraining.setPreferredSize(
             new Dimension(180, 50)
@@ -168,7 +170,7 @@ public class SwingHomePanel extends JPanel implements HomeView {
 
             logoLabel.setFont(
                 new Font(
-                    "Arial",
+                    DEFAULT_FONT,
                     Font.BOLD,
                     40
                 )
@@ -195,7 +197,7 @@ public class SwingHomePanel extends JPanel implements HomeView {
 
         nameLabel.setFont(
             new Font(
-                "Arial",
+                DEFAULT_FONT,
                 Font.BOLD,
                 24
             )

@@ -5,10 +5,12 @@ import java.util.function.Consumer;
 
 /**
  * Defines the operations available in the game screen.
- *
+ * 
+ * <p>
  * The controller uses this interface to display questions,
  * update the game progress and receive the answer selected
  * by the user.
+ * </p>
  */
 public interface GameView {
 
@@ -41,8 +43,6 @@ public interface GameView {
 
     /**
      * Registers the listener invoked when an answer is selected.
-     *
-     * The listener receives the index of the selected answer.
      *
      * @param listener the answer listener
      */

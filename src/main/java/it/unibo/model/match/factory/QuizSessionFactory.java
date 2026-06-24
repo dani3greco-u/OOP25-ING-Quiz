@@ -5,6 +5,7 @@ import it.unibo.model.match.api.QuizSession;
 /**
  * Factory responsible for creating new quiz sessions.
  */
+@FunctionalInterface
 public interface QuizSessionFactory {
 
     /**
