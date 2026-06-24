@@ -28,8 +28,6 @@ import it.unibo.view.api.GameView;
  */
 public final class SwingGamePanel extends JPanel implements GameView {
 
-    private static final long serialVersionUID = 1L;
-
     private static final int ANSWER_COUNT = 4;
     private static final int HORIZONTAL_GAP = 15;
     private static final int VERTICAL_GAP = 15;
@@ -112,7 +110,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.helpPanel.add(new JLabel("Aiuti:"));
         this.helpPanel.add(new JButton("50:50"));
         this.helpPanel.add(Box.createVerticalStrut(ANSWER_GAP));
-        this.helpPanel.add(new JButton("X2"));
+        this.helpPanel.add(new JButton("Double Chance"));
+        this.helpPanel.add(Box.createVerticalStrut(ANSWER_GAP));
+        this.helpPanel.add(new JButton("Switch"));
 
         return this.helpPanel;
     }
