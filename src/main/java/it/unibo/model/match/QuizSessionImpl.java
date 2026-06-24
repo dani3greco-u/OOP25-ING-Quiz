@@ -104,12 +104,17 @@ public class QuizSessionImpl implements QuizSession {
     @Override
     public void submitAnswer(final Answer answer) {
         if (this.match.getState() != MatchState.IN_PROGRESS) {
-            throw new IllegalStateException("Cannot submit an answer when the match is not in progress.");
+            throw new IllegalStateException(
+                "Cannot submit an answer when the match is not in progress."
+            );
         }
+
         if (answer.isCorrect()) {
             this.match.submitAnswer(true);
-            //check if the match is still in progress before updating the current question
-            if (this.match.getState() == MatchState.IN_PROGRESS) {
+
+            if (this.match.getQuestionNumber() == TOTAL_QUESTIONS - 1) {
+                this.match.win();
+            } else {
                 this.match.nextQuestion();
                 this.currentQuestion = this.sessionQuestions.get(this.match.getQuestionNumber());
                 this.disabledAnswers = new ArrayList<>();
