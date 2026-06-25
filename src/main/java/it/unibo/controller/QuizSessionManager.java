@@ -25,7 +25,7 @@ public final class QuizSessionManager {
      *
      * @param sessionFactory the factory used to create quiz sessions
      */
-    public QuizSessionManager( final QuizSessionFactory sessionFactory) {
+    public QuizSessionManager(final QuizSessionFactory sessionFactory) {
         this.sessionFactory = Objects.requireNonNull(
             sessionFactory,
             "The quiz session factory cannot be null"

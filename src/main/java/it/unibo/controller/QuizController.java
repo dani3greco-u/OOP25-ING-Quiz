@@ -14,7 +14,6 @@ public final class QuizController {
 
     private final QuizSessionManager sessionManager;
     private final GameController gameController;
-    private final HomeController homeController;
 
     /**
      * Creates and connects the application controllers.
@@ -57,7 +56,7 @@ public final class QuizController {
             this.sessionManager
         );
 
-        this.homeController = new HomeController(
+        new HomeController(
             checkedQuizView,
             homeView,
             this.sessionManager,
