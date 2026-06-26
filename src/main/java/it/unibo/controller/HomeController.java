@@ -69,12 +69,6 @@ public final class HomeController {
             );
         });
 
-        this.homeView.setOnInfo(() -> {
-            LOGGER.info(
-                "[HOME CONTROLLER] Opening information."
-            );
-        });
-
         this.homeView.setOnLeaderboard(() -> {
             LOGGER.info(
                 "[HOME CONTROLLER] Opening leaderboard."

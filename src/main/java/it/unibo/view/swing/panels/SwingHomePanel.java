@@ -83,6 +83,27 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             40
         );
 
+        this.btnInfo.addActionListener(event -> {
+            JOptionPane.showMessageDialog(
+                this,
+                """
+                Benvenuto in ING Quiz!
+
+                Obiettivo:
+                Rispondi correttamente a 15 domande per vincere.
+
+                Aiuti disponibili:
+                - 50:50: elimina due risposte errate.
+                - Double Chance: permette un secondo tentativo.
+                - Switch: sostituisce la domanda corrente.
+
+                Lo Switch utilizza una delle 3 domande di riserva.
+                """,
+                "Informazioni",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        });
+
         this.btnLeaderboard = createIconButton(
             "/trophy.png",
             "Leaderboard",
@@ -301,19 +322,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      * {@inheritDoc}
      */
     @Override
-    public void setOnInfo(final Runnable listener) {
-        this.btnInfo.addActionListener(
-            event -> listener.run()
-        );
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setOnStart(
-        final Consumer<String> listener
-    ) {
+    public void setOnStart(final Consumer<String> listener) {
         this.btnStart.addActionListener(event -> {
             final String name =
                 this.txtName.getText().trim();
@@ -355,9 +364,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      * {@inheritDoc}
      */
     @Override
-    public void setOnTraining(
-        final Consumer<String> listener
-    ) {
+    public void setOnTraining(final Consumer<String> listener) {
         this.btnTraining.addActionListener(event -> {
             final String name =
                 this.txtName.getText().trim();

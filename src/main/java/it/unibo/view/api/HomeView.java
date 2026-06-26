@@ -9,13 +9,6 @@ import java.util.function.Consumer;
 public interface HomeView {
 
     /**
-     * Registers the Info button listener.
-     *
-     * @param listener the listener to execute
-     */
-    void setOnInfo(Runnable listener);
-
-    /**
      * Registers the Start button listener.
      *
      * @param listener the listener receiving the player name
