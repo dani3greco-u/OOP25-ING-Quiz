@@ -2,6 +2,9 @@ package it.unibo.controller;
 
 import java.util.Objects;
 
+import it.unibo.data.leaderboard.JsonLeaderboardRepository;
+import it.unibo.model.data.leaderboard.LeaderboardImpl;
+import it.unibo.model.data.leaderboard.api.Leaderboard;
 import it.unibo.model.match.factory.QuizSessionFactory;
 import it.unibo.view.api.GameView;
 import it.unibo.view.api.HomeView;
@@ -46,21 +49,23 @@ public final class QuizController {
             "The game view cannot be null"
         );
 
-        this.sessionManager = new QuizSessionManager(
-            checkedSessionFactory
-        );
+        this.sessionManager = new QuizSessionManager(checkedSessionFactory);
 
+        final Leaderboard leaderboard =  new LeaderboardImpl(new JsonLeaderboardRepository());
+        
         this.gameController = new GameController(
             checkedQuizView,
             gameView,
-            this.sessionManager
+            this.sessionManager,
+            leaderboard
         );
 
         new HomeController(
             checkedQuizView,
             homeView,
             this.sessionManager,
-            this.gameController
+            this.gameController,
+            leaderboard
         );
     }
 }

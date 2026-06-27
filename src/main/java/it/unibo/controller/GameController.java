@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 import it.unibo.model.answer.Answer;
+import it.unibo.model.data.leaderboard.api.Leaderboard;
 import it.unibo.model.match.MatchState;
 import it.unibo.model.match.api.QuizSession;
 import it.unibo.model.question.Question;
@@ -23,6 +24,7 @@ public final class GameController {
     private final QuizView quizView;
     private final GameView gameView;
     private final QuizSessionManager sessionManager;
+    private final Leaderboard leaderboard;
 
     /**
      * Creates the game controller.
@@ -34,7 +36,8 @@ public final class GameController {
     public GameController(
         final QuizView quizView,
         final GameView gameView,
-        final QuizSessionManager sessionManager
+        final QuizSessionManager sessionManager,
+        final Leaderboard leaderboard
     ) {
         this.quizView = Objects.requireNonNull(
             quizView,
@@ -49,6 +52,11 @@ public final class GameController {
         this.sessionManager = Objects.requireNonNull(
             sessionManager,
             "The session manager cannot be null"
+        );
+
+        this.leaderboard = Objects.requireNonNull(
+            leaderboard,
+            "The leaderboard cannot be null"
         );
 
         attachListeners();
@@ -289,11 +297,11 @@ public final class GameController {
      * Handles a lost game.
      */
     private void handleGameOver() {
-        final QuizSession session =
-            this.sessionManager.getCurrentSession();
+        final QuizSession session = this.sessionManager.getCurrentSession();
 
-        final int finalScore =
-            session.getMatch().getScore();
+        final int finalScore = session.getMatch().getScore();
+
+        recordScore(finalScore);
 
         this.gameView.showGameOver(finalScore);
         this.sessionManager.closeSession();
@@ -304,11 +312,11 @@ public final class GameController {
      * Handles a won game.
      */
     private void handleGameWon() {
-        final QuizSession session =
-            this.sessionManager.getCurrentSession();
+        final QuizSession session = this.sessionManager.getCurrentSession();
 
-        final int finalScore =
-            session.getMatch().getScore();
+        final int finalScore = session.getMatch().getScore();
+
+        recordScore(finalScore);
 
         this.gameView.showGameWon(finalScore);
         this.sessionManager.closeSession();
@@ -333,5 +341,35 @@ public final class GameController {
                 "Invalid answer index: " + answerIndex
             );
         }
+    }
+
+    /**
+     * Records the current score in the leaderboard when the active session
+     * is not a training session.
+     *
+     * @param score the final score achieved
+     */
+    private void recordScore(final int score) {
+        if (this.sessionManager.isTrainingSession()) {
+            LOGGER.info(
+                "[GAME CONTROLLER] Training score not recorded."
+            );
+            return;
+        }
+
+        final String playerName =
+            this.sessionManager.getCurrentPlayerName();
+
+        this.leaderboard.recordScore(
+            playerName,
+            score
+        );
+
+        LOGGER.info(
+            "[GAME CONTROLLER] Score recorded for: "
+                + playerName
+                + " - "
+                + score
+        );
     }
 }

@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.leaderboard.api.Leaderboard;
 import it.unibo.view.api.HomeView;
 import it.unibo.view.api.QuizView;
 
@@ -18,6 +19,7 @@ public final class HomeController {
     private final HomeView homeView;
     private final QuizSessionManager sessionManager;
     private final GameController gameController;
+    private final Leaderboard leaderboard;
 
     /**
      * Creates the home controller.
@@ -31,7 +33,8 @@ public final class HomeController {
         final QuizView quizView,
         final HomeView homeView,
         final QuizSessionManager sessionManager,
-        final GameController gameController
+        final GameController gameController,
+        final Leaderboard leaderboard
     ) {
         this.quizView = Objects.requireNonNull(
             quizView,
@@ -53,6 +56,11 @@ public final class HomeController {
             "The game controller cannot be null"
         );
 
+        this.leaderboard = Objects.requireNonNull(
+            leaderboard,
+            "The leaderboard cannot be null"
+        );
+
         attachListeners();
     }
 
@@ -61,18 +69,14 @@ public final class HomeController {
      */
     private void attachListeners() {
         this.homeView.setOnStart(this::startGame);
-
-        this.homeView.setOnTraining(playerName -> {
-            LOGGER.info(
-                "[HOME CONTROLLER] Training mode requested by: "
-                    + playerName
-            );
-        });
+        this.homeView.setOnTraining(this::startTraining);
 
         this.homeView.setOnLeaderboard(() -> {
-            LOGGER.info(
-                "[HOME CONTROLLER] Opening leaderboard."
-            );
+        LOGGER.info(
+            "[HOME CONTROLLER] Opening leaderboard."
+        );
+
+        this.homeView.showLeaderboard(this.leaderboard.getEntries());
         });
 
         this.homeView.setOnExit(this.quizView::close);
@@ -90,7 +94,7 @@ public final class HomeController {
                     + playerName
             );
 
-            this.sessionManager.startNewSession();
+            this.sessionManager.startNewSession(playerName, GameMode.NORMAL);
             this.gameController.prepareNewGame();
             this.quizView.showGame();
 
@@ -103,6 +107,38 @@ public final class HomeController {
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
                 "[HOME CONTROLLER] Unable to start the game: "
+                    + exception.getMessage()
+            );
+        }
+    }
+
+    /**
+     * Starts a new training session.
+     *
+     * @param playerName the player name
+     */
+    private void startTraining(final String playerName) {
+        try {
+            LOGGER.info(
+                "[HOME CONTROLLER] Starting training mode for: "
+                    + playerName
+            );
+
+            this.sessionManager.startNewSession(playerName, GameMode.TRAINING
+            );
+
+            this.gameController.prepareNewGame();
+            this.quizView.showGame();
+
+        } catch (final QuestionLoadingException exception) {
+            LOGGER.warning(
+                "[HOME CONTROLLER] Error while loading questions: "
+                    + exception.getMessage()
+            );
+
+        } catch (final IllegalStateException exception) {
+            LOGGER.warning(
+                "[HOME CONTROLLER] Unable to start training: "
                     + exception.getMessage()
             );
         }
