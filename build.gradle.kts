@@ -31,6 +31,7 @@ dependencies {
     // 
     implementation("org.mockito:mockito-core:5.23.0")
 
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     /*
      * Simple Logging Facade for Java (SLF4J)
@@ -52,7 +53,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("it.unibo.sampleapp.RateAMovie")
+    mainClass.set("it.unibo.MainDemo")
 }
 
 tasks.withType<Test>().configureEach {
