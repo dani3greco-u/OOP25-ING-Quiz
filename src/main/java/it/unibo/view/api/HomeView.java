@@ -1,6 +1,9 @@
 package it.unibo.view.api;
 
+import java.util.List;
 import java.util.function.Consumer;
+
+import it.unibo.model.data.leaderboard.LeaderboardEntry;
 
 /**
  * Interface for the Home View of the Quiz Game. This view is responsible for displaying the initial screen 
@@ -35,4 +38,11 @@ public interface HomeView {
      * @param listener the listener receiving the player name
      */
     void setOnTraining(Consumer<String> listener);
+
+    /**
+     * Shows the leaderboard entries.
+     *
+     * @param entries the leaderboard entries to display
+     */
+    void showLeaderboard(List<LeaderboardEntry> entries);
 }
