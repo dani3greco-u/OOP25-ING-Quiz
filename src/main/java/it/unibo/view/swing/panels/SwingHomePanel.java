@@ -10,6 +10,8 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.function.Consumer;
 
 import javax.swing.BorderFactory;
@@ -18,8 +20,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
+import it.unibo.model.data.leaderboard.LeaderboardEntry;
 import it.unibo.view.api.HomeView;
 
 /**
@@ -42,7 +48,9 @@ public final class SwingHomePanel extends JPanel implements HomeView {
 
     public static final long serialVersionUID = 1L;
 
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private static final String DEFAULT_FONT = "Arial";
+
     private final JButton btnInfo;
     private final JButton btnLeaderboard;
     private final JTextField txtName;
@@ -378,5 +386,75 @@ public final class SwingHomePanel extends JPanel implements HomeView {
                 );
             }
         });
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void showLeaderboard(
+        final List<LeaderboardEntry> entries
+    ) {
+        if (entries.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                this,
+                "La classifica è ancora vuota.",
+                "Classifica",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+            return;
+        }
+
+        final String[] columnNames = {
+            "Posizione",
+            "Giocatore",
+            "Punteggio",
+            "Data"
+        };
+
+        final Object[][] rowData =
+            new Object[entries.size()][columnNames.length];
+
+        for (int index = 0; index < entries.size(); index++) {
+            final LeaderboardEntry entry = entries.get(index);
+
+            rowData[index][0] = index + 1;
+            rowData[index][1] = entry.playerName();
+            rowData[index][2] = entry.score();
+            rowData[index][3] =
+                entry.achievedAt().format(DATE_FORMATTER);
+        }
+
+        final DefaultTableModel tableModel =
+            new DefaultTableModel(rowData, columnNames) {
+
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public boolean isCellEditable(
+                    final int row,
+                    final int column
+                ) {
+                    return false;
+                }
+            };
+
+        final JTable table = new JTable(tableModel);
+        table.setFillsViewportHeight(true);
+        table.setRowSelectionAllowed(false);
+
+        final JScrollPane scrollPane =
+            new JScrollPane(table);
+
+        scrollPane.setPreferredSize(
+            new Dimension(520, 280)
+        );
+
+        JOptionPane.showMessageDialog(
+            this,
+            scrollPane,
+            "Classifica",
+            JOptionPane.INFORMATION_MESSAGE
+        );
     }
 }
