@@ -28,8 +28,8 @@ public final class SwingQuizView extends JFrame implements QuizView {
     private static final String HOME_CARD = "HOME";
     private static final String GAME_CARD = "GAME";
 
-    private static final int WINDOW_WIDTH = 900;
-    private static final int WINDOW_HEIGHT = 700;
+    private static final int WINDOW_WIDTH = 1200;
+    private static final int WINDOW_HEIGHT = 1000;
 
     private static final int MINIMUM_WIDTH = 600;
     private static final int MINIMUM_HEIGHT = 600;

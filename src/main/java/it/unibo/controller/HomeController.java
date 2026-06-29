@@ -3,8 +3,8 @@ package it.unibo.controller;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-import it.unibo.model.data.QuestionLoadingException;
 import it.unibo.model.data.leaderboard.api.Leaderboard;
+import it.unibo.model.data.question.QuestionLoadingException;
 import it.unibo.view.api.HomeView;
 import it.unibo.view.api.QuizView;
 

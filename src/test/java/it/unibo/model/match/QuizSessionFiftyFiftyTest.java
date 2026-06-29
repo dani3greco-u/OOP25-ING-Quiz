@@ -9,8 +9,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import it.unibo.model.answer.Answer;
-import it.unibo.model.data.QuestionLoadingException;
-import it.unibo.model.data.api.QuestionDataRepository;
+import it.unibo.model.data.question.QuestionLoadingException;
+import it.unibo.model.data.question.api.QuestionDataRepository;
 
 /**
  * Tests for the fifty-fifty lifeline functionality in the quiz session.

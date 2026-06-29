@@ -2,7 +2,7 @@ package it.unibo.model.match;
 
 import java.util.Objects;
 
-import it.unibo.model.data.api.QuestionDataRepository;
+import it.unibo.model.data.question.api.QuestionDataRepository;
 import it.unibo.model.match.api.QuizSession;
 import it.unibo.model.match.factory.QuizSessionFactory;
 

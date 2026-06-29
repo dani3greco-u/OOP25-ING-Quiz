@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import it.unibo.model.data.QuestionDTO;
+import it.unibo.model.data.question.QuestionDTO;
 
 /**
  * DTO for the trivia API response.

@@ -2,7 +2,7 @@ package it.unibo.controller;
 
 import java.util.Objects;
 
-import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.question.QuestionLoadingException;
 import it.unibo.model.match.api.QuizSession;
 import it.unibo.model.match.factory.QuizSessionFactory;
 

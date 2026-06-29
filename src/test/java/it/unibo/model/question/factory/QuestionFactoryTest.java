@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import it.unibo.model.answer.Answer;
-import it.unibo.model.data.QuestionDTO;
+import it.unibo.model.data.question.QuestionDTO;
 import it.unibo.model.question.Difficulty;
 import it.unibo.model.question.Question;
 

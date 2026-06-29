@@ -11,8 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import it.unibo.data.question.LocalQuestionDataRepository;
-import it.unibo.model.data.QuestionDTO;
-import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.question.QuestionDTO;
+import it.unibo.model.data.question.QuestionLoadingException;
 import it.unibo.model.question.Difficulty;
 
 // CHECKSTYLE: MagicNumber OFF

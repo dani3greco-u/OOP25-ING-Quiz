@@ -14,9 +14,9 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 
 import it.unibo.model.answer.Answer;
-import it.unibo.model.data.QuestionDTO;
-import it.unibo.model.data.QuestionLoadingException;
-import it.unibo.model.data.api.QuestionDataRepository;
+import it.unibo.model.data.question.QuestionDTO;
+import it.unibo.model.data.question.QuestionLoadingException;
+import it.unibo.model.data.question.api.QuestionDataRepository;
 import it.unibo.model.question.Difficulty;
 import it.unibo.model.question.Question;
 

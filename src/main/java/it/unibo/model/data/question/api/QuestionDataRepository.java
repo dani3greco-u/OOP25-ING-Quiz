@@ -1,9 +1,9 @@
-package it.unibo.model.data.api;
+package it.unibo.model.data.question.api;
 
 import java.util.List;
 
-import it.unibo.model.data.QuestionDTO;
-import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.question.QuestionDTO;
+import it.unibo.model.data.question.QuestionLoadingException;
 
 /**
  *  Interface for loading questions from a data source.

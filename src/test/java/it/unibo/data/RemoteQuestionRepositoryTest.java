@@ -23,8 +23,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.unibo.data.question.RemoteQuestionDataRepository;
-import it.unibo.model.data.QuestionDTO;
-import it.unibo.model.data.QuestionLoadingException;
+import it.unibo.model.data.question.QuestionDTO;
+import it.unibo.model.data.question.QuestionLoadingException;
 import it.unibo.model.question.Difficulty;
 
 import org.junit.jupiter.api.Test;

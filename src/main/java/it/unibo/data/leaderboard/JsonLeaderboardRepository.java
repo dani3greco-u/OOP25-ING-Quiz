@@ -17,8 +17,7 @@ import it.unibo.model.data.leaderboard.LeaderboardEntry;
  */
 public final class JsonLeaderboardRepository implements LeaderboardRepository {
 
-    private static final Path DEFAULT_FILE_PATH =
-        Path.of("data", "leaderboard.json");
+    private static final Path DEFAULT_FILE_PATH = Path.of("data", "leaderboard.json");
 
     private final Path filePath;
     private final ObjectMapper mapper;

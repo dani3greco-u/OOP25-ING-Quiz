@@ -1,4 +1,4 @@
-package it.unibo.model.data;
+package it.unibo.model.data.question;
 
 import java.util.List;
 

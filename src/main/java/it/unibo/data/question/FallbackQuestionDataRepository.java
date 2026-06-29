@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-import it.unibo.model.data.QuestionDTO;
-import it.unibo.model.data.QuestionLoadingException;
-import it.unibo.model.data.api.QuestionDataRepository;
+import it.unibo.model.data.question.QuestionDTO;
+import it.unibo.model.data.question.QuestionLoadingException;
+import it.unibo.model.data.question.api.QuestionDataRepository;
 
 /** 
  * A QuestionDataRepository implementation that tries to load questions from a primary repository and falls back 
