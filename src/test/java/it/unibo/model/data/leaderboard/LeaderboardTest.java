@@ -10,9 +10,12 @@ import org.junit.jupiter.api.Test;
 import it.unibo.data.leaderboard.LeaderboardRepository;
 import it.unibo.model.data.leaderboard.api.Leaderboard;
 
+// CHECKSTYLE: MagicNumber OFF
+//CHECKSTYLE: MultipleStringLiterals OFF
 /**
  * Tests the default leaderboard implementation.
  */
+@SuppressWarnings("PMD.AvoidDuplicateLiterals")
 final class LeaderboardTest {
 
     /**
@@ -190,8 +193,8 @@ final class LeaderboardTest {
          * {@inheritDoc}
          */
         @Override
-        public void saveEntries(final List<LeaderboardEntry> entries) {
-            this.entries = new ArrayList<>(entries);
+        public void saveEntries(final List<LeaderboardEntry> newEntries) {
+            this.entries = new ArrayList<>(newEntries);
         }
     }
 }

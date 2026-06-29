@@ -23,6 +23,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import it.unibo.view.api.GameView;
 import it.unibo.view.swing.audio.SoundPlayer;
 
@@ -68,6 +69,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private final JButton fiftyFiftyButton;
     private final JButton doubleChanceButton;
     private final JButton switchButton;
+
+    @SuppressFBWarnings(
+        value = "SE_BAD_FIELD",
+        justification = "The sound player is a runtime-only helper and is not part of the panel's persistent state."
+    )
     private final SoundPlayer soundPlayer;
 
     /**

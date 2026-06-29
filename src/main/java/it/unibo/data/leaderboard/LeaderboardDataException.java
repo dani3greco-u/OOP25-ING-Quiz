@@ -5,6 +5,8 @@ package it.unibo.data.leaderboard;
  */
 public final class LeaderboardDataException extends RuntimeException {
 
+    public static final long serialVersionUID = 1L;
+
     /**
      * Creates a leaderboard data exception with the specified message
      * and cause.

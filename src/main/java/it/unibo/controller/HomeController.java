@@ -28,6 +28,7 @@ public final class HomeController {
      * @param homeView the home view
      * @param sessionManager the quiz session manager
      * @param gameController the game controller
+     * @param leaderboard the leaderboard
      */
     public HomeController(
         final QuizView quizView,

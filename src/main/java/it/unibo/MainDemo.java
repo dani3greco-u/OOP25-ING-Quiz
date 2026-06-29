@@ -1,0 +1,58 @@
+package it.unibo;
+
+import javax.swing.SwingUtilities;
+
+import it.unibo.controller.QuizController;
+import it.unibo.data.question.FallbackQuestionDataRepository;
+import it.unibo.data.question.LocalQuestionDataRepository;
+import it.unibo.data.question.RemoteQuestionDataRepository;
+import it.unibo.model.match.factory.QuizSessionFactory;
+import it.unibo.model.data.question.api.QuestionDataRepository;
+import it.unibo.model.match.QuizSessionFactoryImpl;
+import it.unibo.view.ViewFactory;
+import it.unibo.view.api.QuizView;
+
+/**
+ * Application entry point.
+ */
+public final class MainDemo {
+
+    private static final String QUESTIONS_FILE = "/demo.json";
+    private static final String REMOTE_QUESTIONS_URL = "https://opentdb.com/api.php?amount=50&category=20&type=multiple";
+
+    /**
+     * Private constructor because this class
+     * must not be instantiated.
+     */
+    private MainDemo() {
+    }
+
+    /**
+     * Starts the application.
+     *
+     * @param args command-line arguments
+     */
+    public static void main(final String[] args) {
+        SwingUtilities.invokeLater(() -> {
+
+        final QuestionDataRepository repository =
+            new FallbackQuestionDataRepository(
+                new RemoteQuestionDataRepository(REMOTE_QUESTIONS_URL),
+                new LocalQuestionDataRepository(QUESTIONS_FILE)
+            );
+
+            final QuizSessionFactory sessionFactory =
+                new QuizSessionFactoryImpl(repository);
+
+            final QuizView view =
+                ViewFactory.createQuizView();
+
+            new QuizController(
+                view,
+                sessionFactory
+            );
+
+            view.display();
+        });
+    }
+}

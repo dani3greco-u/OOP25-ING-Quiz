@@ -34,7 +34,7 @@ public final class QuizSessionManager {
         );
     }
 
-   /**
+    /**
      * Creates and starts a new quiz session for the specified player.
      *
      * <p>

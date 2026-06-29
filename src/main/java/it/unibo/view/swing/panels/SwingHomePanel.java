@@ -64,25 +64,15 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      */
     public SwingHomePanel() {
         this.txtName = new JTextField(15);
-        this.txtName.setFont(
-            new Font(DEFAULT_FONT, Font.PLAIN, 24)
-        );
+        this.txtName.setFont(new Font(DEFAULT_FONT, Font.PLAIN, 24));
 
         this.btnStart = new JButton("START");
-        this.btnStart.setFont(
-            new Font(DEFAULT_FONT, Font.BOLD, 20)
-        );
-        this.btnStart.setPreferredSize(
-            new Dimension(180, 50)
-        );
+        this.btnStart.setFont(new Font(DEFAULT_FONT, Font.BOLD, 20));
+        this.btnStart.setPreferredSize(new Dimension(180, 50));
 
         this.btnTraining = new JButton("TRAINING");
-        this.btnTraining.setFont(
-            new Font(DEFAULT_FONT, Font.BOLD, 20)
-        );
-        this.btnTraining.setPreferredSize(
-            new Dimension(180, 50)
-        );
+        this.btnTraining.setFont(new Font(DEFAULT_FONT, Font.BOLD, 20));
+        this.btnTraining.setPreferredSize(new Dimension(180, 50));
 
         this.btnInfo = createIconButton(
             "/info.png",
@@ -128,9 +118,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
 
         setLayout(new BorderLayout());
 
-        final JPanel topBar = new JPanel(
-            new BorderLayout()
-        );
+        final JPanel topBar = new JPanel(new BorderLayout());
 
         topBar.setBorder(
             BorderFactory.createEmptyBorder(
@@ -154,31 +142,23 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         topRightPanel.add(this.btnLeaderboard);
         topRightPanel.add(this.btnExit);
 
-        topBar.add(
-            topRightPanel,
-            BorderLayout.EAST
-        );
+        topBar.add(topRightPanel, BorderLayout.EAST);
 
         add(topBar, BorderLayout.NORTH);
 
-        final JPanel centerContent =
-            new JPanel(new GridBagLayout());
+        final JPanel centerContent = new JPanel(new GridBagLayout());
 
-        final GridBagConstraints constraints =
-            new GridBagConstraints();
+        final GridBagConstraints constraints = new GridBagConstraints();
 
-        constraints.insets =
-            new Insets(15, 15, 15, 15);
+        constraints.insets = new Insets(15, 15, 15, 15);
 
         constraints.gridx = 0;
 
         final JLabel logoLabel = new JLabel();
-        final URL logoUrl =
-            getClass().getResource("/logo.png");
+        final URL logoUrl = getClass().getResource("/logo.png");
 
         if (logoUrl != null) {
-            final ImageIcon originalLogo =
-                new ImageIcon(logoUrl);
+            final ImageIcon originalLogo = new ImageIcon(logoUrl);
 
             final Image scaledLogo =
                 originalLogo
@@ -189,13 +169,9 @@ public final class SwingHomePanel extends JPanel implements HomeView {
                         Image.SCALE_SMOOTH
                     );
 
-            logoLabel.setIcon(
-                new ImageIcon(scaledLogo)
-            );
+            logoLabel.setIcon(new ImageIcon(scaledLogo));
         } else {
-            logoLabel.setText(
-                "IMMAGINE LOGO MANCANTE"
-            );
+            logoLabel.setText("IMMAGINE LOGO MANCANTE");
 
             logoLabel.setFont(
                 new Font(
@@ -207,22 +183,16 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         }
 
         constraints.weighty = 0.3;
-        constraints.anchor =
-            GridBagConstraints.SOUTH;
+        constraints.anchor = GridBagConstraints.SOUTH;
         constraints.gridy = 0;
 
-        centerContent.add(
-            logoLabel,
-            constraints
-        );
+        centerContent.add(logoLabel, constraints);
 
         constraints.weighty = 0.1;
-        constraints.anchor =
-            GridBagConstraints.CENTER;
+        constraints.anchor = GridBagConstraints.CENTER;
         constraints.gridy = 1;
 
-        final JLabel nameLabel =
-            new JLabel("Inserisci il tuo nome:");
+        final JLabel nameLabel = new JLabel("Inserisci il tuo nome:");
 
         nameLabel.setFont(
             new Font(
@@ -232,18 +202,12 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             )
         );
 
-        centerContent.add(
-            nameLabel,
-            constraints
-        );
+        centerContent.add(nameLabel, constraints);
 
         constraints.weighty = 0.1;
         constraints.gridy = 2;
 
-        centerContent.add(
-            this.txtName,
-            constraints
-        );
+        centerContent.add(this.txtName, constraints);
 
         final JPanel buttonsPanel =
             new JPanel(
@@ -258,14 +222,10 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         buttonsPanel.add(this.btnTraining);
 
         constraints.weighty = 0.5;
-        constraints.anchor =
-            GridBagConstraints.NORTH;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.gridy = 3;
 
-        centerContent.add(
-            buttonsPanel,
-            constraints
-        );
+        centerContent.add(buttonsPanel, constraints);
 
         add(centerContent, BorderLayout.CENTER);
     }
@@ -292,12 +252,10 @@ public final class SwingHomePanel extends JPanel implements HomeView {
     ) {
         final JButton button = new JButton();
 
-        final URL iconUrl =
-            getClass().getResource(imagePath);
+        final URL iconUrl = getClass().getResource(imagePath);
 
         if (iconUrl != null) {
-            final ImageIcon originalIcon =
-                new ImageIcon(iconUrl);
+            final ImageIcon originalIcon = new ImageIcon(iconUrl);
 
             final Image scaledImage =
                 originalIcon
@@ -308,17 +266,13 @@ public final class SwingHomePanel extends JPanel implements HomeView {
                         Image.SCALE_SMOOTH
                     );
 
-            button.setIcon(
-                new ImageIcon(scaledImage)
-            );
+            button.setIcon(new ImageIcon(scaledImage));
 
             button.setContentAreaFilled(false);
             button.setBorderPainted(false);
             button.setFocusPainted(false);
             button.setOpaque(false);
-            button.setCursor(
-                new Cursor(Cursor.HAND_CURSOR)
-            );
+            button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         } else {
             button.setText(fallbackText);
         }
@@ -332,8 +286,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
     @Override
     public void setOnStart(final Consumer<String> listener) {
         this.btnStart.addActionListener(event -> {
-            final String name =
-                this.txtName.getText().trim();
+            final String name = this.txtName.getText().trim();
 
             if (!name.isEmpty()) {
                 listener.accept(name);
@@ -350,9 +303,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      * {@inheritDoc}
      */
     @Override
-    public void setOnLeaderboard(
-        final Runnable listener
-    ) {
+    public void setOnLeaderboard(final Runnable listener) {
         this.btnLeaderboard.addActionListener(
             event -> listener.run()
         );
@@ -374,8 +325,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
     @Override
     public void setOnTraining(final Consumer<String> listener) {
         this.btnTraining.addActionListener(event -> {
-            final String name =
-                this.txtName.getText().trim();
+            final String name = this.txtName.getText().trim();
 
             if (!name.isEmpty()) {
                 listener.accept(name);
@@ -392,9 +342,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      * {@inheritDoc}
      */
     @Override
-    public void showLeaderboard(
-        final List<LeaderboardEntry> entries
-    ) {
+    public void showLeaderboard(final List<LeaderboardEntry> entries) {
         if (entries.isEmpty()) {
             JOptionPane.showMessageDialog(
                 this,
@@ -409,11 +357,10 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             "Posizione",
             "Giocatore",
             "Punteggio",
-            "Data"
+            "Data",
         };
 
-        final Object[][] rowData =
-            new Object[entries.size()][columnNames.length];
+        final Object[][] rowData = new Object[entries.size()][columnNames.length];
 
         for (int index = 0; index < entries.size(); index++) {
             final LeaderboardEntry entry = entries.get(index);
@@ -421,8 +368,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             rowData[index][0] = index + 1;
             rowData[index][1] = entry.playerName();
             rowData[index][2] = entry.score();
-            rowData[index][3] =
-                entry.achievedAt().format(DATE_FORMATTER);
+            rowData[index][3] = entry.achievedAt().format(DATE_FORMATTER);
         }
 
         final DefaultTableModel tableModel =
@@ -431,10 +377,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
                 private static final long serialVersionUID = 1L;
 
                 @Override
-                public boolean isCellEditable(
-                    final int row,
-                    final int column
-                ) {
+                public boolean isCellEditable(final int row, final int column) {
                     return false;
                 }
             };
@@ -443,12 +386,9 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         table.setFillsViewportHeight(true);
         table.setRowSelectionAllowed(false);
 
-        final JScrollPane scrollPane =
-            new JScrollPane(table);
+        final JScrollPane scrollPane = new JScrollPane(table);
 
-        scrollPane.setPreferredSize(
-            new Dimension(520, 280)
-        );
+        scrollPane.setPreferredSize(new Dimension(520, 280));
 
         JOptionPane.showMessageDialog(
             this,

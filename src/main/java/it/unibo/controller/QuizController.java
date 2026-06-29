@@ -51,8 +51,8 @@ public final class QuizController {
 
         this.sessionManager = new QuizSessionManager(checkedSessionFactory);
 
-        final Leaderboard leaderboard =  new LeaderboardImpl(new JsonLeaderboardRepository());
-        
+        final Leaderboard leaderboard = new LeaderboardImpl(new JsonLeaderboardRepository());
+
         this.gameController = new GameController(
             checkedQuizView,
             gameView,

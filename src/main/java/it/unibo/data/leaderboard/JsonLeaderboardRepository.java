@@ -65,7 +65,7 @@ public final class JsonLeaderboardRepository implements LeaderboardRepository {
             final List<LeaderboardEntry> entries =
                 this.mapper.readValue(
                     this.filePath.toFile(),
-                    new TypeReference<List<LeaderboardEntry>>() { }
+                    new TypeReference<>() { }
                 );
 
             return entries == null

@@ -32,6 +32,7 @@ public final class GameController {
      * @param quizView the main application view
      * @param gameView the game view
      * @param sessionManager the quiz session manager
+     * @param leaderboard the leaderboard 
      */
     public GameController(
         final QuizView quizView,
