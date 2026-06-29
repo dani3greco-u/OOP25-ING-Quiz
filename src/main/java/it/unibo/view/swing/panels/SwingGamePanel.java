@@ -24,6 +24,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import it.unibo.view.api.GameView;
+import it.unibo.view.swing.audio.SoundPlayer;
 
 // CHECKSTYLE: MagicNumber OFF
 /**
@@ -67,6 +68,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private final JButton fiftyFiftyButton;
     private final JButton doubleChanceButton;
     private final JButton switchButton;
+    private final SoundPlayer soundPlayer;
 
     /**
      * Creates the game panel.
@@ -85,6 +87,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.fiftyFiftyButton = new JButton("50:50");
         this.doubleChanceButton = new JButton("X2");
         this.switchButton = new JButton("Switch");
+        this.soundPlayer = new SoundPlayer();
 
         configurePanel();
         createComponents();
@@ -474,6 +477,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      */
     @Override
     public void showCorrectAnswer() {
+        this.soundPlayer.play("/sounds/correct.wav");
         JOptionPane.showMessageDialog(
             this,
             "Risposta corretta!",
@@ -487,6 +491,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      */
     @Override
     public void showWrongAnswer() {
+        this.soundPlayer.play("/sounds/wrong.wav");
         JOptionPane.showMessageDialog(
             this,
             "Risposta errata!",
@@ -500,6 +505,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      */
     @Override
     public void showGameOver(final int finalScore) {
+        this.soundPlayer.play("/sounds/lose.wav");
         JOptionPane.showMessageDialog(
             this,
             "Risposta errata!\n"
@@ -516,6 +522,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      */
     @Override
     public void showGameWon(final int finalScore) {
+        this.soundPlayer.play("/sounds/win.wav");
         JOptionPane.showMessageDialog(
             this,
             "Complimenti!\n"
