@@ -1,4 +1,4 @@
-package it.unibo.data;
+package it.unibo.data.question;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,10 +30,10 @@ public final class LocalQuestionDataRepository implements QuestionDataRepository
     public LocalQuestionDataRepository(final String questionFilePath) {
         this.questionFilePath = questionFilePath;
         this.mapper = JsonMapper.builder()
-        .findAndAddModules()
-        .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
-        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        .build();
+            .findAndAddModules()
+            .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .build();
     }
 
     /**

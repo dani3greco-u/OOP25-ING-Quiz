@@ -1,4 +1,4 @@
-package it.unibo.data;
+package it.unibo.data.question;
 
 import java.util.List;
 import java.util.Objects;

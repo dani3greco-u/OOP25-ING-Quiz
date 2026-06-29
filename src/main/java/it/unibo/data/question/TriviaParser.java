@@ -1,4 +1,4 @@
-package it.unibo.data;
+package it.unibo.data.question;
 
 import java.io.IOException;
 import java.util.List;
