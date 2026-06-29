@@ -1,0 +1,221 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What was the name of the security vulnerability found in Bash in 2014?",
+      "correct_answer": "Shellshock",
+      "incorrect_answers": [
+        "Heartbleed",
+        "Bashbug",
+        "Stagefright"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What internet protocol was documented in RFC 1459?",
+      "correct_answer": "IRC",
+      "incorrect_answers": [
+        "HTTP",
+        "HTTPS",
+        "FTP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the name of the default theme that is installed with Windows XP?",
+      "correct_answer": "Luna",
+      "incorrect_answers": [
+        "Neptune",
+        "Whistler",
+        "Bliss"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which of the following is the oldest of these computers by release date?",
+      "correct_answer": "TRS-80",
+      "incorrect_answers": [
+        "Commodore 64",
+        "ZX Spectrum",
+        "Apple 3"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
+      "correct_answer": "center",
+      "incorrect_answers": [
+        "static",
+        "absolute",
+        "relative"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which kind of algorithm is Ron Rivest not famous for creating?",
+      "correct_answer": "Secret sharing scheme",
+      "incorrect_answers": [
+        "Hashing algorithm",
+        "Asymmetric encryption",
+        "Stream cipher"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is the most preferred image format used for logos in the Wikimedia database?",
+      "correct_answer": ".svg",
+      "incorrect_answers": [
+        ".png",
+        ".jpeg",
+        ".gif"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does &quot;LCD&quot; stand for?",
+      "correct_answer": "Liquid Crystal Display",
+      "incorrect_answers": [
+        "Language Control Design",
+        "Last Common Difference",
+        "Long Continuous Design"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Originally used in PCM adapters, what frequency is the standard for sampling audio in the Compact Disc Digital Audio format?",
+      "correct_answer": "44.1 kHz",
+      "incorrect_answers": [
+        "32.0 kHz",
+        "1.5 MHz",
+        "20.5 kHz"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which of these programming languages is a low-level language?",
+      "correct_answer": "Assembly",
+      "incorrect_answers": [
+        "Python",
+        "C#",
+        "Pascal"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which internet company began life as an online bookstore called &#039;Cadabra&#039;?",
+      "correct_answer": "Amazon",
+      "incorrect_answers": [
+        "eBay",
+        "Overstock",
+        "Shopify"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does GHz stand for?",
+      "correct_answer": "Gigahertz",
+      "incorrect_answers": [
+        "Gigahotz",
+        "Gigahetz",
+        "Gigahatz"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "The teapot often seen in many 3D modeling applications is called what?",
+      "correct_answer": "Utah Teapot",
+      "incorrect_answers": [
+        "Pixar Teapot",
+        "3D Teapot",
+        "Tennessee Teapot"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What amount of bits commonly equals one byte?",
+      "correct_answer": "8",
+      "incorrect_answers": [
+        "1",
+        "2",
+        "64"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which of the following physical typologies are used with Ethernet Networks?",
+      "correct_answer": "Star",
+      "incorrect_answers": [
+        "Ring",
+        "Mesh",
+        "Hex"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "When Gmail first launched, how much storage did it provide for your email?",
+      "correct_answer": "1GB",
+      "incorrect_answers": [
+        "512MB",
+        "5GB",
+        "Unlimited"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does AD stand for in relation to Windows Operating Systems? ",
+      "correct_answer": "Active Directory",
+      "incorrect_answers": [
+        "Alternative Drive",
+        "Automated Database",
+        "Active Department"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
+      "correct_answer": "&lt;marquee&gt;&lt;/marquee&gt;",
+      "incorrect_answers": [
+        "&lt;scroll&gt;&lt;/scroll&gt;",
+        "&lt;move&gt;&lt;/move&gt;",
+        "&lt;slide&gt;&lt;/slide&gt;"
+      ]
+    }
+  ]
+}
