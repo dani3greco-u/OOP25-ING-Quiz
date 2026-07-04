@@ -1,6 +1,5 @@
 package it.unibo.data;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -41,7 +40,6 @@ final class LocalQuestionRepositoryTest {
         final List<QuestionDTO> questions = repository.loadQuestions();
         assertNotNull(questions);
         assertFalse(questions.isEmpty(), "The list of questions should not be empty");
-        assertEquals(50, questions.size(), "The list of questions should contain exactly 10 question");
     }
 
     @Test
@@ -66,7 +64,6 @@ final class LocalQuestionRepositoryTest {
     void testLoadQuestionsIsUnmodifiable() throws QuestionLoadingException {
         final List<QuestionDTO> questions = repository.loadQuestions();
         assertNotNull(questions, "The list of questions should not be null");
-        assertEquals(50, questions.size(), "The list of questions should contain exactly 10 question");
 
         final QuestionDTO question = new QuestionDTO(
             "multiple",

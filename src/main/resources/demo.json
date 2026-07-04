@@ -3,169 +3,157 @@
   "results": [
     {
       "type": "multiple",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "category": "Science: Computers",
-      "question": "What was the name of the security vulnerability found in Bash in 2014?",
-      "correct_answer": "Shellshock",
+      "question": "Which subnet mask corresponds to a /24 IPv4 network?",
+      "correct_answer": "255.255.255.0",
       "incorrect_answers": [
-        "Heartbleed",
-        "Bashbug",
-        "Stagefright"
+        "255.255.0.0",
+        "255.255.255.252",
+        "255.0.0.0"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "hard",
       "category": "Science: Computers",
-      "question": "What internet protocol was documented in RFC 1459?",
-      "correct_answer": "IRC",
+      "question": "What is endian order?",
+      "correct_answer": "The byte order used to represent multi-byte values",
       "incorrect_answers": [
-        "HTTP",
-        "HTTPS",
-        "FTP"
+        "The order of SQL clauses",
+        "The priority of threads",
+        "The direction of packet routing"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "medium",
       "category": "Science: Computers",
-      "question": "What is the name of the default theme that is installed with Windows XP?",
-      "correct_answer": "Luna",
+      "question": "Which testing annotation marks a JUnit 5 test method?",
+      "correct_answer": "@Test",
       "incorrect_answers": [
-        "Neptune",
-        "Whistler",
-        "Bliss"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "hard",
-      "category": "Science: Computers",
-      "question": "Which of the following is the oldest of these computers by release date?",
-      "correct_answer": "TRS-80",
-      "incorrect_answers": [
-        "Commodore 64",
-        "ZX Spectrum",
-        "Apple 3"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
-      "correct_answer": "center",
-      "incorrect_answers": [
-        "static",
-        "absolute",
-        "relative"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "hard",
-      "category": "Science: Computers",
-      "question": "Which kind of algorithm is Ron Rivest not famous for creating?",
-      "correct_answer": "Secret sharing scheme",
-      "incorrect_answers": [
-        "Hashing algorithm",
-        "Asymmetric encryption",
-        "Stream cipher"
+        "@RunWith",
+        "@BeforeClass",
+        "@MockBean"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "easy",
       "category": "Science: Computers",
-      "question": "What is the most preferred image format used for logos in the Wikimedia database?",
-      "correct_answer": ".svg",
-      "incorrect_answers": [
-        ".png",
-        ".jpeg",
-        ".gif"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "What does &quot;LCD&quot; stand for?",
-      "correct_answer": "Liquid Crystal Display",
-      "incorrect_answers": [
-        "Language Control Design",
-        "Last Common Difference",
-        "Long Continuous Design"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "Originally used in PCM adapters, what frequency is the standard for sampling audio in the Compact Disc Digital Audio format?",
-      "correct_answer": "44.1 kHz",
-      "incorrect_answers": [
-        "32.0 kHz",
-        "1.5 MHz",
-        "20.5 kHz"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "Which of these programming languages is a low-level language?",
-      "correct_answer": "Assembly",
-      "incorrect_answers": [
-        "Python",
-        "C#",
-        "Pascal"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "Which internet company began life as an online bookstore called &#039;Cadabra&#039;?",
-      "correct_answer": "Amazon",
-      "incorrect_answers": [
-        "eBay",
-        "Overstock",
-        "Shopify"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "easy",
-      "category": "Science: Computers",
-      "question": "What does GHz stand for?",
+      "question": "Which unit is commonly used to measure processor clock speed?",
       "correct_answer": "Gigahertz",
       "incorrect_answers": [
-        "Gigahotz",
-        "Gigahetz",
-        "Gigahatz"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "The teapot often seen in many 3D modeling applications is called what?",
-      "correct_answer": "Utah Teapot",
-      "incorrect_answers": [
-        "Pixar Teapot",
-        "3D Teapot",
-        "Tennessee Teapot"
+        "Liters",
+        "Volts per meter",
+        "Pixels"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "easy",
       "category": "Science: Computers",
-      "question": "What amount of bits commonly equals one byte?",
+      "question": "Which protocol is used to send email between mail servers?",
+      "correct_answer": "SMTP",
+      "incorrect_answers": [
+        "HTTP",
+        "DNS",
+        "DHCP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which file extension is commonly used for JPEG images?",
+      "correct_answer": ".jpg",
+      "incorrect_answers": [
+        ".wav",
+        ".zip",
+        ".csv"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which operating system is developed by Apple for Mac computers?",
+      "correct_answer": "macOS",
+      "incorrect_answers": [
+        "Windows",
+        "Fedora",
+        "ChromeOS"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which vulnerability class occurs when untrusted input changes the structure of a SQL query?",
+      "correct_answer": "SQL injection",
+      "incorrect_answers": [
+        "Cross-site request forgery",
+        "Race condition",
+        "Heap fragmentation"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a Lamport clock used to represent?",
+      "correct_answer": "A partial ordering of events in a distributed system",
+      "incorrect_answers": [
+        "Physical CPU temperature",
+        "Database row size",
+        "Network bandwidth"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which shortcut commonly copies selected content?",
+      "correct_answer": "Ctrl+C",
+      "incorrect_answers": [
+        "Ctrl+V",
+        "Ctrl+Z",
+        "Ctrl+P"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Git command downloads changes and integrates them into the current branch?",
+      "correct_answer": "git pull",
+      "incorrect_answers": [
+        "git clone only",
+        "git tag",
+        "git stash"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Maven file describes a project and its dependencies?",
+      "correct_answer": "pom.xml",
+      "incorrect_answers": [
+        "build.ini",
+        "package.json",
+        "settings.java"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "How many bits are in one byte?",
       "correct_answer": "8",
       "incorrect_answers": [
-        "1",
-        "2",
+        "4",
+        "16",
         "64"
       ]
     },
@@ -173,48 +161,3444 @@
       "type": "multiple",
       "difficulty": "hard",
       "category": "Science: Computers",
-      "question": "Which of the following physical typologies are used with Ethernet Networks?",
-      "correct_answer": "Star",
+      "question": "What problem does consistent hashing primarily address?",
+      "correct_answer": "Redistributing few keys when nodes join or leave",
       "incorrect_answers": [
-        "Ring",
-        "Mesh",
-        "Hex"
+        "Encrypting all network traffic",
+        "Sorting arrays in place",
+        "Compiling generic types"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Git command shows the current branch and working tree status?",
+      "correct_answer": "git status",
+      "incorrect_answers": [
+        "git branch-new",
+        "git inspect",
+        "git upload"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "easy",
       "category": "Science: Computers",
-      "question": "When Gmail first launched, how much storage did it provide for your email?",
-      "correct_answer": "1GB",
+      "question": "Which component supplies electrical power to a desktop computer?",
+      "correct_answer": "Power supply unit",
       "incorrect_answers": [
-        "512MB",
-        "5GB",
-        "Unlimited"
+        "Sound card",
+        "Heat sink",
+        "Mouse"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which shortcut commonly saves a document?",
+      "correct_answer": "Ctrl+S",
+      "incorrect_answers": [
+        "Ctrl+H",
+        "Ctrl+E",
+        "Ctrl+R"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "medium",
       "category": "Science: Computers",
-      "question": "What does AD stand for in relation to Windows Operating Systems? ",
-      "correct_answer": "Active Directory",
+      "question": "Which Java package contains the Stream API?",
+      "correct_answer": "java.util.stream",
       "incorrect_answers": [
-        "Alternative Drive",
-        "Automated Database",
-        "Active Department"
+        "java.io.stream",
+        "java.lang.pipeline",
+        "java.net.flow"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "medium",
       "category": "Science: Computers",
-      "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
-      "correct_answer": "&lt;marquee&gt;&lt;/marquee&gt;",
+      "question": "Which memory structure stores method call frames?",
+      "correct_answer": "Stack",
       "incorrect_answers": [
-        "&lt;scroll&gt;&lt;/scroll&gt;",
-        "&lt;move&gt;&lt;/move&gt;",
-        "&lt;slide&gt;&lt;/slide&gt;"
+        "Heap only",
+        "SSD partition",
+        "Router table"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is a database table made of?",
+      "correct_answer": "Rows and columns",
+      "incorrect_answers": [
+        "Pixels and frames",
+        "Keys and buttons",
+        "Packets and routers"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Why is ECB mode generally unsuitable for structured plaintext?",
+      "correct_answer": "Identical plaintext blocks produce identical ciphertext blocks",
+      "incorrect_answers": [
+        "It requires asymmetric keys",
+        "It cannot encrypt full blocks",
+        "It always expands data tenfold"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which database index structure is commonly optimized for range queries?",
+      "correct_answer": "B-tree",
+      "incorrect_answers": [
+        "Bloom filter alone",
+        "Stack",
+        "Adjacency matrix"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is livelock?",
+      "correct_answer": "Processes keep changing state in response to each other without making progress",
+      "incorrect_answers": [
+        "A process is permanently blocked without activity",
+        "A file is read-only",
+        "A thread exits normally"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Unix system call creates a new process by duplicating the caller?",
+      "correct_answer": "fork",
+      "incorrect_answers": [
+        "exec",
+        "wait",
+        "open"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is copy-on-write?",
+      "correct_answer": "Sharing data until a write requires a private copy",
+      "incorrect_answers": [
+        "Writing every byte twice immediately",
+        "Copying files only over a network",
+        "Disabling memory protection"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a Bloom filter designed to provide?",
+      "correct_answer": "Probabilistic membership testing with possible false positives",
+      "incorrect_answers": [
+        "Exact sorting with no comparisons",
+        "Lossless image compression",
+        "Guaranteed absence of collisions"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which method is the usual entry point of a Java application?",
+      "correct_answer": "main",
+      "incorrect_answers": [
+        "start",
+        "run",
+        "init"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Java utility coordinates threads until a count reaches zero?",
+      "correct_answer": "CountDownLatch",
+      "incorrect_answers": [
+        "TreeMap",
+        "StringJoiner",
+        "PhantomReference"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which operator commonly tests equality in Java?",
+      "correct_answer": "==",
+      "incorrect_answers": [
+        "=",
+        "=&gt;",
+        "&lt;&gt;"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which format commonly uses comma-separated values?",
+      "correct_answer": "CSV",
+      "incorrect_answers": [
+        "PNG",
+        "WAV",
+        "EXE"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does IP stand for in networking?",
+      "correct_answer": "Internet Protocol",
+      "incorrect_answers": [
+        "Internal Program",
+        "Input Port",
+        "Internet Process"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which file commonly defines a Gradle build using the Groovy DSL?",
+      "correct_answer": "build.gradle",
+      "incorrect_answers": [
+        "pom.xml",
+        "Makefile.java",
+        "gradle.json"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which HTML tag is used to display an image?",
+      "correct_answer": "&lt;img&gt;",
+      "incorrect_answers": [
+        "&lt;link&gt;",
+        "&lt;form&gt;",
+        "&lt;head&gt;"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which protocol is commonly used to access web pages securely?",
+      "correct_answer": "HTTPS",
+      "incorrect_answers": [
+        "FTP",
+        "SMTP",
+        "SSH"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which language commonly adds interactivity to web pages?",
+      "correct_answer": "JavaScript",
+      "incorrect_answers": [
+        "Markdown",
+        "SQL",
+        "Assembly"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which CPU technique executes instructions before it is known whether they are needed?",
+      "correct_answer": "Speculative execution",
+      "incorrect_answers": [
+        "Static linking",
+        "Memory mapping",
+        "Packet shaping"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java mechanism allows one class to acquire members from another?",
+      "correct_answer": "Inheritance",
+      "incorrect_answers": [
+        "Serialization",
+        "Reflection only",
+        "Garbage collection"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java keyword prevents a class from being subclassed?",
+      "correct_answer": "final",
+      "incorrect_answers": [
+        "static",
+        "abstract",
+        "volatile"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which symbol ends most Java statements?",
+      "correct_answer": "Semicolon",
+      "incorrect_answers": [
+        "Colon",
+        "Comma",
+        "Question mark"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which SQL keyword combines rows from related tables?",
+      "correct_answer": "JOIN",
+      "incorrect_answers": [
+        "ATTACH",
+        "PAIR",
+        "MERGEFILE"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which HTTP status code indicates a successful request?",
+      "correct_answer": "200",
+      "incorrect_answers": [
+        "401",
+        "403",
+        "503"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which operating system is developed by Microsoft?",
+      "correct_answer": "Windows",
+      "incorrect_answers": [
+        "Ubuntu",
+        "macOS",
+        "FreeBSD"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which functional interface accepts one argument and returns a boolean?",
+      "correct_answer": "Predicate",
+      "incorrect_answers": [
+        "Consumer",
+        "Supplier",
+        "Runnable"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does Optional primarily represent in Java?",
+      "correct_answer": "A value that may be present or absent",
+      "incorrect_answers": [
+        "A mutable list",
+        "A checked exception",
+        "A network socket"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java exception is typically unchecked?",
+      "correct_answer": "NullPointerException",
+      "incorrect_answers": [
+        "IOException",
+        "SQLException",
+        "ClassNotFoundException"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which CSS layout system is designed for two-dimensional layouts?",
+      "correct_answer": "Grid",
+      "incorrect_answers": [
+        "Flexbox",
+        "SVG path",
+        "HTTP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which isolation level prevents dirty reads but may allow non-repeatable reads?",
+      "correct_answer": "Read committed",
+      "incorrect_answers": [
+        "Serializable",
+        "Read uncommitted",
+        "Snapshot isolation always"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is database normalization primarily intended to reduce?",
+      "correct_answer": "Data redundancy",
+      "incorrect_answers": [
+        "Network latency",
+        "CPU clock speed",
+        "Screen tearing"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Git command temporarily stores uncommitted changes?",
+      "correct_answer": "git stash",
+      "incorrect_answers": [
+        "git fork",
+        "git fetch --delete",
+        "git amend-file"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which sorting algorithm repeatedly swaps adjacent out-of-order elements?",
+      "correct_answer": "Bubble sort",
+      "incorrect_answers": [
+        "Merge sort",
+        "Heap sort",
+        "Counting sort"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is a README file commonly used for?",
+      "correct_answer": "Project documentation",
+      "incorrect_answers": [
+        "Storing executable machine code",
+        "Managing RAM",
+        "Rendering 3D graphics"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What problem can pure reference counting fail to reclaim?",
+      "correct_answer": "Cycles of mutually referencing objects",
+      "incorrect_answers": [
+        "Large primitive arrays",
+        "Immutable strings",
+        "Stack frames"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which HTML tag is commonly used for a paragraph?",
+      "correct_answer": "&lt;p&gt;",
+      "incorrect_answers": [
+        "&lt;img&gt;",
+        "&lt;table&gt;",
+        "&lt;script&gt;"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which of these is a Linux distribution?",
+      "correct_answer": "Ubuntu",
+      "incorrect_answers": [
+        "Windows 11",
+        "macOS Sonoma",
+        "iOS"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a deadlock?",
+      "correct_answer": "A set of processes waiting indefinitely for resources held by one another",
+      "incorrect_answers": [
+        "A single process using high CPU",
+        "A cache line miss",
+        "A malformed packet"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which SQL clause filters groups after aggregation?",
+      "correct_answer": "HAVING",
+      "incorrect_answers": [
+        "WHERE",
+        "FROM",
+        "VALUES"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which encoding represents Unicode code points using one to four bytes?",
+      "correct_answer": "UTF-8",
+      "incorrect_answers": [
+        "ASCII-7 only",
+        "Base64",
+        "BCD"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is tail recursion?",
+      "correct_answer": "A recursive call is the final operation of a function",
+      "incorrect_answers": [
+        "A recursive call occurs twice",
+        "A function returns a list tail",
+        "A loop uses a sentinel"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which RAID level stripes data without redundancy?",
+      "correct_answer": "RAID 0",
+      "incorrect_answers": [
+        "RAID 1",
+        "RAID 6",
+        "RAID 10"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java collection allows duplicate elements and preserves insertion order?",
+      "correct_answer": "ArrayList",
+      "incorrect_answers": [
+        "HashSet",
+        "TreeSet",
+        "HashMap keys"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which HTML element provides metadata about a document?",
+      "correct_answer": "&lt;head&gt;",
+      "incorrect_answers": [
+        "&lt;body&gt;",
+        "&lt;footer&gt;",
+        "&lt;canvas&gt;"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is SSRF?",
+      "correct_answer": "A server making attacker-controlled requests to internal or external resources",
+      "incorrect_answers": [
+        "A browser rendering untrusted CSS",
+        "A database returning stale rows",
+        "A router dropping fragments"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which password is generally strongest?",
+      "correct_answer": "A long unique passphrase",
+      "incorrect_answers": [
+        "password",
+        "12345678",
+        "qwerty"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which JUnit 5 annotation runs before each test method?",
+      "correct_answer": "@BeforeEach",
+      "incorrect_answers": [
+        "@BeforeAll only",
+        "@AfterEach",
+        "@DisplayName"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which language is mainly used to style web pages?",
+      "correct_answer": "CSS",
+      "incorrect_answers": [
+        "Python",
+        "Java",
+        "XML"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does Wi-Fi primarily provide?",
+      "correct_answer": "Wireless network access",
+      "incorrect_answers": [
+        "Video compression",
+        "Printer ink",
+        "File encryption"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is unit testing intended to verify?",
+      "correct_answer": "Small isolated units of behavior",
+      "incorrect_answers": [
+        "Only complete production deployments",
+        "Network cabling",
+        "User interface colors"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which command creates a local copy of a Git repository?",
+      "correct_answer": "git clone",
+      "incorrect_answers": [
+        "git paint",
+        "git browse",
+        "git mail"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is method overriding in Java?",
+      "correct_answer": "Providing a subclass implementation of an inherited method",
+      "incorrect_answers": [
+        "Defining multiple constructors",
+        "Changing a variable name",
+        "Importing a package"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which loop is designed to repeat while a condition remains true?",
+      "correct_answer": "while",
+      "incorrect_answers": [
+        "switch",
+        "import",
+        "class"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java map implementation keeps keys sorted by natural order?",
+      "correct_answer": "TreeMap",
+      "incorrect_answers": [
+        "HashMap",
+        "IdentityHashMap",
+        "WeakHashMap"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is Java bytecode executed by?",
+      "correct_answer": "The JVM",
+      "incorrect_answers": [
+        "The DNS resolver",
+        "The SQL optimizer",
+        "The GPU driver only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is referential transparency?",
+      "correct_answer": "An expression can be replaced by its value without changing program behavior",
+      "incorrect_answers": [
+        "A function always performs I/O",
+        "A variable has global scope",
+        "A method uses reflection"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the average time complexity of looking up a key in a well-designed hash table?",
+      "correct_answer": "O(1)",
+      "incorrect_answers": [
+        "O(n^2)",
+        "O(log n!)",
+        "O(2^n)"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is Gradle primarily used for?",
+      "correct_answer": "Build automation",
+      "incorrect_answers": [
+        "Packet routing",
+        "Image rendering",
+        "Password hashing"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which consensus problem states that a distributed system cannot simultaneously guarantee consistency, availability, and partition tolerance?",
+      "correct_answer": "CAP theorem",
+      "incorrect_answers": [
+        "Amdahl's law",
+        "Pigeonhole principle",
+        "Liskov substitution principle"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which data structure is used by a Merkle tree to efficiently verify data integrity?",
+      "correct_answer": "A tree of cryptographic hashes",
+      "incorrect_answers": [
+        "A queue of IP addresses",
+        "A matrix of pixels",
+        "A list of SQL joins"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which data structure supports finding the minimum element in O(1) and insertion in O(log n)?",
+      "correct_answer": "Binary min-heap",
+      "incorrect_answers": [
+        "Unsorted array",
+        "Singly linked list without metadata",
+        "Adjacency matrix"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which data structure follows FIFO order?",
+      "correct_answer": "Queue",
+      "incorrect_answers": [
+        "Stack",
+        "Binary tree",
+        "Hash function"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the main function of ARP in IPv4 networks?",
+      "correct_answer": "Map IP addresses to MAC addresses",
+      "incorrect_answers": [
+        "Encrypt packets",
+        "Assign domain names",
+        "Compress payloads"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which CSS layout system is one-dimensional?",
+      "correct_answer": "Flexbox",
+      "incorrect_answers": [
+        "Grid",
+        "WebGL",
+        "DOM"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which keyword creates a new object in Java?",
+      "correct_answer": "new",
+      "incorrect_answers": [
+        "make",
+        "create",
+        "alloc"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a TOCTOU vulnerability?",
+      "correct_answer": "A race between checking a condition and using the resource",
+      "incorrect_answers": [
+        "A weak cipher mode",
+        "A malformed JSON object",
+        "A routing loop"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which block executes whether or not an exception occurs?",
+      "correct_answer": "finally",
+      "incorrect_answers": [
+        "catch only",
+        "throw",
+        "synchronized"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which data type stores true or false in Java?",
+      "correct_answer": "boolean",
+      "incorrect_answers": [
+        "int",
+        "String",
+        "double"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which functional interface takes no arguments and returns a value?",
+      "correct_answer": "Supplier",
+      "incorrect_answers": [
+        "Predicate",
+        "BiConsumer",
+        "UnaryOperator"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which device produces paper output?",
+      "correct_answer": "Printer",
+      "incorrect_answers": [
+        "Microphone",
+        "Webcam",
+        "Switch"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does CI stand for in software development?",
+      "correct_answer": "Continuous Integration",
+      "incorrect_answers": [
+        "Compiled Interface",
+        "Central Internet",
+        "Code Isolation"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which program translates source code into machine code before execution?",
+      "correct_answer": "Compiler",
+      "incorrect_answers": [
+        "Browser",
+        "Router",
+        "Debugger only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which exploit mitigation marks memory pages as non-executable?",
+      "correct_answer": "DEP/NX",
+      "incorrect_answers": [
+        "DHCP snooping",
+        "Port forwarding",
+        "Write combining"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is integration testing intended to verify?",
+      "correct_answer": "Interactions between multiple components",
+      "incorrect_answers": [
+        "A single arithmetic expression",
+        "Only naming conventions",
+        "CPU microcode"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which database technique stores multiple versions of rows to support concurrent transactions?",
+      "correct_answer": "MVCC",
+      "incorrect_answers": [
+        "RAID",
+        "NAT",
+        "DMA"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does OS stand for?",
+      "correct_answer": "Operating System",
+      "incorrect_answers": [
+        "Open Software",
+        "Output Service",
+        "Online Storage"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does LAN stand for?",
+      "correct_answer": "Local Area Network",
+      "incorrect_answers": [
+        "Large Access Node",
+        "Linked Application Network",
+        "Local Analog Number"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which protocol automatically assigns IP addresses to devices on a network?",
+      "correct_answer": "DHCP",
+      "incorrect_answers": [
+        "DNS",
+        "HTTP",
+        "FTP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which attack exploits differences in the time taken by cryptographic operations?",
+      "correct_answer": "Timing attack",
+      "incorrect_answers": [
+        "Replay-free attack",
+        "SQL normalization attack",
+        "Packet fragmentation only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which OOP principle allows the same interface to have different implementations?",
+      "correct_answer": "Polymorphism",
+      "incorrect_answers": [
+        "Memoization",
+        "Pagination",
+        "Virtualization"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Stream operation transforms each element?",
+      "correct_answer": "map",
+      "incorrect_answers": [
+        "filter",
+        "reduce only",
+        "sorted"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which of these is an IDE?",
+      "correct_answer": "IntelliJ IDEA",
+      "incorrect_answers": [
+        "Spotify",
+        "GIMP",
+        "Thunderbird"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is cyclomatic complexity based on?",
+      "correct_answer": "The number of linearly independent paths through code",
+      "incorrect_answers": [
+        "The number of source files",
+        "The size of the executable only",
+        "The number of comments"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which keyword defines a function in Python?",
+      "correct_answer": "def",
+      "incorrect_answers": [
+        "func",
+        "method",
+        "function"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which protocol is commonly used to retrieve email while keeping messages on the server?",
+      "correct_answer": "IMAP",
+      "incorrect_answers": [
+        "ARP",
+        "ICMP",
+        "NTP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which application is used to browse websites?",
+      "correct_answer": "Web browser",
+      "incorrect_answers": [
+        "Compiler",
+        "Spreadsheet formula",
+        "Device driver"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which shortcut commonly pastes copied content?",
+      "correct_answer": "Ctrl+V",
+      "incorrect_answers": [
+        "Ctrl+X",
+        "Ctrl+A",
+        "Ctrl+S"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which attack reuses a previously valid message or authentication exchange?",
+      "correct_answer": "Replay attack",
+      "incorrect_answers": [
+        "Birthday attack only",
+        "Buffer underflow",
+        "ARP table aging"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is cloud storage?",
+      "correct_answer": "Remote storage accessed over a network",
+      "incorrect_answers": [
+        "A type of RAM",
+        "A local keyboard buffer",
+        "A printer queue"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which database property ensures that a transaction is completed entirely or not at all?",
+      "correct_answer": "Atomicity",
+      "incorrect_answers": [
+        "Availability",
+        "Indexing",
+        "Sharding"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which command compiles a Java source file?",
+      "correct_answer": "javac",
+      "incorrect_answers": [
+        "java",
+        "jar only",
+        "javadoc only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which algorithm is commonly used to elect a leader in a replicated log system?",
+      "correct_answer": "Raft",
+      "incorrect_answers": [
+        "Dijkstra",
+        "Boyer-Moore",
+        "Floyd-Warshall"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is lock contention?",
+      "correct_answer": "Multiple threads competing for the same lock",
+      "incorrect_answers": [
+        "A compiler resolving overloads",
+        "A database sorting rows",
+        "A router selecting a path"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which component performs most general-purpose calculations?",
+      "correct_answer": "CPU",
+      "incorrect_answers": [
+        "Keyboard",
+        "SSD enclosure",
+        "Monitor"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which algorithm finds a minimum spanning tree by repeatedly adding the lightest safe edge?",
+      "correct_answer": "Kruskal's algorithm",
+      "incorrect_answers": [
+        "Floyd-Warshall",
+        "Rabin-Karp",
+        "Topological sort"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which type of JOIN returns only matching rows from both tables?",
+      "correct_answer": "INNER JOIN",
+      "incorrect_answers": [
+        "LEFT JOIN",
+        "CROSS JOIN",
+        "FULL OUTER JOIN"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which distributed-systems property means every read receives the most recent write or an error?",
+      "correct_answer": "Linearizability",
+      "incorrect_answers": [
+        "Eventual consistency",
+        "Idempotence",
+        "Commutativity"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which string-search algorithm uses a prefix function to avoid rechecking characters?",
+      "correct_answer": "Knuth-Morris-Pratt",
+      "incorrect_answers": [
+        "Bubble sort",
+        "Dijkstra",
+        "Prim"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which SQL clause filters rows before grouping?",
+      "correct_answer": "WHERE",
+      "incorrect_answers": [
+        "HAVING",
+        "ORDER BY",
+        "LIMIT"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "According to Amdahl's law, what limits the maximum speedup of a parallel program?",
+      "correct_answer": "The serial portion of the program",
+      "incorrect_answers": [
+        "The number of source files",
+        "The screen refresh rate",
+        "The DNS cache size"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a zombie process?",
+      "correct_answer": "A terminated process whose exit status has not been collected",
+      "incorrect_answers": [
+        "A process consuming all RAM",
+        "A process with no executable file",
+        "A kernel thread"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which JavaScript keyword declares a block-scoped variable that can be reassigned?",
+      "correct_answer": "let",
+      "incorrect_answers": [
+        "const",
+        "static",
+        "final"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which functional interface accepts one argument and returns no result?",
+      "correct_answer": "Consumer",
+      "incorrect_answers": [
+        "Function",
+        "Supplier",
+        "Comparator"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which SOLID principle says subclasses should be substitutable for their base types?",
+      "correct_answer": "Liskov Substitution Principle",
+      "incorrect_answers": [
+        "Open/Closed Principle",
+        "Law of Demeter",
+        "YAGNI"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which compiler optimization replaces a function call with the function body?",
+      "correct_answer": "Inlining",
+      "incorrect_answers": [
+        "Dead-code retention",
+        "Paging",
+        "Link aggregation"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which join algorithm is often efficient when both inputs are sorted on the join key?",
+      "correct_answer": "Merge join",
+      "incorrect_answers": [
+        "Nested loop without index",
+        "Hash collision join",
+        "Round-robin join"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the DOM?",
+      "correct_answer": "A tree representation of an HTML document",
+      "incorrect_answers": [
+        "A database engine",
+        "A network protocol",
+        "A compression format"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which page-replacement algorithm evicts the page not used for the longest time?",
+      "correct_answer": "LRU",
+      "incorrect_answers": [
+        "FIFO always",
+        "Round-robin",
+        "Shortest job first"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which string-search algorithm uses a rolling hash?",
+      "correct_answer": "Rabin-Karp",
+      "incorrect_answers": [
+        "Kruskal",
+        "Tarjan",
+        "Aho-Corasick only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does CPU stand for?",
+      "correct_answer": "Central Processing Unit",
+      "incorrect_answers": [
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Core Processing User"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which IPv4 address is a loopback address?",
+      "correct_answer": "127.0.0.1",
+      "incorrect_answers": [
+        "192.168.1.1",
+        "8.8.8.8",
+        "255.255.255.0"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which command records staged changes in Git?",
+      "correct_answer": "git commit",
+      "incorrect_answers": [
+        "git delete",
+        "git execute",
+        "git merge-all"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which web vulnerability tricks an authenticated user's browser into sending an unwanted request?",
+      "correct_answer": "Cross-site request forgery",
+      "incorrect_answers": [
+        "Cross-site scripting",
+        "Command-line injection only",
+        "TCP reset"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java access modifier makes a member visible only within its own class?",
+      "correct_answer": "private",
+      "incorrect_answers": [
+        "public",
+        "protected",
+        "package import"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which tool helps find errors in a running program?",
+      "correct_answer": "Debugger",
+      "incorrect_answers": [
+        "Printer driver",
+        "File manager",
+        "Image viewer"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does Mockito's verify method check?",
+      "correct_answer": "Whether an interaction occurred",
+      "incorrect_answers": [
+        "Whether code compiles",
+        "Whether memory was freed",
+        "Whether JSON is valid"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is the expected search complexity of a balanced binary search tree?",
+      "correct_answer": "O(log n)",
+      "incorrect_answers": [
+        "O(n^2)",
+        "O(2^n)",
+        "O(1) worst-case"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which device is primarily used to move a pointer on a desktop computer?",
+      "correct_answer": "Mouse",
+      "incorrect_answers": [
+        "Printer",
+        "Scanner",
+        "Router"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which web vulnerability allows an attacker to execute script in another user's browser?",
+      "correct_answer": "Cross-site scripting",
+      "incorrect_answers": [
+        "Server-side request forgery",
+        "Path MTU discovery",
+        "DNSSEC"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which HTTP status code means 'Not Found'?",
+      "correct_answer": "404",
+      "incorrect_answers": [
+        "200",
+        "301",
+        "500"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which replication strategy allows writes to multiple replicas and resolves conflicts later?",
+      "correct_answer": "Multi-leader replication",
+      "incorrect_answers": [
+        "Single-thread execution",
+        "Write-through caching",
+        "Static linking"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which ACID property means committed data survives a system failure?",
+      "correct_answer": "Durability",
+      "incorrect_answers": [
+        "Isolation",
+        "Consistency",
+        "Atomicity"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is virtual memory?",
+      "correct_answer": "An abstraction that maps virtual addresses to physical memory and storage",
+      "incorrect_answers": [
+        "A cloud-only database",
+        "GPU texture compression",
+        "A network naming service"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java interface represents a computation that returns a value and may run asynchronously?",
+      "correct_answer": "Callable",
+      "incorrect_answers": [
+        "Runnable",
+        "Comparator",
+        "Iterable"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Java keyword ensures visibility of writes to a variable across threads without making compound actions atomic?",
+      "correct_answer": "volatile",
+      "incorrect_answers": [
+        "final",
+        "transient",
+        "native"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a race condition?",
+      "correct_answer": "Program behavior depends on the timing of unsynchronized operations",
+      "incorrect_answers": [
+        "A loop has too many iterations",
+        "A query uses an index",
+        "A packet has a checksum"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is Maven primarily used for in Java projects?",
+      "correct_answer": "Build and dependency management",
+      "incorrect_answers": [
+        "Drawing UML diagrams",
+        "Hosting DNS zones",
+        "Editing images"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which mechanism can mitigate priority inversion?",
+      "correct_answer": "Priority inheritance",
+      "incorrect_answers": [
+        "Page coloring",
+        "Loop unrolling",
+        "DNS round robin"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java class is commonly used for immutable text?",
+      "correct_answer": "String",
+      "incorrect_answers": [
+        "StringBuilder",
+        "CharBuffer",
+        "Scanner"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a context switch?",
+      "correct_answer": "Saving one execution context and restoring another",
+      "incorrect_answers": [
+        "Changing a file extension",
+        "Rotating encryption keys",
+        "Updating a DNS record"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is a merge conflict?",
+      "correct_answer": "A situation where Git cannot automatically combine changes",
+      "incorrect_answers": [
+        "A corrupted CPU cache",
+        "A failed DNS lookup",
+        "An expired TLS certificate"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which component is mainly responsible for rendering graphics?",
+      "correct_answer": "GPU",
+      "incorrect_answers": [
+        "PSU",
+        "NIC",
+        "HDD cable"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does JDK include that a JRE traditionally does not?",
+      "correct_answer": "Development tools such as the compiler",
+      "incorrect_answers": [
+        "A web browser",
+        "A database server",
+        "A graphics card"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which device displays visual output from a computer?",
+      "correct_answer": "Monitor",
+      "incorrect_answers": [
+        "Keyboard",
+        "Microphone",
+        "Modem"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What does idempotence mean for an operation?",
+      "correct_answer": "Repeating it has the same effect as applying it once",
+      "incorrect_answers": [
+        "It always fails on retry",
+        "It must be asynchronous",
+        "It changes its result every time"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which of these is a database system?",
+      "correct_answer": "PostgreSQL",
+      "incorrect_answers": [
+        "Firefox",
+        "GitHub Pages",
+        "Bluetooth"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is source code?",
+      "correct_answer": "Human-readable program instructions",
+      "incorrect_answers": [
+        "A monitor setting",
+        "Compressed audio",
+        "A network cable"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which data structure follows LIFO order?",
+      "correct_answer": "Stack",
+      "incorrect_answers": [
+        "Queue",
+        "Graph",
+        "Heap file"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which statement exits a loop immediately?",
+      "correct_answer": "break",
+      "incorrect_answers": [
+        "continue",
+        "return type",
+        "package"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which protocol translates domain names into IP addresses?",
+      "correct_answer": "DNS",
+      "incorrect_answers": [
+        "SMTP",
+        "SSH",
+        "SNMP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does CORS control in web browsers?",
+      "correct_answer": "Cross-origin resource access",
+      "incorrect_answers": [
+        "CPU cache allocation",
+        "Database indexing",
+        "File compression"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which algorithm identifies strongly connected components using depth-first search and low-link values?",
+      "correct_answer": "Tarjan's algorithm",
+      "incorrect_answers": [
+        "Dijkstra's algorithm",
+        "Heap sort",
+        "RSA"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is branch prediction intended to reduce?",
+      "correct_answer": "Pipeline stalls caused by control-flow decisions",
+      "incorrect_answers": [
+        "Database lock duration",
+        "Network jitter",
+        "Disk seek time"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which compiler phase converts source text into tokens?",
+      "correct_answer": "Lexical analysis",
+      "incorrect_answers": [
+        "Register allocation",
+        "Linking",
+        "Garbage collection"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which traversal visits the root before its subtrees?",
+      "correct_answer": "Preorder traversal",
+      "incorrect_answers": [
+        "Postorder traversal",
+        "Inorder traversal",
+        "Breadth-only sorting"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does GUI stand for?",
+      "correct_answer": "Graphical User Interface",
+      "incorrect_answers": [
+        "General Utility Input",
+        "Global User Internet",
+        "Graphic Unit Index"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which type of software protects against malicious programs?",
+      "correct_answer": "Antivirus software",
+      "incorrect_answers": [
+        "Spreadsheet software",
+        "Media player",
+        "Text editor"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is a folder also called?",
+      "correct_answer": "Directory",
+      "incorrect_answers": [
+        "Packet",
+        "Register",
+        "Pixel"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Mockito method commonly defines mock behavior?",
+      "correct_answer": "when",
+      "incorrect_answers": [
+        "expectClass",
+        "mockReturnOnly",
+        "assertCall"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which technology is used to encrypt web traffic?",
+      "correct_answer": "TLS",
+      "incorrect_answers": [
+        "CSV",
+        "PNG",
+        "USB"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does IDE stand for?",
+      "correct_answer": "Integrated Development Environment",
+      "incorrect_answers": [
+        "Internet Data Exchange",
+        "Internal Device Engine",
+        "Integrated Design Extension"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is malware?",
+      "correct_answer": "Malicious software",
+      "incorrect_answers": [
+        "A video format",
+        "A keyboard layout",
+        "A programming style"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is method overloading in Java?",
+      "correct_answer": "Defining methods with the same name but different parameter lists",
+      "incorrect_answers": [
+        "Replacing a superclass method with identical signature",
+        "Calling a method recursively",
+        "Loading classes from disk"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which SOLID principle states that software entities should be open for extension but closed for modification?",
+      "correct_answer": "Open/Closed Principle",
+      "incorrect_answers": [
+        "Single Responsibility Principle",
+        "Interface Segregation Principle",
+        "Dependency Inversion Principle"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Coffman condition requires resources to be held while waiting for others?",
+      "correct_answer": "Hold and wait",
+      "incorrect_answers": [
+        "Preemption",
+        "Fair scheduling",
+        "Write combining"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Unix system call replaces the current process image with a new program?",
+      "correct_answer": "exec",
+      "incorrect_answers": [
+        "fork",
+        "pipe",
+        "chmod"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does JVM stand for?",
+      "correct_answer": "Java Virtual Machine",
+      "incorrect_answers": [
+        "Java Variable Method",
+        "Joined Virtual Memory",
+        "Java Verification Model"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which principle states that programs tend to reuse recently accessed data and nearby data?",
+      "correct_answer": "Locality of reference",
+      "incorrect_answers": [
+        "CAP theorem",
+        "Kerckhoffs's principle",
+        "End-to-end principle"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which format is commonly used for video files?",
+      "correct_answer": "MP4",
+      "incorrect_answers": [
+        "INI",
+        "BAT",
+        "SVG only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which SQL function counts rows?",
+      "correct_answer": "COUNT",
+      "incorrect_answers": [
+        "SUMTEXT",
+        "NUMBER",
+        "ROWSIZE"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which anomaly occurs when repeated range queries return different sets of rows?",
+      "correct_answer": "Phantom read",
+      "incorrect_answers": [
+        "Stack overflow",
+        "Dead letter",
+        "Cache miss"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which normal form eliminates transitive dependencies on a primary key?",
+      "correct_answer": "Third normal form",
+      "incorrect_answers": [
+        "First normal form",
+        "Second normal form",
+        "Domain-key normal form"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which file extension is commonly used for plain text files?",
+      "correct_answer": ".txt",
+      "incorrect_answers": [
+        ".jpg",
+        ".mp3",
+        ".exe"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which data structure efficiently supports disjoint-set union and find operations?",
+      "correct_answer": "Union-find",
+      "incorrect_answers": [
+        "B-tree",
+        "Suffix array",
+        "Deque"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which collection interface represents an ordered sequence in Java?",
+      "correct_answer": "List",
+      "incorrect_answers": [
+        "Set",
+        "Map",
+        "Path"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which property of a hash function is violated when two different inputs produce the same output?",
+      "correct_answer": "Collision resistance",
+      "incorrect_answers": [
+        "Determinism",
+        "Preimage existence",
+        "Byte ordering"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java interface represents a task that returns no result?",
+      "correct_answer": "Runnable",
+      "incorrect_answers": [
+        "Callable",
+        "Supplier",
+        "Function"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is a bug in software?",
+      "correct_answer": "An error or defect",
+      "incorrect_answers": [
+        "A backup copy",
+        "A user account",
+        "A network cable"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What does REST commonly use to identify resources?",
+      "correct_answer": "URLs",
+      "incorrect_answers": [
+        "CPU registers",
+        "File descriptors",
+        "MAC vendor codes"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which storage device has no moving mechanical parts?",
+      "correct_answer": "SSD",
+      "incorrect_answers": [
+        "Floppy disk drive",
+        "Optical disc drive",
+        "Magnetic tape drive"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which exploit mitigation randomizes memory layout?",
+      "correct_answer": "ASLR",
+      "incorrect_answers": [
+        "RAID",
+        "NTP",
+        "SMTP AUTH"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which binary digit values are valid?",
+      "correct_answer": "0 and 1",
+      "incorrect_answers": [
+        "1 and 2",
+        "0 through 9",
+        "A and B"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which SOLID principle recommends depending on abstractions rather than concrete implementations?",
+      "correct_answer": "Dependency Inversion Principle",
+      "incorrect_answers": [
+        "Single Responsibility Principle",
+        "DRY",
+        "KISS"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which graph algorithm finds shortest paths from one source with non-negative edge weights?",
+      "correct_answer": "Dijkstra's algorithm",
+      "incorrect_answers": [
+        "Kruskal's algorithm",
+        "Depth-first search",
+        "KMP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which of these is a web browser?",
+      "correct_answer": "Firefox",
+      "incorrect_answers": [
+        "Excel",
+        "Photoshop",
+        "VLC"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which normal form requires atomic column values?",
+      "correct_answer": "First normal form",
+      "incorrect_answers": [
+        "Second normal form",
+        "Boyce-Codd normal form",
+        "Fifth normal form"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which JavaScript method converts a JSON string into an object?",
+      "correct_answer": "JSON.parse",
+      "incorrect_answers": [
+        "JSON.stringify",
+        "Object.write",
+        "String.decode"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which RAID level commonly uses distributed single parity?",
+      "correct_answer": "RAID 5",
+      "incorrect_answers": [
+        "RAID 0",
+        "RAID 1",
+        "RAID 10 only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What does a stack canary help detect?",
+      "correct_answer": "Stack-based buffer overflows",
+      "incorrect_answers": [
+        "SQL deadlocks",
+        "ARP spoofing",
+        "Disk fragmentation"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which asymmetric cryptosystem is based on the discrete logarithm problem over elliptic curves?",
+      "correct_answer": "ECC",
+      "incorrect_answers": [
+        "DES",
+        "RC4",
+        "MD5"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which memory area typically stores Java objects?",
+      "correct_answer": "Heap",
+      "incorrect_answers": [
+        "CPU instruction register",
+        "DNS cache only",
+        "BIOS ROM"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which format is commonly used for compressed audio?",
+      "correct_answer": "MP3",
+      "incorrect_answers": [
+        "BMP",
+        "CSV",
+        "HTML"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which search algorithm typically uses a stack or recursion?",
+      "correct_answer": "Depth-first search",
+      "incorrect_answers": [
+        "Breadth-first search",
+        "Linear probing",
+        "Round-robin"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which JavaScript operator compares both value and type?",
+      "correct_answer": "===",
+      "incorrect_answers": [
+        "==",
+        "=",
+        "!="
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which mitigation most directly prevents directory traversal?",
+      "correct_answer": "Canonicalize and constrain paths to an allowed base directory",
+      "incorrect_answers": [
+        "Increase CPU frequency",
+        "Disable DNS caching",
+        "Use longer table names"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does API stand for?",
+      "correct_answer": "Application Programming Interface",
+      "incorrect_answers": [
+        "Automated Program Installation",
+        "Advanced Packet Internet",
+        "Application Process Index"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does 2FA stand for?",
+      "correct_answer": "Two-Factor Authentication",
+      "incorrect_answers": [
+        "Two-File Access",
+        "Transfer Function Array",
+        "Trusted Format Approval"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is garbage collection?",
+      "correct_answer": "Automatic reclamation of unreachable memory",
+      "incorrect_answers": [
+        "Manual disk defragmentation",
+        "Network packet filtering",
+        "Source code formatting"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which design pattern composes objects into tree structures and treats individual objects and groups uniformly?",
+      "correct_answer": "Composite",
+      "incorrect_answers": [
+        "Prototype",
+        "Mediator",
+        "Flyweight"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which method commonly adds an element to a Java collection?",
+      "correct_answer": "add",
+      "incorrect_answers": [
+        "pushFile",
+        "insertText",
+        "appendClass"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which symbol is commonly used in email addresses?",
+      "correct_answer": "@",
+      "incorrect_answers": [
+        "#",
+        "%",
+        "&amp;"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which data type stores a single character in Java?",
+      "correct_answer": "char",
+      "incorrect_answers": [
+        "String",
+        "float",
+        "byte[]"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which HTTP method is typically used to retrieve a resource?",
+      "correct_answer": "GET",
+      "incorrect_answers": [
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Git command stages changes for the next commit?",
+      "correct_answer": "git add",
+      "incorrect_answers": [
+        "git pull",
+        "git log",
+        "git reset --hard"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is priority inversion?",
+      "correct_answer": "A high-priority task waits for a lower-priority task holding a needed resource",
+      "incorrect_answers": [
+        "A process changes its PID",
+        "A disk reverses block order",
+        "A compiler swaps operands"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which collection stores elements by key and value?",
+      "correct_answer": "Map",
+      "incorrect_answers": [
+        "List",
+        "Stack trace",
+        "Thread"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which cryptographic primitive provides authenticity and integrity using a shared secret?",
+      "correct_answer": "HMAC",
+      "incorrect_answers": [
+        "CRC32",
+        "Base64",
+        "LZ77"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which operator is commonly used for assignment?",
+      "correct_answer": "=",
+      "incorrect_answers": [
+        "==",
+        "!=",
+        "&lt;="
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which design pattern encapsulates a request as an object?",
+      "correct_answer": "Command",
+      "incorrect_answers": [
+        "Facade",
+        "Adapter",
+        "Template Method"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which OOP principle hides internal implementation details behind a public interface?",
+      "correct_answer": "Encapsulation",
+      "incorrect_answers": [
+        "Recursion",
+        "Tokenization",
+        "Polling"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which symbol surrounds a JSON array?",
+      "correct_answer": "Square brackets",
+      "incorrect_answers": [
+        "Curly braces only",
+        "Semicolons",
+        "Quotation marks only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which design pattern provides a placeholder controlling access to another object?",
+      "correct_answer": "Proxy",
+      "incorrect_answers": [
+        "Builder",
+        "Visitor",
+        "State"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which scheduling algorithm gives each runnable process a fixed time slice in rotation?",
+      "correct_answer": "Round-robin",
+      "incorrect_answers": [
+        "Shortest path first",
+        "Merge sort",
+        "Two-phase commit"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is amortized analysis?",
+      "correct_answer": "Analysis of average cost per operation over a sequence of operations",
+      "incorrect_answers": [
+        "Benchmarking only the fastest case",
+        "Measuring network latency",
+        "Estimating source-code length"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which protocol is connection-oriented and guarantees ordered delivery?",
+      "correct_answer": "TCP",
+      "incorrect_answers": [
+        "UDP",
+        "ICMP",
+        "ARP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which tool tracks changes to source code over time?",
+      "correct_answer": "Version control system",
+      "incorrect_answers": [
+        "Calculator",
+        "Screen reader",
+        "Disk defragmenter"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which device converts paper documents into digital images?",
+      "correct_answer": "Scanner",
+      "incorrect_answers": [
+        "Speaker",
+        "Router",
+        "Joystick"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which protocol is commonly preferred for real-time voice traffic because of low overhead?",
+      "correct_answer": "UDP",
+      "incorrect_answers": [
+        "TCP",
+        "SMTP",
+        "SFTP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which design pattern defines the skeleton of an algorithm while allowing subclasses to redefine steps?",
+      "correct_answer": "Template Method",
+      "incorrect_answers": [
+        "Abstract Factory",
+        "Observer",
+        "Chain of Responsibility"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which data type stores whole numbers in Java?",
+      "correct_answer": "int",
+      "incorrect_answers": [
+        "boolean",
+        "char",
+        "double[]"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which of these is a programming language?",
+      "correct_answer": "Python",
+      "incorrect_answers": [
+        "Photoshop",
+        "Ethernet",
+        "JPEG"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does URL stand for?",
+      "correct_answer": "Uniform Resource Locator",
+      "incorrect_answers": [
+        "Universal Routing Link",
+        "User Resource List",
+        "Unified Reference Location"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which language is mainly used to structure web pages?",
+      "correct_answer": "HTML",
+      "incorrect_answers": [
+        "SQL",
+        "Bash",
+        "C"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which of these is a boolean value?",
+      "correct_answer": "true",
+      "incorrect_answers": [
+        "42",
+        "hello",
+        "3.14"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which RAID level mirrors data across drives?",
+      "correct_answer": "RAID 1",
+      "incorrect_answers": [
+        "RAID 0",
+        "RAID 5 without parity",
+        "JBOD"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which file-system technique records intended changes before applying them?",
+      "correct_answer": "Journaling",
+      "incorrect_answers": [
+        "Polling",
+        "Spooling",
+        "Paging"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which key is commonly used to delete the character to the left of the cursor?",
+      "correct_answer": "Backspace",
+      "incorrect_answers": [
+        "Shift",
+        "Tab",
+        "Caps Lock"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which keyword is used to handle an exception after it is thrown?",
+      "correct_answer": "catch",
+      "incorrect_answers": [
+        "throws",
+        "finally",
+        "assert"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is a backup?",
+      "correct_answer": "A copy of data kept for recovery",
+      "incorrect_answers": [
+        "A screen resolution",
+        "A processor instruction",
+        "A web protocol"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is recursion?",
+      "correct_answer": "A function calling itself directly or indirectly",
+      "incorrect_answers": [
+        "A database join",
+        "A network broadcast",
+        "A file permission"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which SQL command retrieves rows from a table?",
+      "correct_answer": "SELECT",
+      "incorrect_answers": [
+        "PAINT",
+        "PRINT",
+        "DRAW"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which TLS mechanism allows a client to verify a server's identity?",
+      "correct_answer": "A certificate chain anchored in a trusted CA",
+      "incorrect_answers": [
+        "A DNS A record alone",
+        "A MAC address",
+        "A source code checksum"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does USB stand for?",
+      "correct_answer": "Universal Serial Bus",
+      "incorrect_answers": [
+        "Unified System Board",
+        "Universal Storage Block",
+        "User Signal Bridge"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which sorting algorithm has average time complexity O(n log n)?",
+      "correct_answer": "Merge sort",
+      "incorrect_answers": [
+        "Bubble sort",
+        "Selection sort",
+        "Bogosort"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is a mock object?",
+      "correct_answer": "A simulated dependency with controlled behavior",
+      "incorrect_answers": [
+        "A production database copy",
+        "A compressed test report",
+        "A compiler warning"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which device is commonly used to enter text into a computer?",
+      "correct_answer": "Keyboard",
+      "incorrect_answers": [
+        "Speaker",
+        "Projector",
+        "Switch"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which distributed consensus algorithm was introduced by Leslie Lamport?",
+      "correct_answer": "Paxos",
+      "incorrect_answers": [
+        "Kruskal",
+        "Tarjan",
+        "Rabin-Karp"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which keyword declares a class in Java?",
+      "correct_answer": "class",
+      "incorrect_answers": [
+        "struct",
+        "object",
+        "type"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which CPU cache-coherence protocol uses Modified, Exclusive, Shared, and Invalid states?",
+      "correct_answer": "MESI",
+      "incorrect_answers": [
+        "HTTP",
+        "ACID",
+        "BGP"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which assertion checks that two values are equal in JUnit 5?",
+      "correct_answer": "assertEquals",
+      "incorrect_answers": [
+        "assertSameText",
+        "verifyEqual",
+        "expect"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which block cipher mode turns a block cipher into a stream-like cipher and supports parallel encryption?",
+      "correct_answer": "CTR",
+      "incorrect_answers": [
+        "CBC",
+        "ECB",
+        "CFB with mandatory chaining"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which response format is commonly used by REST APIs?",
+      "correct_answer": "JSON",
+      "incorrect_answers": [
+        "BMP",
+        "WAV",
+        "ELF"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Stream operation combines elements into a single result?",
+      "correct_answer": "reduce",
+      "incorrect_answers": [
+        "distinct",
+        "skip",
+        "limit"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Java memory-model guarantee is established by releasing and then acquiring the same monitor?",
+      "correct_answer": "Happens-before relationship",
+      "incorrect_answers": [
+        "Tail-call optimization",
+        "Copy elision",
+        "Packet ordering"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is Bluetooth mainly used for?",
+      "correct_answer": "Short-range wireless communication",
+      "incorrect_answers": [
+        "Long-distance satellite links",
+        "Printing source code",
+        "Database indexing"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which language is commonly used to query relational databases?",
+      "correct_answer": "SQL",
+      "incorrect_answers": [
+        "CSS",
+        "HTML",
+        "JPEG"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does RAM stand for?",
+      "correct_answer": "Random Access Memory",
+      "incorrect_answers": [
+        "Read Access Memory",
+        "Rapid Application Module",
+        "Remote Allocation Memory"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which CSS property changes text color?",
+      "correct_answer": "color",
+      "incorrect_answers": [
+        "margin",
+        "display",
+        "border"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What is phishing?",
+      "correct_answer": "A fraudulent attempt to steal information",
+      "incorrect_answers": [
+        "A file compression method",
+        "A graphics technique",
+        "A database command"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Stream operation retains elements matching a predicate?",
+      "correct_answer": "filter",
+      "incorrect_answers": [
+        "map",
+        "flatMap only",
+        "peek only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which term describes a unique identifier for a database row?",
+      "correct_answer": "Primary key",
+      "incorrect_answers": [
+        "Wallpaper",
+        "Port number",
+        "Thread pool"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java class is commonly used for efficiently building mutable strings?",
+      "correct_answer": "StringBuilder",
+      "incorrect_answers": [
+        "String",
+        "Character",
+        "Optional"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which anomaly occurs when two reads in the same transaction return different committed values for the same row?",
+      "correct_answer": "Non-repeatable read",
+      "incorrect_answers": [
+        "Dirty write",
+        "Lost packet",
+        "Hash collision"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is a TLB?",
+      "correct_answer": "A cache of recent virtual-to-physical address translations",
+      "incorrect_answers": [
+        "A table of database locks",
+        "A transport-layer bridge",
+        "A type of RAID"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which compiler phase checks grammatical structure against a language grammar?",
+      "correct_answer": "Parsing",
+      "incorrect_answers": [
+        "Lexing",
+        "Code signing",
+        "Dynamic loading"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which HTML tag is used to create a hyperlink?",
+      "correct_answer": "&lt;a&gt;",
+      "incorrect_answers": [
+        "&lt;div&gt;",
+        "&lt;span&gt;",
+        "&lt;ul&gt;"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "What does JSON stand for?",
+      "correct_answer": "JavaScript Object Notation",
+      "incorrect_answers": [
+        "Java Source Object Network",
+        "Joined System Output Name",
+        "Java Serialized Operation Node"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which JavaScript method converts an object into a JSON string?",
+      "correct_answer": "JSON.stringify",
+      "incorrect_answers": [
+        "JSON.parse",
+        "Object.read",
+        "Array.decode"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Java collection is designed for concurrent key-value access?",
+      "correct_answer": "ConcurrentHashMap",
+      "incorrect_answers": [
+        "LinkedHashMap",
+        "IdentityHashMap",
+        "EnumMap only"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is the purpose of an inode in Unix-like file systems?",
+      "correct_answer": "Store file metadata and block references",
+      "incorrect_answers": [
+        "Resolve domain names",
+        "Encrypt process memory",
+        "Schedule CPU threads"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the time complexity of binary search on a sorted array?",
+      "correct_answer": "O(log n)",
+      "incorrect_answers": [
+        "O(n^2)",
+        "O(1)",
+        "O(n!)"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the default port for SSH?",
+      "correct_answer": "22",
+      "incorrect_answers": [
+        "23",
+        "53",
+        "110"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java collection stores unique elements with no guaranteed iteration order?",
+      "correct_answer": "HashSet",
+      "incorrect_answers": [
+        "ArrayList",
+        "LinkedList",
+        "ArrayDeque with duplicates"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which layer of the OSI model is responsible for routing packets between networks?",
+      "correct_answer": "Network layer",
+      "incorrect_answers": [
+        "Data link layer",
+        "Session layer",
+        "Presentation layer"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is false sharing?",
+      "correct_answer": "Independent variables on the same cache line causing unnecessary coherence traffic",
+      "incorrect_answers": [
+        "Two threads using the same variable intentionally",
+        "A database duplicate row",
+        "A malformed pointer"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which CSS property changes the background color?",
+      "correct_answer": "background-color",
+      "incorrect_answers": [
+        "font-size",
+        "padding",
+        "position"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which search algorithm explores graph nodes level by level?",
+      "correct_answer": "Breadth-first search",
+      "incorrect_answers": [
+        "Depth-first search",
+        "Binary search",
+        "Interpolation sort"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which algorithm computes all-pairs shortest paths in O(n^3)?",
+      "correct_answer": "Floyd-Warshall",
+      "incorrect_answers": [
+        "Binary search",
+        "Union-find",
+        "Boyer-Moore"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is the default port for HTTPS?",
+      "correct_answer": "443",
+      "incorrect_answers": [
+        "80",
+        "21",
+        "25"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which Java keyword indicates that a class cannot be instantiated directly?",
+      "correct_answer": "abstract",
+      "incorrect_answers": [
+        "native",
+        "strictfp",
+        "synchronized"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which design pattern separates an abstraction from its implementation so both can vary independently?",
+      "correct_answer": "Bridge",
+      "incorrect_answers": [
+        "Singleton",
+        "Iterator",
+        "Memento"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which component stores data permanently in a typical computer?",
+      "correct_answer": "Storage drive",
+      "incorrect_answers": [
+        "RAM",
+        "CPU cache",
+        "Clipboard"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which HTTP status code indicates a permanent redirect?",
+      "correct_answer": "301",
+      "incorrect_answers": [
+        "201",
+        "304",
+        "418"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which image format supports lossless compression and transparency?",
+      "correct_answer": "PNG",
+      "incorrect_answers": [
+        "MP3",
+        "TXT",
+        "AVI"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which Java synchronizer allows a fixed number of permits for concurrent access?",
+      "correct_answer": "Semaphore",
+      "incorrect_answers": [
+        "CyclicBarrier only",
+        "HashSet",
+        "ThreadLocal"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is a Git branch?",
+      "correct_answer": "An independent line of development",
+      "incorrect_answers": [
+        "A compressed archive",
+        "A remote server account",
+        "A Java package"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which symbol begins a single-line comment in Python?",
+      "correct_answer": "#",
+      "incorrect_answers": [
+        "//",
+        "&lt;!--",
+        "**"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What is forward secrecy intended to protect?",
+      "correct_answer": "Past session keys if a long-term key is later compromised",
+      "incorrect_answers": [
+        "Future passwords from weak hashing",
+        "Files from accidental deletion",
+        "Routers from congestion"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which memory-safety vulnerability writes beyond the bounds of an allocated buffer?",
+      "correct_answer": "Buffer overflow",
+      "incorrect_answers": [
+        "Deadlock",
+        "Cache stampede",
+        "DNS poisoning"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which symbol surrounds a JSON object?",
+      "correct_answer": "Curly braces",
+      "incorrect_answers": [
+        "Parentheses",
+        "Angle brackets",
+        "Backticks"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is regression testing intended to detect?",
+      "correct_answer": "Previously working behavior that has broken",
+      "incorrect_answers": [
+        "Only syntax errors",
+        "Unused imports",
+        "Monitor failures"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which command runs a compiled Java class?",
+      "correct_answer": "java",
+      "incorrect_answers": [
+        "javac",
+        "jlink only",
+        "jshell --compile"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "Which algorithmic technique solves problems by combining solutions to overlapping subproblems?",
+      "correct_answer": "Dynamic programming",
+      "incorrect_answers": [
+        "Packet switching",
+        "Rasterization",
+        "Polling"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which device connects multiple devices in a local network?",
+      "correct_answer": "Network switch",
+      "incorrect_answers": [
+        "Monitor",
+        "Webcam",
+        "Graphics tablet"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "What is an index in a database mainly used for?",
+      "correct_answer": "Speeding up data retrieval",
+      "incorrect_answers": [
+        "Encrypting every row",
+        "Formatting query output",
+        "Backing up the server"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which collection does not allow duplicate elements?",
+      "correct_answer": "Set",
+      "incorrect_answers": [
+        "List",
+        "ArrayList",
+        "Queue with duplicates"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which SQL command adds a new row to a table?",
+      "correct_answer": "INSERT",
+      "incorrect_answers": [
+        "COMPILE",
+        "CONNECT",
+        "FORMAT"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which asymmetric cryptosystem is based on the difficulty of integer factorization?",
+      "correct_answer": "RSA",
+      "incorrect_answers": [
+        "AES",
+        "ChaCha20",
+        "SHA-256"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "What condition must a directed graph satisfy to have a topological ordering?",
+      "correct_answer": "It must be acyclic",
+      "incorrect_answers": [
+        "It must be complete",
+        "It must be weighted",
+        "It must be undirected"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Why can 0.1 + 0.2 be inexact in binary floating-point arithmetic?",
+      "correct_answer": "Many decimal fractions have no finite binary representation",
+      "incorrect_answers": [
+        "The CPU rounds all integers",
+        "Addition is non-deterministic",
+        "RAM stores only text"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which graph algorithm handles negative edge weights and can detect negative cycles?",
+      "correct_answer": "Bellman-Ford",
+      "incorrect_answers": [
+        "Dijkstra",
+        "Prim",
+        "A* without modification"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science: Computers",
+      "question": "Which platform commonly hosts Git repositories?",
+      "correct_answer": "GitHub",
+      "incorrect_answers": [
+        "Netflix",
+        "Dropbox Paper",
+        "OpenStreetMap"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Computers",
+      "question": "Which floating-point standard is widely used by modern computers?",
+      "correct_answer": "IEEE 754",
+      "incorrect_answers": [
+        "RFC 1918",
+        "POSIX 1003 only",
+        "ISO 9660"
       ]
     }
   ]
