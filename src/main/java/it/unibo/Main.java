@@ -2,6 +2,7 @@ package it.unibo;
 
 import javax.swing.SwingUtilities;
 
+import it.unibo.common.LoggingConfiguration;
 import it.unibo.controller.QuizController;
 import it.unibo.data.question.FallbackQuestionDataRepository;
 import it.unibo.data.question.LocalQuestionDataRepository;
@@ -33,6 +34,7 @@ public final class Main {
      * @param args command-line arguments
      */
     public static void main(final String[] args) {
+        LoggingConfiguration.configure();
         SwingUtilities.invokeLater(() -> {
 
         final QuestionDataRepository repository =

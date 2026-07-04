@@ -74,7 +74,7 @@ public final class HomeController {
 
         this.homeView.setOnLeaderboard(() -> {
         LOGGER.info(
-            "[HOME CONTROLLER] Opening leaderboard."
+            "Opening leaderboard."
         );
 
         this.homeView.showLeaderboard(this.leaderboard.getEntries());
@@ -91,7 +91,7 @@ public final class HomeController {
     private void startGame(final String playerName) {
         try {
             LOGGER.info(
-                "[HOME CONTROLLER] Starting a new game for: "
+                "Starting a new game for: "
                     + playerName
             );
 
@@ -101,13 +101,13 @@ public final class HomeController {
 
         } catch (final QuestionLoadingException exception) {
             LOGGER.warning(
-                "[HOME CONTROLLER] Error while loading questions: "
+                "Error while loading questions: "
                     + exception.getMessage()
             );
 
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
-                "[HOME CONTROLLER] Unable to start the game: "
+                "Unable to start the game: "
                     + exception.getMessage()
             );
         }
@@ -121,7 +121,7 @@ public final class HomeController {
     private void startTraining(final String playerName) {
         try {
             LOGGER.info(
-                "[HOME CONTROLLER] Starting training mode for: "
+                "Starting training mode for: "
                     + playerName
             );
 
@@ -133,13 +133,13 @@ public final class HomeController {
 
         } catch (final QuestionLoadingException exception) {
             LOGGER.warning(
-                "[HOME CONTROLLER] Error while loading questions: "
+                "Error while loading questions: "
                     + exception.getMessage()
             );
 
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
-                "[HOME CONTROLLER] Unable to start training: "
+                "Unable to start training: "
                     + exception.getMessage()
             );
         }

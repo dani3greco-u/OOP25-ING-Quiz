@@ -166,7 +166,7 @@ public final class GameController {
 
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
-                "[GAME CONTROLLER] Unable to submit answer: "
+                "Unable to submit answer: "
                     + exception.getMessage()
             );
         }
@@ -201,7 +201,7 @@ public final class GameController {
 
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
-                "[GAME CONTROLLER] Unable to use 50:50: "
+                "Unable to use 50:50: "
                     + exception.getMessage()
             );
         }
@@ -225,7 +225,7 @@ public final class GameController {
 
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
-                "[GAME CONTROLLER] Unable to use Double Chance: "
+                "Unable to use Double Chance: "
                     + exception.getMessage()
             );
         }
@@ -249,7 +249,7 @@ public final class GameController {
 
         } catch (final IllegalStateException exception) {
             LOGGER.warning(
-                "[GAME CONTROLLER] Unable to use Switch: "
+                "Unable to use Switch: "
                     + exception.getMessage()
             );
         }
@@ -359,7 +359,7 @@ public final class GameController {
     private void recordScore(final int score) {
         if (this.sessionManager.isTrainingSession()) {
             LOGGER.info(
-                "[GAME CONTROLLER] Training score not recorded."
+                "Training score not recorded."
             );
             return;
         }
@@ -373,7 +373,7 @@ public final class GameController {
         );
 
         LOGGER.info(
-            "[GAME CONTROLLER] Score recorded for: "
+            "Score recorded for: "
                 + playerName
                 + " - "
                 + score
