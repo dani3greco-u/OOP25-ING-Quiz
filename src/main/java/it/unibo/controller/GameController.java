@@ -147,15 +147,21 @@ public final class GameController {
             final boolean doubleChanceWasActive =
                 session.isDoubleChanceActive();
 
-            session.submitAnswer(selectedAnswer);
+            final String correctAnswer = session.getCurrentQuestion()
+            .getAnswers()
+            .stream()
+            .filter(Answer::isCorrect)
+            .map(Answer::getText)
+            .findFirst()
+            .orElse("Unknown");
 
+            session.submitAnswer(selectedAnswer);
             if (correct) {
                 handleCorrectAnswer();
+            } else if (session.getMatch().getState() == MatchState.LOSE) {
+                handleGameOver(correctAnswer);
             } else {
-                handleWrongAnswer(
-                    answerIndex,
-                    doubleChanceWasActive
-                );
+                handleWrongAnswer(correctAnswer, answerIndex, doubleChanceWasActive);
             }
 
         } catch (final IllegalStateException exception) {
@@ -275,6 +281,7 @@ public final class GameController {
      * @param doubleChanceWasActive whether Double Chance was active
      */
     private void handleWrongAnswer(
+        final String correctAnswer,
         final int answerIndex,
         final boolean doubleChanceWasActive
     ) {
@@ -291,20 +298,19 @@ public final class GameController {
             return;
         }
 
-        handleGameOver();
+        handleGameOver(correctAnswer);
     }
 
     /**
      * Handles a lost game.
      */
-    private void handleGameOver() {
+    private void handleGameOver(final String correctAnswer) {
         final QuizSession session = this.sessionManager.getCurrentSession();
-
         final int finalScore = session.getMatch().getScore();
 
         recordScore(finalScore);
 
-        this.gameView.showGameOver(finalScore);
+        this.gameView.showGameOver(finalScore, correctAnswer);
         this.sessionManager.closeSession();
         this.quizView.showHome();
     }

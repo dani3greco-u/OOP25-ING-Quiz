@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 import it.unibo.model.data.leaderboard.LeaderboardEntry;
 import it.unibo.view.api.HomeView;
 
+//CHECKSTYLE: MultipleStringLiterals OFF
 /**
  * Swing implementation of the application home screen.
  *
@@ -85,19 +86,19 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             JOptionPane.showMessageDialog(
                 this,
                 """
-                Benvenuto in ING Quiz!
+                Welcome to the ING Quiz!
 
-                Obiettivo:
-                Rispondi correttamente a 15 domande per vincere.
+                Objective:
+                Answer 15 questions correctly to win.
 
-                Aiuti disponibili:
-                - 50:50: elimina due risposte errate.
-                - Double Chance: permette un secondo tentativo.
-                - Switch: sostituisce la domanda corrente.
+                Available Lifelines:
 
-                Lo Switch utilizza una delle 3 domande di riserva.
+                50:50: removes two incorrect answers.
+                Double Chance: gives you a second attempt.
+                Switch: replaces the current question.
+
                 """,
-                "Informazioni",
+                "Information",
                 JOptionPane.INFORMATION_MESSAGE
             );
         });
@@ -171,7 +172,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
 
             logoLabel.setIcon(new ImageIcon(scaledLogo));
         } else {
-            logoLabel.setText("IMMAGINE LOGO MANCANTE");
+            logoLabel.setText("Image not found");
 
             logoLabel.setFont(
                 new Font(
@@ -192,7 +193,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.gridy = 1;
 
-        final JLabel nameLabel = new JLabel("Inserisci il tuo nome:");
+        final JLabel nameLabel = new JLabel("Enter your name:");
 
         nameLabel.setFont(
             new Font(
@@ -293,7 +294,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             } else {
                 JOptionPane.showMessageDialog(
                     this,
-                    "Devi inserire un nome per iniziare!"
+                    "You must enter a name to start!"
                 );
             }
         });
@@ -332,7 +333,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
             } else {
                 JOptionPane.showMessageDialog(
                     this,
-                    "Devi inserire un nome per l'allenamento!"
+                    "You must enter a name for training!"
                 );
             }
         });
@@ -346,18 +347,18 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         if (entries.isEmpty()) {
             JOptionPane.showMessageDialog(
                 this,
-                "La classifica è ancora vuota.",
-                "Classifica",
+                "The leaderboard is still empty.",
+                "Leaderboard",
                 JOptionPane.INFORMATION_MESSAGE
             );
             return;
         }
 
         final String[] columnNames = {
-            "Posizione",
-            "Giocatore",
-            "Punteggio",
-            "Data",
+            "Position",
+            "Player",
+            "Score",
+            "Date",
         };
 
         final Object[][] rowData = new Object[entries.size()][columnNames.length];
@@ -393,7 +394,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
         JOptionPane.showMessageDialog(
             this,
             scrollPane,
-            "Classifica",
+            "Leaderboard",
             JOptionPane.INFORMATION_MESSAGE
         );
     }

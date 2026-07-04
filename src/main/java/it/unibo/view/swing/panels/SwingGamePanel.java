@@ -163,7 +163,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
         );
 
         final JLabel helpLabel = new JLabel(
-            "Aiuti",
+            "Help",
             SwingConstants.CENTER
         );
 
@@ -429,11 +429,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
         final int currentScore
     ) {
         this.progressLabel.setText(
-            "Domanda "
+            "Question "
                 + currentQuestionNumber
                 + " / "
                 + totalQuestions
-                + "  |  Punteggio: "
+                + "  |  Score: "
                 + currentScore
         );
     }
@@ -457,8 +457,8 @@ public final class SwingGamePanel extends JPanel implements GameView {
                 final int confirmation =
                     JOptionPane.showConfirmDialog(
                         this,
-                        "Sei sicuro della risposta?",
-                        "Conferma risposta",
+                        "Are you sure about your answer?",
+                        "Confirm Answer",
                         JOptionPane.YES_NO_OPTION
                     );
 
@@ -486,8 +486,8 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.soundPlayer.play("/sounds/correct.wav");
         JOptionPane.showMessageDialog(
             this,
-            "Risposta corretta!",
-            "Risultato",
+            "Correct answer!",
+            "Result",
             JOptionPane.INFORMATION_MESSAGE
         );
     }
@@ -500,24 +500,28 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.soundPlayer.play("/sounds/wrong.wav");
         JOptionPane.showMessageDialog(
             this,
-            "Risposta errata!",
-            "Risultato",
+            "Wrong answer!\n",
+            "Result",
             JOptionPane.ERROR_MESSAGE
-        );
+        ); 
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void showGameOver(final int finalScore) {
+    public void showGameOver(final int finalScore, final String correctAnswer) {
         this.soundPlayer.play("/sounds/lose.wav");
         JOptionPane.showMessageDialog(
             this,
-            "Risposta errata!\n"
-                + "La partita è terminata.\n"
-                + "Punteggio finale: "
-                + finalScore,
+            "Wrong answer!\n" 
+            + "The correct answer was:\n" 
+            + " \" "
+            + correctAnswer 
+            + " \" \n"
+            + "The game is over.\n"
+            + "Final score: "
+            + finalScore,
             "Game Over",
             JOptionPane.ERROR_MESSAGE
         );
@@ -531,11 +535,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.soundPlayer.play("/sounds/win.wav");
         JOptionPane.showMessageDialog(
             this,
-            "Complimenti!\n"
-                + "Hai completato il quiz.\n"
-                + "Punteggio finale: "
+            "Congratulations!\n"
+                + "You have completed the quiz.\n"
+                + "Final score: "
                 + finalScore,
-            "Vittoria",
+            "Victory",
             JOptionPane.INFORMATION_MESSAGE
         );
     }
@@ -642,7 +646,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     public void showFiftyFiftyUsed() {
         JOptionPane.showMessageDialog(
             this,
-            "Due risposte errate sono state eliminate.",
+            "Two incorrect answers have been eliminated.",
             "50:50",
             JOptionPane.INFORMATION_MESSAGE
         );
@@ -655,7 +659,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     public void showDoubleChanceUsed() {
         JOptionPane.showMessageDialog(
             this,
-            "Doppia chance attivata per questa domanda.",
+            "Double chance activated for this question.",
             "Double Chance",
             JOptionPane.INFORMATION_MESSAGE
         );
@@ -668,7 +672,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     public void showSwitchUsed() {
         JOptionPane.showMessageDialog(
             this,
-            "La domanda è stata sostituita.",
+            "The question has been replaced.",
             "Switch",
             JOptionPane.INFORMATION_MESSAGE
         );

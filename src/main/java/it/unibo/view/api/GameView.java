@@ -110,8 +110,9 @@ public interface GameView {
      * Shows the game-over message.
      *
      * @param finalScore the final score
+     * @param correctAnswer the correct answer
      */
-    void showGameOver(int finalScore);
+    void showGameOver(int finalScore, String correctAnswer);
 
     /**
      * Shows the victory message.
