@@ -53,7 +53,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("it.unibo.MainDemo")
+    mainClass.set("it.unibo.Main")
 }
 
 tasks.withType<Test>().configureEach {

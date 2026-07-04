@@ -15,16 +15,16 @@ import it.unibo.view.api.QuizView;
 /**
  * Application entry point.
  */
-public final class MainDemo {
+public final class Main {
 
     private static final String QUESTIONS_FILE = "/demo.json";
-    private static final String REMOTE_QUESTIONS_URL = "https://opentdb.com/api.php?amount=50&category=20&type=multiple";
+    private static final String REMOTE_QUESTIONS_URL = "https://opentdb.com/api.php?amount=50&category=18&type=multiple";
 
     /**
      * Private constructor because this class
      * must not be instantiated.
      */
-    private MainDemo() {
+    private Main() {
     }
 
     /**
