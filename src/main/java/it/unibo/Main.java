@@ -37,8 +37,8 @@ public final class Main {
 
         final QuestionDataRepository repository =
             new FallbackQuestionDataRepository(
-                new RemoteQuestionDataRepository(REMOTE_QUESTIONS_URL),
-                new LocalQuestionDataRepository(QUESTIONS_FILE)
+                new LocalQuestionDataRepository(QUESTIONS_FILE),
+                new RemoteQuestionDataRepository(REMOTE_QUESTIONS_URL)
             );
 
             final QuizSessionFactory sessionFactory =
