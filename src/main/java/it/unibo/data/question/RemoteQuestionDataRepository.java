@@ -31,7 +31,6 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
      * The number of questions to load for each difficulty level.
      */
     private static final int QUESTIONS_PER_DIFFICULTY = 6;
-
     private static final int CONNECTION_TIMEOUT_SECONDS = 5;
     private static final int REQUEST_TIMEOUT_SECONDS = 10;
 
@@ -62,6 +61,7 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
             .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             .build();
+
         this.client = HttpClient.newBuilder()
                         .connectTimeout(
                             Duration.ofSeconds(CONNECTION_TIMEOUT_SECONDS)
@@ -105,13 +105,13 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
     public List<QuestionDTO> loadQuestions() throws QuestionLoadingException {
         try {
             final HttpRequest request = HttpRequest.newBuilder()
-                                        .GET()
-                                        .header("accept", "application/json")
-                                        .timeout(
-                                            Duration.ofSeconds(REQUEST_TIMEOUT_SECONDS)
-                                        )
-                                        .uri(URI.create(this.urlJson))
-                                        .build();
+                .GET()
+                .header("accept", "application/json")
+                .timeout(
+                    Duration.ofSeconds(REQUEST_TIMEOUT_SECONDS)
+                )
+                .uri(URI.create(this.urlJson))
+                .build();
             final HttpResponse<String> response = this.client.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() != HttpURLConnection.HTTP_OK) {
                 throw new QuestionLoadingException("Error loading questions from remote source: HTTP status code " 
@@ -119,9 +119,7 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
                 );
             }
             if (response.body() == null || response.body().isBlank()) {
-                throw new QuestionLoadingException(
-                    "The remote source returned an empty response body"
-                );
+                throw new QuestionLoadingException("The remote source returned an empty response body");
             }
             final TriviaParser parser = new TriviaParser(mapper);
             final List<QuestionDTO> allDTOs = parser.parseTrivia(response.body());
@@ -141,30 +139,16 @@ public final class RemoteQuestionDataRepository implements QuestionDataRepositor
                 balanceDTOs.addAll(filtered);
             }
 
-            LOGGER.info(
-                "Loaded " + balanceDTOs.size()
-                    + " questions from remote repository"
-            );
-
+            LOGGER.info("Loaded " + balanceDTOs.size() + " questions from remote repository");
             return balanceDTOs;
+
         } catch (final IOException e) {
-            throw new QuestionLoadingException(
-                "Error loading questions from remote source: "
-                    + e.getMessage(),
-                e
-            );
+            throw new QuestionLoadingException("Error loading questions from remote source: " + e.getMessage(), e);
         } catch (final InterruptedException e) {
             Thread.currentThread().interrupt();
-
-            throw new QuestionLoadingException(
-                "Remote question loading was interrupted",
-                e
-            );
+            throw new QuestionLoadingException("Remote question loading was interrupted", e);
         } catch (final IllegalArgumentException e) {
-            throw new QuestionLoadingException(
-                "Invalid remote URL: " + this.urlJson,
-                e
-            );
+            throw new QuestionLoadingException("Invalid remote URL: " + this.urlJson, e);
         }
     }
 }

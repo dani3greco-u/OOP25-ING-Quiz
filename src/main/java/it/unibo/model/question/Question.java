@@ -45,7 +45,6 @@ public class Question {
         if (this.answers.size() != EXPECTED_ANSWERS) {
             throw new IllegalArgumentException("A question must have exactly 4 answers");
         }
-        // REPORT
         if (this.answers.stream().filter(Answer::isCorrect).count() != 1) {
             throw new IllegalArgumentException("A question must have exactly 1 correct answer");
         }

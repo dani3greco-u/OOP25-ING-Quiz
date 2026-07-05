@@ -38,13 +38,8 @@ public final class LeaderboardImpl implements Leaderboard {
 
         final List<LeaderboardEntry> entries = new ArrayList<>(this.repository.loadEntries());
 
-        final Optional<LeaderboardEntry> existingEntry =
-            entries.stream()
-                .filter(entry ->
-                    entry.playerName().equalsIgnoreCase(
-                        newEntry.playerName()
-                    )
-                )
+        final Optional<LeaderboardEntry> existingEntry = entries.stream()
+                .filter(entry -> entry.playerName().equalsIgnoreCase(newEntry.playerName()))
                 .findFirst();
 
         if (existingEntry.isEmpty()) {
@@ -67,8 +62,7 @@ public final class LeaderboardImpl implements Leaderboard {
      */
     @Override
     public List<LeaderboardEntry> getEntries() {
-        return this.repository.loadEntries()
-            .stream()
+        return this.repository.loadEntries().stream()
             .sorted(
                 Comparator
                     .comparingInt(LeaderboardEntry::score)

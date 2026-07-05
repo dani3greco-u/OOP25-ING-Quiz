@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -23,6 +24,7 @@ import it.unibo.model.question.Difficulty;
 public final class LocalQuestionDataRepository implements QuestionDataRepository {
 
     private static final int QUESTIONS_PER_DIFFICULTY = 6;
+    private static final Logger LOGGER = Logger.getLogger(LocalQuestionDataRepository.class.getName());
 
     private final String questionFilePath;
     private final ObjectMapper mapper;
@@ -53,9 +55,7 @@ public final class LocalQuestionDataRepository implements QuestionDataRepository
             )) {
 
             if (inputStream == null) {
-                throw new QuestionLoadingException(
-                    "File not found: " + this.questionFilePath
-                );
+                throw new QuestionLoadingException("File not found: " + this.questionFilePath);
             }
 
             final String json = new String(
@@ -64,53 +64,41 @@ public final class LocalQuestionDataRepository implements QuestionDataRepository
             );
 
             if (json.isBlank()) {
-                throw new QuestionLoadingException(
-                    "The local source returned an empty content"
-                );
+                throw new QuestionLoadingException("The local source returned an empty content");
             }
 
             final TriviaParser parser = new TriviaParser(this.mapper);
-            final List<QuestionDTO> allDTOs =
-                parser.parseTrivia(json);
+            final List<QuestionDTO> allDTOs = parser.parseTrivia(json);
 
-            final List<QuestionDTO> balancedDTOs =
-                new ArrayList<>();
+            final List<QuestionDTO> balancedDTOs = new ArrayList<>();
 
             for (final Difficulty difficulty : Difficulty.values()) {
 
                 final List<QuestionDTO> filtered =
-                    new ArrayList<>(
-                        allDTOs.stream()
-                            .filter(question ->
-                                question.difficulty() == difficulty
-                            )
-                            .toList()
+                    new ArrayList<>(allDTOs.stream()
+                        .filter(question -> question.difficulty() == difficulty)
+                        .toList()
                     );
 
                 Collections.shuffle(filtered);
 
                 if (filtered.size() < QUESTIONS_PER_DIFFICULTY) {
-                    throw new QuestionLoadingException(
-                        "Not enough questions for difficulty "
-                            + difficulty
-                    );
+                    throw new QuestionLoadingException("Not enough questions for difficulty " + difficulty);
                 }
 
-                balancedDTOs.addAll(
-                    filtered.stream()
-                        .limit(QUESTIONS_PER_DIFFICULTY)
-                        .toList()
+                balancedDTOs.addAll(filtered.stream()
+                    .limit(QUESTIONS_PER_DIFFICULTY)
+                    .toList()
                 );
             }
 
-    
+            LOGGER.info("Loaded " + balancedDTOs.size() + " questions from local repository");
 
             return List.copyOf(balancedDTOs);
 
         } catch (final IOException exception) {
-            throw new QuestionLoadingException(
-                "Error loading questions from local source: "
-                    + exception.getMessage(),
+            throw new QuestionLoadingException("Error loading questions from local source: " 
+                + exception.getMessage(),
                 exception
             );
         }

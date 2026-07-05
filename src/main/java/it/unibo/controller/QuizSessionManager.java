@@ -17,7 +17,6 @@ import it.unibo.model.match.factory.QuizSessionFactory;
 public final class QuizSessionManager {
 
     private final QuizSessionFactory sessionFactory;
-
     private QuizSession currentSession;
     private String currentPlayerName;
     private GameMode currentGameMode;
@@ -140,9 +139,7 @@ public final class QuizSessionManager {
      */
     private void ensureActiveSession() {
         if (!this.hasActiveSession()) {
-            throw new IllegalStateException(
-                "No quiz session is currently active"
-            );
+            throw new IllegalStateException("No quiz session is currently active");
         }
     }
 

@@ -13,6 +13,7 @@ import it.unibo.model.data.question.QuestionLoadingException;
  * Utility class for parsing trivia questions from JSON data.
  */
 public class TriviaParser {
+
     private final ObjectMapper mapper;
 
     /**
@@ -43,16 +44,11 @@ public class TriviaParser {
             final TriviaDTO trivia = this.mapper.readValue(json, TriviaDTO.class);
 
             if (trivia.responseCode() != 0) {
-                throw new QuestionLoadingException(
-                    "The trivia API returned response code "
-                        + trivia.responseCode()
-                );
+                throw new QuestionLoadingException("The trivia API returned response code " + trivia.responseCode());
             }
 
             if (trivia.results().isEmpty()) {
-                throw new QuestionLoadingException(
-                    "The trivia API returned no questions"
-                );
+                throw new QuestionLoadingException("The trivia API returned no questions");
             }
 
             return List.copyOf(trivia.results());

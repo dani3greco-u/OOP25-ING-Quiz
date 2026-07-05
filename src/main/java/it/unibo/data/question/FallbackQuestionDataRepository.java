@@ -41,8 +41,8 @@ public class FallbackQuestionDataRepository implements QuestionDataRepository {
         } catch (final QuestionLoadingException primaryException) {
             LOGGER.warning(
                 "Primary repository failed to load questions. "
-                    + "Trying fallback repository. Error: "
-                    + primaryException.getMessage()
+                + "Trying fallback repository. Error: "
+                + primaryException.getMessage()
             );
 
             try {

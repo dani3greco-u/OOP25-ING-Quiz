@@ -6,11 +6,18 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
+/**
+ * Configuration for Logger.
+ * 
+ */
 public final class LoggingConfiguration {
 
     private LoggingConfiguration() {
     }
 
+    /**
+     * Specifies the configuration for the logger.
+     */
     public static void configure() {
         final Logger rootLogger = Logger.getLogger("");
 

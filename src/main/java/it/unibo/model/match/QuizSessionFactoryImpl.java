@@ -18,9 +18,7 @@ public final class QuizSessionFactoryImpl implements QuizSessionFactory {
      *
      * @param repository repository used to load the questions
      */
-    public QuizSessionFactoryImpl(
-        final QuestionDataRepository repository
-    ) {
+    public QuizSessionFactoryImpl(final QuestionDataRepository repository) {
         this.repository = Objects.requireNonNull(
             repository,
             "The question repository cannot be null"

@@ -28,11 +28,8 @@ public final class SwingQuizView extends JFrame implements QuizView {
     private static final String HOME_CARD = "HOME";
     private static final String GAME_CARD = "GAME";
 
-    private static final int WINDOW_WIDTH = 1200;
-    private static final int WINDOW_HEIGHT = 1000;
-
-    private static final int MINIMUM_WIDTH = 600;
-    private static final int MINIMUM_HEIGHT = 600;
+    private static final int MINIMUM_WIDTH = 1200;
+    private static final int MINIMUM_HEIGHT = 1000;
 
     private final CardLayout cardLayout;
     private final JPanel mainContainer;
@@ -44,7 +41,7 @@ public final class SwingQuizView extends JFrame implements QuizView {
      * Creates the main application window.
      */
     public SwingQuizView() {
-        super("Chi Vuol Essere Ingegnere?");
+        super("ING-Quiz");
 
         this.cardLayout = new CardLayout();
         this.mainContainer = new JPanel(this.cardLayout);
@@ -60,11 +57,12 @@ public final class SwingQuizView extends JFrame implements QuizView {
      * Configures the main frame.
      */
     private void configureFrame() {
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setMinimumSize(
             new Dimension(MINIMUM_WIDTH, MINIMUM_HEIGHT)
         );
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setResizable(true);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**

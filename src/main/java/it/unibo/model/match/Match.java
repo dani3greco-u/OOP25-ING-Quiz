@@ -31,8 +31,6 @@ public final class Match implements MatchSubject {
         this.questionNumber = 0;
     }
 
-
-
     /**
      * @inheritDoc
      */

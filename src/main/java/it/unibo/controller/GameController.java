@@ -77,26 +77,17 @@ public final class GameController {
      * Prepares and displays the current question.
      */
     public void showCurrentQuestion() {
-        final QuizSession session =
-            this.sessionManager.getCurrentSession();
+        final QuizSession session = this.sessionManager.getCurrentSession();
 
-        final Question currentQuestion =
-            session.getCurrentQuestion();
+        final Question currentQuestion = session.getCurrentQuestion();
 
-        final List<String> answerTexts =
-            currentQuestion.getAnswers()
-                .stream()
+        final List<String> answerTexts = currentQuestion.getAnswers().stream()
                 .map(Answer::getText)
                 .toList();
 
-        this.gameView.setQuestionText(
-            currentQuestion.getText()
-        );
-
+        this.gameView.setQuestionText(currentQuestion.getText());
         this.gameView.setAnswers(answerTexts);
-
-        final int currentQuestionNumber =
-            session.getMatch().getQuestionNumber() + 1;
+        final int currentQuestionNumber = session.getMatch().getQuestionNumber() + 1;
 
         this.gameView.updateProgress(
             currentQuestionNumber,
@@ -124,39 +115,30 @@ public final class GameController {
         }
 
         try {
-            final QuizSession session =
-                this.sessionManager.getCurrentSession();
-
-            final Question currentQuestion =
-                session.getCurrentQuestion();
-
-            final List<Answer> answers =
-                currentQuestion.getAnswers();
+            final QuizSession session = this.sessionManager.getCurrentSession();
+            final Question currentQuestion = session.getCurrentQuestion();
+            final List<Answer> answers = currentQuestion.getAnswers();
 
             validateAnswerIndex(
                 answerIndex,
                 answers.size()
             );
 
-            final Answer selectedAnswer =
-                answers.get(answerIndex);
+            final Answer selectedAnswer = answers.get(answerIndex);
 
-            final boolean correct =
-                selectedAnswer.isCorrect();
+            final boolean isCorrect = selectedAnswer.isCorrect();
 
-            final boolean doubleChanceWasActive =
-                session.isDoubleChanceActive();
+            final boolean doubleChanceWasActive = session.isDoubleChanceActive();
 
-            final String correctAnswer = session.getCurrentQuestion()
-            .getAnswers()
-            .stream()
-            .filter(Answer::isCorrect)
-            .map(Answer::getText)
-            .findFirst()
-            .orElse("Unknown");
+            final String correctAnswer = session.getCurrentQuestion().getAnswers().stream()
+                .filter(Answer::isCorrect)
+                .map(Answer::getText)
+                .findFirst()
+                .orElse("Unknown");
 
             session.submitAnswer(selectedAnswer);
-            if (correct) {
+
+            if (isCorrect) {
                 handleCorrectAnswer();
             } else if (session.getMatch().getState() == MatchState.LOSE) {
                 handleGameOver(correctAnswer);
@@ -165,10 +147,7 @@ public final class GameController {
             }
 
         } catch (final IllegalStateException exception) {
-            LOGGER.warning(
-                "Unable to submit answer: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Unable to submit answer: " + exception.getMessage());
         }
     }
 
@@ -181,13 +160,11 @@ public final class GameController {
         }
 
         try {
-            final QuizSession session =
-                this.sessionManager.getCurrentSession();
+            final QuizSession session = this.sessionManager.getCurrentSession();
 
             session.useFiftyFifty();
 
-            final List<Answer> answers =
-                session.getCurrentQuestion().getAnswers();
+            final List<Answer> answers = session.getCurrentQuestion().getAnswers();
 
             for (final Answer disabledAnswer : session.getDisabledAnswers()) {
                 final int answerIndex = answers.indexOf(disabledAnswer);
@@ -200,10 +177,7 @@ public final class GameController {
             this.gameView.showFiftyFiftyUsed();
 
         } catch (final IllegalStateException exception) {
-            LOGGER.warning(
-                "Unable to use 50:50: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Unable to use 50:50: " + exception.getMessage());
         }
     }
 
@@ -216,18 +190,14 @@ public final class GameController {
         }
 
         try {
-            final QuizSession session =
-                this.sessionManager.getCurrentSession();
+            final QuizSession session = this.sessionManager.getCurrentSession();
 
             session.useDoubleChance();
             this.gameView.disableDoubleChance();
             this.gameView.showDoubleChanceUsed();
 
         } catch (final IllegalStateException exception) {
-            LOGGER.warning(
-                "Unable to use Double Chance: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Unable to use Double Chance: " + exception.getMessage());
         }
     }
 
@@ -248,10 +218,7 @@ public final class GameController {
             this.gameView.showSwitchUsed();
 
         } catch (final IllegalStateException exception) {
-            LOGGER.warning(
-                "Unable to use Switch: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Unable to use Switch: " + exception.getMessage());
         }
     }
 
@@ -259,15 +226,11 @@ public final class GameController {
      * Handles a correct answer.
      */
     private void handleCorrectAnswer() {
-        final QuizSession session =
-            this.sessionManager.getCurrentSession();
+        final QuizSession session = this.sessionManager.getCurrentSession();
 
         this.gameView.showCorrectAnswer();
 
-        if (
-            session.getMatch().getState()
-                == MatchState.IN_PROGRESS
-        ) {
+        if (session.getMatch().getState() == MatchState.IN_PROGRESS) {
             showCurrentQuestion();
         } else {
             handleGameWon();
@@ -277,6 +240,7 @@ public final class GameController {
     /**
      * Handles a wrong answer.
      *
+     * @param correctAnswer the correct answer text
      * @param answerIndex the wrong answer index
      * @param doubleChanceWasActive whether Double Chance was active
      */
@@ -285,14 +249,9 @@ public final class GameController {
         final int answerIndex,
         final boolean doubleChanceWasActive
     ) {
-        final QuizSession session =
-            this.sessionManager.getCurrentSession();
+        final QuizSession session = this.sessionManager.getCurrentSession();
 
-        if (
-            doubleChanceWasActive
-            && session.getMatch().getState()
-                == MatchState.IN_PROGRESS
-        ) {
+        if (doubleChanceWasActive && session.getMatch().getState() == MatchState.IN_PROGRESS) {
             this.gameView.showWrongAnswer();
             this.gameView.disableAnswer(answerIndex);
             return;
@@ -303,6 +262,8 @@ public final class GameController {
 
     /**
      * Handles a lost game.
+     * 
+     * @param correctAnswer the correct answer text
      */
     private void handleGameOver(final String correctAnswer) {
         final QuizSession session = this.sessionManager.getCurrentSession();
@@ -340,13 +301,8 @@ public final class GameController {
         final int answerIndex,
         final int answerCount
     ) {
-        if (
-            answerIndex < 0
-            || answerIndex >= answerCount
-        ) {
-            throw new IllegalArgumentException(
-                "Invalid answer index: " + answerIndex
-            );
+        if (answerIndex < 0 || answerIndex >= answerCount) {
+            throw new IllegalArgumentException("Invalid answer index: " + answerIndex);
         }
     }
 
@@ -358,19 +314,13 @@ public final class GameController {
      */
     private void recordScore(final int score) {
         if (this.sessionManager.isTrainingSession()) {
-            LOGGER.info(
-                "Training score not recorded."
-            );
+            LOGGER.info("Training score not recorded.");
             return;
         }
 
-        final String playerName =
-            this.sessionManager.getCurrentPlayerName();
+        final String playerName = this.sessionManager.getCurrentPlayerName();
 
-        this.leaderboard.recordScore(
-            playerName,
-            score
-        );
+        this.leaderboard.recordScore(playerName, score);
 
         LOGGER.info(
             "Score recorded for: "

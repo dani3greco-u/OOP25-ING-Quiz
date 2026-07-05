@@ -71,15 +71,10 @@ public final class HomeController {
     private void attachListeners() {
         this.homeView.setOnStart(this::startGame);
         this.homeView.setOnTraining(this::startTraining);
-
         this.homeView.setOnLeaderboard(() -> {
-        LOGGER.info(
-            "Opening leaderboard."
-        );
-
-        this.homeView.showLeaderboard(this.leaderboard.getEntries());
+            LOGGER.info("Opening leaderboard.");
+            this.homeView.showLeaderboard(this.leaderboard.getEntries());
         });
-
         this.homeView.setOnExit(this.quizView::close);
     }
 
@@ -90,26 +85,14 @@ public final class HomeController {
      */
     private void startGame(final String playerName) {
         try {
-            LOGGER.info(
-                "Starting a new game for: "
-                    + playerName
-            );
-
+            LOGGER.info("Starting a new game for: " + playerName);
             this.sessionManager.startNewSession(playerName, GameMode.NORMAL);
             this.gameController.prepareNewGame();
             this.quizView.showGame();
-
         } catch (final QuestionLoadingException exception) {
-            LOGGER.warning(
-                "Error while loading questions: "
-                    + exception.getMessage()
-            );
-
+            LOGGER.warning("Error while loading questions: " + exception.getMessage());
         } catch (final IllegalStateException exception) {
-            LOGGER.warning(
-                "Unable to start the game: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Unable to start the game: " + exception.getMessage());
         }
     }
 
@@ -120,28 +103,15 @@ public final class HomeController {
      */
     private void startTraining(final String playerName) {
         try {
-            LOGGER.info(
-                "Starting training mode for: "
-                    + playerName
-            );
-
-            this.sessionManager.startNewSession(playerName, GameMode.TRAINING
-            );
-
+            LOGGER.info("Starting training mode for: " + playerName);
+            this.sessionManager.startNewSession(playerName, GameMode.TRAINING);
             this.gameController.prepareNewGame();
             this.quizView.showGame();
-
         } catch (final QuestionLoadingException exception) {
-            LOGGER.warning(
-                "Error while loading questions: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Error while loading questions: " + exception.getMessage());
 
         } catch (final IllegalStateException exception) {
-            LOGGER.warning(
-                "Unable to start training: "
-                    + exception.getMessage()
-            );
+            LOGGER.warning("Unable to start training: " + exception.getMessage());
         }
     }
 }

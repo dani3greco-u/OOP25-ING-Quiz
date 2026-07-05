@@ -36,25 +36,19 @@ public final class Main {
     public static void main(final String[] args) {
         LoggingConfiguration.configure();
         SwingUtilities.invokeLater(() -> {
+            final QuestionDataRepository repository =
+                new FallbackQuestionDataRepository(
+                    new LocalQuestionDataRepository(QUESTIONS_FILE),
+                    new RemoteQuestionDataRepository(REMOTE_QUESTIONS_URL)
+                );
 
-        final QuestionDataRepository repository =
-            new FallbackQuestionDataRepository(
-                new LocalQuestionDataRepository(QUESTIONS_FILE),
-                new RemoteQuestionDataRepository(REMOTE_QUESTIONS_URL)
-            );
+                final QuizSessionFactory sessionFactory = new QuizSessionFactoryImpl(repository);
 
-            final QuizSessionFactory sessionFactory =
-                new QuizSessionFactoryImpl(repository);
+                final QuizView view = ViewFactory.createQuizView();
 
-            final QuizView view =
-                ViewFactory.createQuizView();
+                new QuizController(view, sessionFactory);
 
-            new QuizController(
-                view,
-                sessionFactory
-            );
-
-            view.display();
+                view.display();
         });
     }
 }

@@ -72,10 +72,7 @@ public final class JsonLeaderboardRepository implements LeaderboardRepository {
                 ? List.of()
                 : List.copyOf(entries);
         } catch (final IOException exception) {
-            throw new LeaderboardDataException(
-                "Unable to load leaderboard entries",
-                exception
-            );
+            throw new LeaderboardDataException("Unable to load leaderboard entries", exception);
         }
     }
 
@@ -100,10 +97,7 @@ public final class JsonLeaderboardRepository implements LeaderboardRepository {
                 .writerWithDefaultPrettyPrinter()
                 .writeValue(this.filePath.toFile(), List.copyOf(entries));
         } catch (final IOException exception) {
-            throw new LeaderboardDataException(
-                "Unable to save leaderboard entries",
-                exception
-            );
+            throw new LeaderboardDataException("Unable to save leaderboard entries", exception);
         }
     }
 }

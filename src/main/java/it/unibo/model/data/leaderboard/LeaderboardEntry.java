@@ -28,15 +28,11 @@ public record LeaderboardEntry(
         Objects.requireNonNull(achievedAt, "Achievement date cannot be null");
 
         if (playerName.isBlank()) {
-            throw new IllegalArgumentException(
-                "Player name cannot be blank"
-            );
+            throw new IllegalArgumentException("Player name cannot be blank");
         }
 
         if (score < 0) {
-            throw new IllegalArgumentException(
-                "Score cannot be negative"
-            );
+            throw new IllegalArgumentException("Score cannot be negative");
         }
 
         playerName = playerName.trim();
