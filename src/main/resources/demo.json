@@ -389,18 +389,6 @@
       "type": "multiple",
       "difficulty": "easy",
       "category": "Science: Computers",
-      "question": "Which HTML tag is used to display an image?",
-      "correct_answer": "&lt;img&gt;",
-      "incorrect_answers": [
-        "&lt;link&gt;",
-        "&lt;form&gt;",
-        "&lt;head&gt;"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "easy",
-      "category": "Science: Computers",
       "question": "Which protocol is commonly used to access web pages securely?",
       "correct_answer": "HTTPS",
       "incorrect_answers": [
@@ -629,18 +617,6 @@
       "type": "multiple",
       "difficulty": "easy",
       "category": "Science: Computers",
-      "question": "Which HTML tag is commonly used for a paragraph?",
-      "correct_answer": "&lt;p&gt;",
-      "incorrect_answers": [
-        "&lt;img&gt;",
-        "&lt;table&gt;",
-        "&lt;script&gt;"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "easy",
-      "category": "Science: Computers",
       "question": "Which of these is a Linux distribution?",
       "correct_answer": "Ubuntu",
       "incorrect_answers": [
@@ -719,18 +695,6 @@
         "HashSet",
         "TreeSet",
         "HashMap keys"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "medium",
-      "category": "Science: Computers",
-      "question": "Which HTML element provides metadata about a document?",
-      "correct_answer": "&lt;head&gt;",
-      "incorrect_answers": [
-        "&lt;body&gt;",
-        "&lt;footer&gt;",
-        "&lt;canvas&gt;"
       ]
     },
     {
@@ -3143,18 +3107,6 @@
         "Lexing",
         "Code signing",
         "Dynamic loading"
-      ]
-    },
-    {
-      "type": "multiple",
-      "difficulty": "easy",
-      "category": "Science: Computers",
-      "question": "Which HTML tag is used to create a hyperlink?",
-      "correct_answer": "&lt;a&gt;",
-      "incorrect_answers": [
-        "&lt;div&gt;",
-        "&lt;span&gt;",
-        "&lt;ul&gt;"
       ]
     },
     {
