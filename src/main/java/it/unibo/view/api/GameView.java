@@ -135,4 +135,18 @@ public interface GameView {
      * Shows a message confirming that the current question was switched.
      */
     void showSwitchUsed();
+
+    /**
+     * Sets the action executed when the user leaves the current game.
+     *
+     * @param action the action to execute
+     */
+    void setExitAction(Runnable action);
+
+    /**
+     * Asks the user to confirm if they want to exit the current game.
+     *
+     * @return true if the user confirms, false otherwise
+     */
+    boolean confirmExitGame();
 }

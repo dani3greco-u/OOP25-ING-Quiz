@@ -1,13 +1,16 @@
 package it.unibo.view.swing.panels;
 
 import java.awt.BorderLayout;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
+import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -15,6 +18,7 @@ import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -69,6 +73,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private final JButton fiftyFiftyButton;
     private final JButton doubleChanceButton;
     private final JButton switchButton;
+    private final JButton exitButton;
 
     @SuppressFBWarnings(
         value = "SE_BAD_FIELD",
@@ -93,6 +98,12 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.fiftyFiftyButton = new JButton("50:50");
         this.doubleChanceButton = new JButton("X2");
         this.switchButton = new JButton("Switch");
+        this.exitButton =  createIconButton(
+                                "/exit.png",
+                                "Exit",
+                                40,
+                                40
+                            );
         this.soundPlayer = new SoundPlayer();
 
         configurePanel();
@@ -129,9 +140,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      * @return the progress panel
      */
     private JPanel createProgressPanel() {
-        final JPanel panel = new JPanel(
-            new FlowLayout(FlowLayout.RIGHT)
-        );
+        final JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
         this.progressLabel.setFont(
             new Font(
@@ -141,6 +150,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
             )
         );
 
+        panel.add(this.exitButton, BorderLayout.WEST);
         panel.add(this.progressLabel);
 
         return panel;
@@ -154,13 +164,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private JPanel createHelpPanel() {
         final JPanel panel = new JPanel();
 
-        panel.setLayout(
-            new BoxLayout(panel, BoxLayout.Y_AXIS)
-        );
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        panel.setPreferredSize(
-            new Dimension(HELP_PANEL_WIDTH, 0)
-        );
+        panel.setPreferredSize(new Dimension(HELP_PANEL_WIDTH, 0));
 
         final JLabel helpLabel = new JLabel(
             "Help",
@@ -229,12 +235,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
      * @return the question container
      */
     private JPanel createQuestionContainer() {
-        final JPanel container = new JPanel(
-            new GridBagLayout()
-        );
+        final JPanel container = new JPanel(new GridBagLayout());
 
-        final GridBagConstraints constraints =
-            new GridBagConstraints();
+        final GridBagConstraints constraints =new GridBagConstraints();
 
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -244,10 +247,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets = new Insets(20, 20, 20, 20);
 
-        container.add(
-            createQuestionPanel(),
-            constraints
-        );
+        container.add(createQuestionPanel(), constraints);
 
         return container;
     }
@@ -270,14 +270,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
             )
         );
 
-        this.questionArea.setMargin(
-            new Insets(25, 25, 25, 25)
-        );
+        this.questionArea.setMargin(new Insets(25, 25, 25, 25));
 
         this.questionArea.setFocusable(false);
 
-        final JScrollPane scrollPane =
-            new JScrollPane(this.questionArea);
+        final JScrollPane scrollPane = new JScrollPane(this.questionArea);
 
         scrollPane.setPreferredSize(
             new Dimension(
@@ -286,22 +283,11 @@ public final class SwingGamePanel extends JPanel implements GameView {
             )
         );
 
-        scrollPane.setMinimumSize(
-            new Dimension(
-                QUESTION_WIDTH / 2,
-                QUESTION_HEIGHT
-            )
-        );
+        scrollPane.setMinimumSize(new Dimension(QUESTION_WIDTH / 2, QUESTION_HEIGHT));
 
-        scrollPane.setBorder(
-            BorderFactory.createCompoundBorder(
+        scrollPane.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEtchedBorder(),
-                BorderFactory.createEmptyBorder(
-                    5,
-                    5,
-                    5,
-                    5
-                )
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)
             )
         );
 
@@ -314,27 +300,12 @@ public final class SwingGamePanel extends JPanel implements GameView {
      * @return the answers panel
      */
     private JPanel createAnswersPanel() {
-        final JPanel panel = new JPanel(
-            new GridLayout(
-                2,
-                2,
-                ANSWER_HORIZONTAL_GAP,
-                ANSWER_VERTICAL_GAP
-            )
-        );
+        final JPanel panel = new JPanel(new GridLayout(2, 2, ANSWER_HORIZONTAL_GAP, ANSWER_VERTICAL_GAP));
 
-        panel.setBorder(
-            BorderFactory.createEmptyBorder(
-                10,
-                10,
-                10,
-                10
-            )
-        );
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         for (int index = 0; index < ANSWER_COUNT; index++) {
-            this.answerButtons[index] =
-                createAnswerButton();
+            this.answerButtons[index] = createAnswerButton();
 
             panel.add(this.answerButtons[index]);
         }
@@ -358,16 +329,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
             )
         );
 
-        button.setPreferredSize(
-            new Dimension(
-                ANSWER_BUTTON_WIDTH,
-                ANSWER_BUTTON_HEIGHT
-            )
-        );
+        button.setPreferredSize(new Dimension(ANSWER_BUTTON_WIDTH, ANSWER_BUTTON_HEIGHT));
 
-        button.setMargin(
-            new Insets(15, 20, 15, 20)
-        );
+        button.setMargin(new Insets(15, 20, 15, 20));
 
         button.setFocusPainted(false);
 
@@ -442,9 +406,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      * {@inheritDoc}
      */
     @Override
-    public void setAnswerListener(
-        final Consumer<Integer> listener
-    ) {
+    public void setAnswerListener(final Consumer<Integer> listener) {
         Objects.requireNonNull(
             listener,
             "The answer listener cannot be null"
@@ -550,10 +512,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      * @param answerIndex the answer index
      */
     private void validateAnswerIndex(final int answerIndex) {
-        if (
-            answerIndex < 0
-                || answerIndex >= ANSWER_COUNT
-        ) {
+        if (answerIndex < 0 || answerIndex >= ANSWER_COUNT) {
             throw new IllegalArgumentException(
                 "Invalid answer index: " + answerIndex
             );
@@ -676,5 +635,83 @@ public final class SwingGamePanel extends JPanel implements GameView {
             "Switch",
             JOptionPane.INFORMATION_MESSAGE
         );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setExitAction(final Runnable action) {
+        Objects.requireNonNull(
+            action,
+            "The exit action cannot be null"
+        );
+
+        this.exitButton.addActionListener(event -> action.run());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean confirmExitGame() {
+        return JOptionPane.showConfirmDialog(
+            this,
+            "Do you want to leave the current game?\n"
+                + "Your score will not be saved.",
+            "Leave game",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE
+        ) == JOptionPane.YES_OPTION;
+    }
+
+        /**
+     * Creates a button containing a scaled icon.
+     *
+     * <p>
+     * If the requested image resource cannot be found,
+     * the button displays the provided fallback text.
+     * </p>
+     *
+     * @param imagePath the classpath path of the icon resource
+     * @param fallbackText the text displayed when the icon is unavailable
+     * @param width the icon width in pixels
+     * @param height the icon height in pixels
+     * @return the configured button
+     */
+    private JButton createIconButton(
+        final String imagePath,
+        final String fallbackText,
+        final int width,
+        final int height
+    ) {
+        final JButton button = new JButton();
+
+        final URL iconUrl = getClass().getResource(imagePath);
+
+        if (iconUrl != null) {
+            final ImageIcon originalIcon = new ImageIcon(iconUrl);
+
+            final Image scaledImage =
+                originalIcon
+                    .getImage()
+                    .getScaledInstance(
+                        width,
+                        height,
+                        Image.SCALE_SMOOTH
+                    );
+
+            button.setIcon(new ImageIcon(scaledImage));
+
+            button.setContentAreaFilled(false);
+            button.setBorderPainted(false);
+            button.setFocusPainted(false);
+            button.setOpaque(false);
+            button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        } else {
+            button.setText(fallbackText);
+        }
+
+        return button;
     }
 }

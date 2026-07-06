@@ -71,6 +71,7 @@ public final class GameController {
         this.gameView.setFiftyFiftyListener(this::handleFiftyFifty);
         this.gameView.setDoubleChanceListener(this::handleDoubleChance);
         this.gameView.setSwitchListener(this::handleSwitch);
+        this.gameView.setExitAction(this::handleExitGame);
     }
 
     /**
@@ -328,5 +329,17 @@ public final class GameController {
                 + " - "
                 + score
         );
+    }
+
+    /**
+     * Abandons the current game without recording its score.
+     */
+    private void handleExitGame() {
+        if (!this.gameView.confirmExitGame()) {
+            return;
+        }
+
+        this.sessionManager.closeSession();
+        this.quizView.showHome();
     }
 }
