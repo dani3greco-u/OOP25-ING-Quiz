@@ -16,4 +16,8 @@ bin/
 # Ignore Report
 report/
 
+# Ignore Local Leaderboard
+data/
+
+
 .vscode/
