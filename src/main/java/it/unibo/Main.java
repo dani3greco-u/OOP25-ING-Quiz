@@ -1,5 +1,7 @@
 package it.unibo;
 
+import java.util.Locale;
+
 import javax.swing.SwingUtilities;
 
 import it.unibo.common.LoggingConfiguration;
@@ -34,6 +36,7 @@ public final class Main {
      * @param args command-line arguments
      */
     public static void main(final String[] args) {
+        Locale.setDefault(Locale.ENGLISH);
         LoggingConfiguration.configure();
         SwingUtilities.invokeLater(() -> {
             final QuestionDataRepository repository =
