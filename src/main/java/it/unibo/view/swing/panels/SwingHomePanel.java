@@ -121,24 +121,11 @@ public final class SwingHomePanel extends JPanel implements HomeView {
 
         final JPanel topBar = new JPanel(new BorderLayout());
 
-        topBar.setBorder(
-            BorderFactory.createEmptyBorder(
-                10,
-                10,
-                10,
-                10
-            )
-        );
+        topBar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         topBar.add(this.btnInfo, BorderLayout.WEST);
 
-        final JPanel topRightPanel = new JPanel(
-            new FlowLayout(
-                FlowLayout.RIGHT,
-                10,
-                0
-            )
-        );
+        final JPanel topRightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
 
         topRightPanel.add(this.btnLeaderboard);
         topRightPanel.add(this.btnExit);
@@ -210,15 +197,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
 
         centerContent.add(this.txtName, constraints);
 
-        final JPanel buttonsPanel =
-            new JPanel(
-                new FlowLayout(
-                    FlowLayout.CENTER,
-                    30,
-                    0
-                )
-            );
-
+        final JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 0));
         buttonsPanel.add(this.btnStart);
         buttonsPanel.add(this.btnTraining);
 
@@ -305,9 +284,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      */
     @Override
     public void setOnLeaderboard(final Runnable listener) {
-        this.btnLeaderboard.addActionListener(
-            event -> listener.run()
-        );
+        this.btnLeaderboard.addActionListener(event -> listener.run());
     }
 
     /**
@@ -315,9 +292,7 @@ public final class SwingHomePanel extends JPanel implements HomeView {
      */
     @Override
     public void setOnExit(final Runnable listener) {
-        this.btnExit.addActionListener(
-            event -> listener.run()
-        );
+        this.btnExit.addActionListener(event -> listener.run());
     }
 
     /**

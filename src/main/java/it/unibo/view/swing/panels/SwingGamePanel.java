@@ -85,12 +85,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
      * Creates the game panel.
      */
     public SwingGamePanel() {
-        super(
-            new BorderLayout(
-                MAIN_HORIZONTAL_GAP,
-                MAIN_VERTICAL_GAP
-            )
-        );
+        super(new BorderLayout(MAIN_HORIZONTAL_GAP, MAIN_VERTICAL_GAP));
 
         this.progressLabel = new JLabel();
         this.questionArea = new JTextArea();
@@ -98,7 +93,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
         this.fiftyFiftyButton = new JButton("50:50");
         this.doubleChanceButton = new JButton("X2");
         this.switchButton = new JButton("Switch");
-        this.exitButton =  createIconButton(
+        this.exitButton = createIconButton(
                                 "/exit.png",
                                 "Exit",
                                 40,
@@ -168,10 +163,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
 
         panel.setPreferredSize(new Dimension(HELP_PANEL_WIDTH, 0));
 
-        final JLabel helpLabel = new JLabel(
-            "Help",
-            SwingConstants.CENTER
-        );
+        final JLabel helpLabel = new JLabel("Help", SwingConstants.CENTER);
 
         helpLabel.setFont(
             new Font(
@@ -212,19 +204,9 @@ public final class SwingGamePanel extends JPanel implements GameView {
 
         button.setAlignmentX(CENTER_ALIGNMENT);
 
-        button.setMaximumSize(
-            new Dimension(
-                HELP_PANEL_WIDTH,
-                HELP_BUTTON_HEIGHT
-            )
-        );
+        button.setMaximumSize(new Dimension(HELP_PANEL_WIDTH, HELP_BUTTON_HEIGHT));
 
-        button.setPreferredSize(
-            new Dimension(
-                HELP_PANEL_WIDTH,
-                HELP_BUTTON_HEIGHT
-            )
-        );
+        button.setPreferredSize(new Dimension(HELP_PANEL_WIDTH, HELP_BUTTON_HEIGHT));
 
         return button;
     }
@@ -237,7 +219,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
     private JPanel createQuestionContainer() {
         final JPanel container = new JPanel(new GridBagLayout());
 
-        final GridBagConstraints constraints =new GridBagConstraints();
+        final GridBagConstraints constraints = new GridBagConstraints();
 
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -276,12 +258,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
 
         final JScrollPane scrollPane = new JScrollPane(this.questionArea);
 
-        scrollPane.setPreferredSize(
-            new Dimension(
-                QUESTION_WIDTH,
-                QUESTION_HEIGHT
-            )
-        );
+        scrollPane.setPreferredSize(new Dimension(QUESTION_WIDTH, QUESTION_HEIGHT));
 
         scrollPane.setMinimumSize(new Dimension(QUESTION_WIDTH / 2, QUESTION_HEIGHT));
 
@@ -529,9 +506,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
             "The 50:50 listener cannot be null"
         );
 
-        this.fiftyFiftyButton.addActionListener(
-            event -> listener.run()
-        );
+        this.fiftyFiftyButton.addActionListener(event -> listener.run());
     }
 
     /**
@@ -544,9 +519,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
             "The Double Chance listener cannot be null"
         );
 
-        this.doubleChanceButton.addActionListener(
-            event -> listener.run()
-        );
+        this.doubleChanceButton.addActionListener(event -> listener.run());
     }
 
     /**
@@ -559,9 +532,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
             "The Switch listener cannot be null"
         );
 
-        this.switchButton.addActionListener(
-            event -> listener.run()
-        );
+        this.switchButton.addActionListener(event -> listener.run());
     }
 
     /**
@@ -665,7 +636,7 @@ public final class SwingGamePanel extends JPanel implements GameView {
         ) == JOptionPane.YES_OPTION;
     }
 
-        /**
+    /**
      * Creates a button containing a scaled icon.
      *
      * <p>
