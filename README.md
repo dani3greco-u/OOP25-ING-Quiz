@@ -28,7 +28,7 @@ The application was developed in Java using Swing and follows a Model–View–C
 The repository root contains the executable fat JAR.
 
 ```bash
-java -jar ING-Quiz.jar
+java -jar OOP25-ING-Quiz-all.jar
 ```
 
 The application can be started without any external resources: questions, sounds, icons and runtime dependencies are included in 
